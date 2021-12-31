@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/localization_editor/model/LocalizationPlaceholdersData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+placeholders = {
+"NAME": {
+"de": "Johan",
+"en": "John",
+"ru": "Ваня"
+},
+"OLD": {
+"de": "16",
+"en": "17",
+"ru": "18"
+}
+}
