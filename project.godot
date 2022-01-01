@@ -73,6 +73,10 @@ run/main_scene="res://addons/localization_example/Localization.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
 
+[autoload]
+
+LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")

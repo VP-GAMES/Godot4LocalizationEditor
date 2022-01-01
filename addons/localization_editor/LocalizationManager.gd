@@ -18,7 +18,7 @@ func _load_placeholders_default() -> void:
 	var file = File.new()
 	if file.file_exists(LocalizationData.default_path_to_placeholders):
 		var resource = ResourceLoader.load(LocalizationData.default_path_to_placeholders)
-		if resource and resource.placeholders and not resource.placeholders.empty():
+		if resource and resource.placeholders and not resource.placeholders.size() <= 0:
 			_placeholders_default = resource.placeholders
 
 func _load_localization_keys() -> void:

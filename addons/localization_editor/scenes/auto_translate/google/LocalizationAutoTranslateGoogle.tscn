@@ -53,9 +53,6 @@ rect_min_size = Vector2(270, 0)
 hint_tooltip = "Select language from"
 size_flags_horizontal = 1
 theme_override_font_sizes/font_size = 16
-margin_left = 54.0
-margin_right = 324.0
-margin_bottom = 24.0
 
 [node name="To" type="Label" parent="Panel/VBox/HBox"]
 offset_left = 328.0
@@ -73,9 +70,6 @@ offset_bottom = 33.0
 rect_min_size = Vector2(270, 0)
 hint_tooltip = "Select language to"
 size_flags_horizontal = 1
-margin_left = 351.0
-margin_right = 621.0
-margin_bottom = 24.0
 
 [node name="Translate" type="Button" parent="Panel/VBox/HBox"]
 offset_left = 629.0
