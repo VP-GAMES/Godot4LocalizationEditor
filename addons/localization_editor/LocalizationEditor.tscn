@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://doq4l8bl41mfl"]
+[gd_scene load_steps=9 format=3 uid="uid://doq4l8bl41mfl"]
 
 [ext_resource type="Script" path="res://addons/localization_editor/LocalizationEditor.gd" id="1_8fvc6"]
 [ext_resource type="Texture2D" uid="uid://dadgukppokqf7" path="res://addons/localization_editor/icons/Save.svg" id="1_c7hr8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bikmkc3ntiugr" path="res://addons/localization_editor/scenes/locales/LocalizationLocalesEditorView.tscn" id="4_mauhd"]
 [ext_resource type="Texture2D" uid="uid://dnj7cfsrknuc3" path="res://addons/localization_editor/icons/Localization.svg" id="5_2uxro"]
 [ext_resource type="Texture2D" uid="uid://dkiqy0ddgeex8" path="res://addons/localization_editor/icons/Remaps.svg" id="7_r0ksp"]
+[ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapsEditorView.tscn" id="8_orcd3"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -75,6 +76,9 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_tab_icon": ExtResource( "5_2uxro" )
 }
+
+[node name="Remaps" parent="VBox/Tabs" instance=ExtResource( "8_orcd3" )]
+visible = false
 
 [node name="Locales" parent="VBox/Tabs" instance=ExtResource( "4_mauhd" )]
 visible = false

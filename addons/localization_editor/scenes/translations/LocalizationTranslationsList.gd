@@ -12,7 +12,6 @@ var _data: LocalizationData
 @onready var _translations_ui = $VBox/Scroll/TranslationsList
 
 const LocalizationTranslation = preload("res://addons/localization_editor/scenes/translations/LocalizationTranslation.tscn")
-const LocalizationTranslationsDialogText = preload("res://addons/localization_editor/scenes/translations/LocalizationTranslationsDialogText.tscn")
 
 func set_data(locale: String, data: LocalizationData) -> void:
 	_locale = locale
