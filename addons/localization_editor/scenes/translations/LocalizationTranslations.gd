@@ -29,7 +29,7 @@ func _clear_ui_translations() -> void:
 	for translation_ui in translations_ui:
 		if translation_ui.has_method("get_locale"):
 			var locale = translation_ui.get_locale()
-			if not _data.find_locale(locale):
+			if _data.find_locale(locale) != null:
 				translations_ui.erase(translation_ui)
 				translation_ui.queue_free()
 

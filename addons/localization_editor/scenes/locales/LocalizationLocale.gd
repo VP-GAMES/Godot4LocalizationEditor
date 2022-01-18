@@ -49,24 +49,25 @@ func _on_selection_changed(value) -> void:
 		_show_confirm_dialog()
 
 func _show_confirm_dialog() -> void:
-		var confirm_dialog  = ConfirmationDialog.new()
-		confirm_dialog.window_title = "Confirm"
-		confirm_dialog.dialog_text = "Are you sure to delete locale with all translations and remaps?"
-		confirm_dialog.get_ok().connect("pressed", self, "_on_confirm_dialog_ok")
-		confirm_dialog.get_cancel().connect("pressed", self, "_on_confirm_dialog_cancelled")
 		var root = get_tree().get_root()
-		assert(confirm_dialog.popup_hide.connect(_on_confirm_dialog_hide, [root, confirm_dialog]) == OK)
+		var confirm_dialog  = ConfirmationDialog.new()
+		confirm_dialog.title = "Confirm"
+		confirm_dialog.dialog_text = "Are you sure to delete locale with all translations and remaps?"
+		confirm_dialog.get_ok_button().connect("pressed", _on_confirm_dialog_ok,  [root, confirm_dialog])
+		confirm_dialog.get_cancel_button().connect("pressed", _on_confirm_dialog_cancelled, [root, confirm_dialog])
 		root.add_child(confirm_dialog)
 		confirm_dialog.popup_centered()
 
-func _on_confirm_dialog_ok() -> void:
+func _on_confirm_dialog_ok(root, confirm_dialog) -> void:
 	_data.del_locale(_locale.code)
 	_update_view_eye(false)
+	_confirm_dialog_remove(root, confirm_dialog)
 
-func _on_confirm_dialog_cancelled() -> void:
+func _on_confirm_dialog_cancelled(root, confirm_dialog) -> void:
 	_selection_ui.set_pressed(true)
+	_confirm_dialog_remove(root, confirm_dialog)
 
-func _on_confirm_dialog_hide(root, confirm_dialog) -> void:
+func _confirm_dialog_remove(root, confirm_dialog) -> void:
 	root.remove_child(confirm_dialog)
 	confirm_dialog.queue_free()
 

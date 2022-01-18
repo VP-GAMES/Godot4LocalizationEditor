@@ -73,3 +73,4 @@ enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
 [localization_editor]
 
 locales_visibility=[]
+translations_split_offset=334
