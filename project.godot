@@ -8,79 +8,12 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "LineEdit",
-"class": &"DropdownCustom",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd"
-}, {
-"base": "Resource",
-"class": &"LocalizationData",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/model/LocalizationData.gd"
-}, {
-"base": "RefCounted",
-"class": &"LocalizationKeys",
-"language": &"GDScript",
-"path": "res://localization/LocalizationKeys.gd"
-}, {
-"base": "Object",
-"class": &"LocalizationLocaleSingle",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/model/LocalizationLocaleSingle.gd"
-}, {
-"base": "Object",
-"class": &"LocalizationLocalesList",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/model/LocalizationLocalesList.gd"
-}, {
-"base": "RefCounted",
-"class": &"LocalizationPlaceholders",
-"language": &"GDScript",
-"path": "res://localization/LocalizationPlaceholders.gd"
-}, {
-"base": "Resource",
-"class": &"LocalizationPlaceholdersData",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/model/LocalizationPlaceholdersData.gd"
-}, {
-"base": "Resource",
-"class": &"LocalizationSave",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/model/LocalizationSave.gd"
-}, {
-"base": "Node",
-"class": &"UUID",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/uuid/uuid.gd"
-}]
-_global_script_class_icons={
-"DropdownCustom": "",
-"LocalizationData": "",
-"LocalizationKeys": "",
-"LocalizationLocaleSingle": "",
-"LocalizationLocalesList": "",
-"LocalizationPlaceholders": "",
-"LocalizationPlaceholdersData": "",
-"LocalizationSave": "",
-"UUID": ""
-}
-
 [application]
 
-config/name="Localization Editor"
-run/main_scene="res://addons/localization_example/Localization.tscn"
+config/name="Godot4LocalizationEditor"
 config/icon="res://icon.png"
-config/features=PackedStringArray("4.0", "Vulkan Mobile")
-
-[autoload]
-
-LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
-
-[rendering]
-
-vulkan/rendering/back_end=1
