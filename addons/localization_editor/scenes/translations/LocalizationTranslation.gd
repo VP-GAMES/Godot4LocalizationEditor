@@ -12,8 +12,6 @@ var _translation_ui_style_empty: StyleBoxFlat
 
 @onready var _translation_ui = $HBox/Translation
 
-const LocalizationTranslationsDialogText = preload("res://addons/localization_editor/scenes/translations/LocalizationTranslationsDialogText.tscn")
-
 func set_data(key, translation, locale, data: LocalizationData) -> void:
 	_key = key
 	_translation = translation
@@ -33,8 +31,6 @@ func _init_styles() -> void:
 func _init_connections() -> void:
 	if not _translation_ui.is_connected("text_changed", _on_text_changed):
 		assert(_translation_ui.text_changed.connect(_on_text_changed) == OK)
-	if not _translation_ui.is_connected("gui_input", _on_gui_input):
-		assert(_translation_ui.gui_input.connect(_on_gui_input) == OK)
 
 func _draw_view() -> void:
 	_translation_ui.text = _translation.value
@@ -43,32 +39,6 @@ func _draw_view() -> void:
 func _on_text_changed(new_text) -> void:
 	_translation.value = new_text
 	_check_translation_ui()
-
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_MIDDLE:
-			if event.pressed:
-				var text_dialog  = LocalizationTranslationsDialogText.instantiate()
-				var root = get_tree().get_root()
-				var key = _data.key_by_translation(_translation).value
-				var label = LocalizationLocalesList.label_by_code(_locale)
-				text_dialog.window_title = key + " (" + label + ")"
-				text_dialog.get_close_button().hide()
-				text_dialog.connect("popup_hide", _on_popup_hide, [root, text_dialog])
-				var text_edit = text_dialog.get_node("VBox/TextEdit")
-				text_edit.text = _translation.value
-				text_edit.connect("text_changed", _on_text_changed_text_edit, [text_edit, _translation, _translation_ui])
-				root.add_child(text_dialog)
-				text_dialog.popup_centered()
-				text_dialog.set_data(_data)
-
-func _on_popup_hide(root, text_dialog) -> void:
-	root.remove_child(text_dialog)
-	text_dialog.queue_free()
-
-func _on_text_changed_text_edit(text_edit, translation, translation_ui) -> void:
-	translation.value = text_edit.text
-	translation_ui.text = text_edit.text
 
 func _check_translation_ui() -> void:
 	if _translation_ui.text.length() <= 0:

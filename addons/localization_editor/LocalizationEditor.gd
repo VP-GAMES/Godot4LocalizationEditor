@@ -73,11 +73,11 @@ func save_data(update_script_classes = false) -> void:
 	_data.save_data_remaps()
 
 func _open_file() -> void:
-	var file_dialog = LocalizationEditorDialogFile.instantiate()
+	var file_dialog: FileDialog = LocalizationEditorDialogFile.instantiate()
 	var root = get_tree().get_root()
 	root.add_child(file_dialog)
 	assert(file_dialog.file_selected.connect(_path_to_file_changed) == OK)
-	assert(file_dialog.popup_hide.connect(_on_popup_hide, [root, file_dialog]) == OK)
+	assert(file_dialog.get_cancel_button().connect("pressed", _on_popup_hide, [root, file_dialog]) == OK)
 	file_dialog.popup_centered()
 
 func _on_popup_hide(root, dialog) -> void:
