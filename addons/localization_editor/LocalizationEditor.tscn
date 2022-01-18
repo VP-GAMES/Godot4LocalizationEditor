@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://doq4l8bl41mfl"]
+[gd_scene load_steps=8 format=3 uid="uid://doq4l8bl41mfl"]
 
 [ext_resource type="Script" path="res://addons/localization_editor/LocalizationEditor.gd" id="1_8fvc6"]
 [ext_resource type="Texture2D" uid="uid://dadgukppokqf7" path="res://addons/localization_editor/icons/Save.svg" id="1_c7hr8"]
 [ext_resource type="Texture2D" uid="uid://i8m1lg5f3yxn" path="res://addons/localization_editor/icons/File.svg" id="2_4pkbj"]
 [ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/translations/LocalizationTranslationsEditorView.tscn" id="4_kmfo1"]
 [ext_resource type="PackedScene" uid="uid://bikmkc3ntiugr" path="res://addons/localization_editor/scenes/locales/LocalizationLocalesEditorView.tscn" id="4_mauhd"]
-[ext_resource type="Texture2D" uid="uid://n863glsn1lsg" path="res://addons/localization_editor/icons/Localization.png" id="5_l3ifc"]
+[ext_resource type="Texture2D" uid="uid://dnj7cfsrknuc3" path="res://addons/localization_editor/icons/Localization.svg" id="5_2uxro"]
+[ext_resource type="Texture2D" uid="uid://dkiqy0ddgeex8" path="res://addons/localization_editor/icons/Remaps.svg" id="7_r0ksp"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -40,12 +41,14 @@ size_flags_vertical = 3
 [node name="Save" type="Button" parent="VBox/Margin/HBox"]
 offset_right = 28.0
 offset_bottom = 29.0
+hint_tooltip = "Save translations"
 icon = ExtResource( "1_c7hr8" )
 
 [node name="Open" type="Button" parent="VBox/Margin/HBox"]
 offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 29.0
+hint_tooltip = "Open csv file"
 icon = ExtResource( "2_4pkbj" )
 
 [node name="File" type="Label" parent="VBox/Margin/HBox"]
@@ -68,6 +71,10 @@ offset_left = 4.0
 offset_top = 41.0
 offset_right = -4.0
 offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_tab_icon": ExtResource( "5_2uxro" )
+}
 
 [node name="Locales" parent="VBox/Tabs" instance=ExtResource( "4_mauhd" )]
 visible = false
@@ -77,5 +84,5 @@ offset_right = -4.0
 offset_bottom = -4.0
 __meta__ = {
 "_edit_use_anchors_": false,
-"_tab_icon": ExtResource( "5_l3ifc" )
+"_tab_icon": ExtResource( "7_r0ksp" )
 }

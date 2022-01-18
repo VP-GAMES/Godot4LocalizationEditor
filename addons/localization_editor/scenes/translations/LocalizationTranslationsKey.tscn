@@ -29,7 +29,7 @@ size_flags_vertical = 3
 offset_right = 28.0
 offset_bottom = 597.0
 rect_min_size = Vector2(20, 20)
-hint_tooltip = "Add key"
+hint_tooltip = "Add translation"
 size_flags_vertical = 3
 icon = ExtResource( "2_l10x2" )
 icon_alignment = 1
@@ -39,7 +39,7 @@ offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 597.0
 rect_min_size = Vector2(20, 20)
-hint_tooltip = "Del key"
+hint_tooltip = "Del translation"
 size_flags_vertical = 3
 icon = ExtResource( "3_c34cs" )
 

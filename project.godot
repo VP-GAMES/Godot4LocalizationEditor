@@ -70,6 +70,10 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
 
+[locale]
+
+translations=["res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation"]
+
 [localization_editor]
 
 locales_visibility=[]

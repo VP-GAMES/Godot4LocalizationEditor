@@ -101,9 +101,9 @@ func _save_data_translations_csv() -> void:
 		directory.make_dir(path_directory)
 	var file = File.new()
 	file.open(setting_path_to_file(), File.WRITE)
-	var locales_line: Array[String] = ["keys"]
+	var locales_line: Array = ["keys"]
 	var locales = data.locales
-	if locales.empty():
+	if locales.size() <= 0:
 		add_locale(OS.get_locale())
 		data.keys[0].value = "KEY"
 	locales_line.append_array(data.locales)
@@ -344,7 +344,7 @@ func del_key(uuid: String, emitSignal = true) -> void:
 		_del_key(uuid)
 
 func _del_key(uuid: String, emitSignal = true) -> void:
-	data.keys.remove(_key_position(uuid))
+	data.keys.remove_at(_key_position(uuid))
 	if emitSignal:
 		emit_signal("data_changed")
 
@@ -505,7 +505,7 @@ func _check_remapkeys() -> void:
 func save_data_remaps() -> void:
 	var remapkeys = data_remaps.remapkeys.size() > 1 or data_remaps.remapkeys.size() == 1
 	if remapkeys:
-		if data_remaps.remapkeys[0].remaps.size() > 1 and not data_remaps.remapkeys[0].remaps[0].value.empty():
+		if data_remaps.remapkeys[0].remaps.size() > 1 and data_remaps.remapkeys[0].remaps[0].value.length() > 0:
 			_save_data_remaps()
 
 func _save_data_remaps() -> void:

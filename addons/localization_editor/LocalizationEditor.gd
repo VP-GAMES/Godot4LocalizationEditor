@@ -16,11 +16,11 @@ var _data:= LocalizationData.new()
 @onready var _translations_ui = $VBox/Tabs/Translations
 #@onready var _auto_translate_ui = $VBox/Tabs/AutoTranslate
 
-const IconResourceTranslations = preload("res://addons/localization_editor/icons/Localization.png")
-const IconResourceRemaps = preload("res://addons/localization_editor/icons/Remaps.png")
-const IconResourceLocales = preload("res://addons/localization_editor/icons/Locales.png")
-const IconResourcePlaceholders = preload("res://addons/localization_editor/icons/Placeholders.png")
-const IconResourceTranslation = preload("res://addons/localization_editor/icons/Translation.png")
+const IconResourceTranslations = preload("res://addons/localization_editor/icons/Localization.svg")
+const IconResourceRemaps = preload("res://addons/localization_editor/icons/Remaps.svg")
+const IconResourceLocales = preload("res://addons/localization_editor/icons/Locales.svg")
+const IconResourcePlaceholders = preload("res://addons/localization_editor/icons/Placeholders.svg")
+const IconResourceTranslation = preload("res://addons/localization_editor/icons/Translation.svg")
 
 const LocalizationEditorDialogFile = preload("res://addons/localization_editor/LocalizationEditorDialogFile.tscn")
 
