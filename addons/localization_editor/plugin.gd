@@ -12,6 +12,10 @@ func _enter_tree():
 	get_editor_interface().get_editor_main_control().add_child(_localization_main)
 	_make_visible(false)
 
+func _make_visible(visible):
+	if _localization_main:
+		_localization_main.visible = visible
+
 func _exit_tree():
 	if _localization_main:
 		_localization_main.queue_free()
@@ -19,7 +23,7 @@ func _exit_tree():
 func _has_main_screen() -> bool:
 	return true
 
-func get_plugin_name():
+func _get_plugin_name():
 	return "Localization"
 
 func _get_plugin_icon() -> Texture:

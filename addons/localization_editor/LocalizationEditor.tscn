@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://doq4l8bl41mfl"]
+[gd_scene load_steps=3 format=3 uid="uid://doq4l8bl41mfl"]
+
+[ext_resource type="Texture2D" uid="uid://dadgukppokqf7" path="res://addons/localization_editor/icons/Save.svg" id="1_c7hr8"]
+[ext_resource type="Texture2D" uid="uid://i8m1lg5f3yxn" path="res://addons/localization_editor/icons/File.svg" id="2_4pkbj"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -7,9 +10,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-offset_left = 396.0
-offset_top = 221.0
-offset_right = 650.0
-offset_bottom = 250.0
-text = "GO GO GO"
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="VBox"]
+offset_right = 1024.0
+offset_bottom = 29.0
+
+[node name="HBox" type="HBoxContainer" parent="VBox/Margin"]
+offset_right = 1024.0
+offset_bottom = 29.0
+
+[node name="Save" type="Button" parent="VBox/Margin/HBox"]
+offset_right = 28.0
+offset_bottom = 29.0
+icon = ExtResource( "1_c7hr8" )
+
+[node name="Open" type="Button" parent="VBox/Margin/HBox"]
+offset_left = 32.0
+offset_right = 60.0
+offset_bottom = 29.0
+icon = ExtResource( "2_4pkbj" )
+
+[node name="Label" type="Label" parent="VBox/Margin/HBox"]
+offset_left = 64.0
+offset_top = 1.0
+offset_right = 103.0
+offset_bottom = 27.0
+text = "Path:"
+
+[node name="Tabs" type="TabContainer" parent="VBox"]
+offset_top = 33.0
+offset_right = 1024.0
+offset_bottom = 65.0

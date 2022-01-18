@@ -8,6 +8,46 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Resource",
+"class": &"LocalizationData",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/model/LocalizationData.gd"
+}, {
+"base": "Object",
+"class": &"LocalizationLocaleSingle",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/model/LocalizationLocaleSingle.gd"
+}, {
+"base": "Object",
+"class": &"LocalizationLocalesList",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/model/LocalizationLocalesList.gd"
+}, {
+"base": "Resource",
+"class": &"LocalizationPlaceholdersData",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/model/LocalizationPlaceholdersData.gd"
+}, {
+"base": "Resource",
+"class": &"LocalizationSave",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/model/LocalizationSave.gd"
+}, {
+"base": "Node",
+"class": &"UUID",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/uuid/uuid.gd"
+}]
+_global_script_class_icons={
+"LocalizationData": "",
+"LocalizationLocaleSingle": "",
+"LocalizationLocalesList": "",
+"LocalizationPlaceholdersData": "",
+"LocalizationSave": "",
+"UUID": ""
+}
+
 [application]
 
 config/name="Godot4LocalizationEditor"
