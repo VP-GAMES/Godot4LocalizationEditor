@@ -14,6 +14,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/localization_editor/model/LocalizationData.gd"
 }, {
+"base": "RefCounted",
+"class": &"LocalizationKeys",
+"language": &"GDScript",
+"path": "res://localization/LocalizationKeys.gd"
+}, {
 "base": "Object",
 "class": &"LocalizationLocaleSingle",
 "language": &"GDScript",
@@ -23,6 +28,11 @@ _global_script_classes=[{
 "class": &"LocalizationLocalesList",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/model/LocalizationLocalesList.gd"
+}, {
+"base": "RefCounted",
+"class": &"LocalizationPlaceholders",
+"language": &"GDScript",
+"path": "res://localization/LocalizationPlaceholders.gd"
 }, {
 "base": "Resource",
 "class": &"LocalizationPlaceholdersData",
@@ -41,8 +51,10 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "LocalizationData": "",
+"LocalizationKeys": "",
 "LocalizationLocaleSingle": "",
 "LocalizationLocalesList": "",
+"LocalizationPlaceholders": "",
 "LocalizationPlaceholdersData": "",
 "LocalizationSave": "",
 "UUID": ""
@@ -57,3 +69,7 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
+
+[localization_editor]
+
+locales_visibility=[]

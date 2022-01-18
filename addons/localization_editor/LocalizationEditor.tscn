@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://doq4l8bl41mfl"]
+[gd_scene load_steps=6 format=3 uid="uid://doq4l8bl41mfl"]
 
+[ext_resource type="Script" path="res://addons/localization_editor/LocalizationEditor.gd" id="1_8fvc6"]
 [ext_resource type="Texture2D" uid="uid://dadgukppokqf7" path="res://addons/localization_editor/icons/Save.svg" id="1_c7hr8"]
 [ext_resource type="Texture2D" uid="uid://i8m1lg5f3yxn" path="res://addons/localization_editor/icons/File.svg" id="2_4pkbj"]
+[ext_resource type="PackedScene" uid="uid://bikmkc3ntiugr" path="res://addons/localization_editor/scenes/locales/LocalizationLocalesEditorView.tscn" id="4_mauhd"]
+[ext_resource type="Texture2D" uid="uid://n863glsn1lsg" path="res://addons/localization_editor/icons/Localization.png" id="5_l3ifc"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( "1_8fvc6" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -13,6 +19,8 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -20,10 +28,13 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="VBox"]
 offset_right = 1024.0
 offset_bottom = 29.0
+size_flags_horizontal = 3
 
 [node name="HBox" type="HBoxContainer" parent="VBox/Margin"]
 offset_right = 1024.0
 offset_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Save" type="Button" parent="VBox/Margin/HBox"]
 offset_right = 28.0
@@ -36,7 +47,7 @@ offset_right = 60.0
 offset_bottom = 29.0
 icon = ExtResource( "2_4pkbj" )
 
-[node name="Label" type="Label" parent="VBox/Margin/HBox"]
+[node name="File" type="Label" parent="VBox/Margin/HBox"]
 offset_left = 64.0
 offset_top = 1.0
 offset_right = 103.0
@@ -46,4 +57,17 @@ text = "Path:"
 [node name="Tabs" type="TabContainer" parent="VBox"]
 offset_top = 33.0
 offset_right = 1024.0
-offset_bottom = 65.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_alignment = 0
+
+[node name="Locales" parent="VBox/Tabs" instance=ExtResource( "4_mauhd" )]
+offset_left = 4.0
+offset_top = 41.0
+offset_right = -4.0
+offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_tab_icon": ExtResource( "5_l3ifc" )
+}
