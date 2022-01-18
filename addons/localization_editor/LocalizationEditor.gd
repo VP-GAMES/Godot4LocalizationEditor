@@ -13,7 +13,7 @@ var _data:= LocalizationData.new()
 @onready var _locales_ui = $VBox/Tabs/Locales
 #@onready var _remaps_ui = $VBox/Tabs/Remaps
 #@onready var _placeholders_ui = $VBox/Tabs/Placeholders
-#@onready var _translations_ui = $VBox/Tabs/Translations
+@onready var _translations_ui = $VBox/Tabs/Translations
 #@onready var _auto_translate_ui = $VBox/Tabs/AutoTranslate
 
 const IconResourceTranslations = preload("res://addons/localization_editor/icons/Localization.png")
@@ -26,7 +26,7 @@ const LocalizationEditorDialogFile = preload("res://addons/localization_editor/L
 
 func _ready() -> void:
 	_tabs_ui.set_tab_icon(0, IconResourceTranslations)
-#	_tabs_ui.set_tab_icon(1, IconResourceRemaps)
+	_tabs_ui.set_tab_icon(1, IconResourceRemaps)
 #	_tabs_ui.set_tab_icon(2, IconResourceLocales)
 #	_tabs_ui.set_tab_icon(3, IconResourcePlaceholders)
 #	_tabs_ui.set_tab_icon(4, IconResourceTranslation)
@@ -56,7 +56,7 @@ func _load_data() -> void:
 	_data.init_data_placeholders()
 
 func _data_to_childs() -> void:
-#	_translations_ui.set_data(_data)
+	_translations_ui.set_data(_data)
 #	_remaps_ui.set_data(_data)
 	_locales_ui.set_data(_data)
 #	_placeholders_ui.set_data(_data)
