@@ -689,7 +689,7 @@ func remap_type(remap) -> String:
 			return "undefined"
 
 func supported_file_extensions() -> Array:
-	return ["ogg", "wav", "mp3", "bmp", "dds", "exr", "hdr", "jpg", "jpeg", "png", "tga", "svg", "svgz", "webp", "webm", "o"]
+	return ["ogg", "ogv", "wav", "mp3", "bmp", "dds", "exr", "hdr", "jpg", "jpeg", "png", "tga", "svg", "svgz", "webp", "webm", "o"]
 
 # ***** PLACEHOLDERS *****
 func init_data_placeholders() -> void:

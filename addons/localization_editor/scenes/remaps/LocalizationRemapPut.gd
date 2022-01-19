@@ -13,16 +13,15 @@ func set_data(key, remap, data: LocalizationData) -> void:
 	_remap = remap
 	_data = data
 
-func can_drop_data(position, data) -> bool:
+func _can_drop_data(position, data) -> bool:
 	var remap_value = data["files"][0]
-	print(remap_value)
 	var remap_extension = _data.file_extension(remap_value)
 	for extension in _data.supported_file_extensions():
 		if remap_extension == extension:
 			return true
 	return false
 
-func drop_data(position, data) -> void:
+func _drop_data(position, data) -> void:
 	var remap_value = data["files"][0]
 	_remap_value_changed(remap_value)
 

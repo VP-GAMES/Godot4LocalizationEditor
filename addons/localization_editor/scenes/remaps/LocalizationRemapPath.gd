@@ -89,7 +89,7 @@ func _on_popup_hide(root, dialog) -> void:
 	root.remove_child(dialog)
 	dialog.queue_free()
 
-func can_drop_data(position, data) -> bool:
+func _can_drop_data(position, data) -> bool:
 	var remap_value = data["files"][0]
 	var remap_extension = _data.file_extension(remap_value)
 	for extension in _data.supported_file_extensions():
@@ -97,7 +97,7 @@ func can_drop_data(position, data) -> bool:
 			return true
 	return false
 
-func drop_data(position, data) -> void:
+func _drop_data(position, data) -> void:
 	var remap_value = data["files"][0]
 	_remap_value_changed(remap_value)
 
