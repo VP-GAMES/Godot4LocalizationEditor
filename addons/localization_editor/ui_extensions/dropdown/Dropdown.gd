@@ -36,7 +36,6 @@ func _ready() -> void:
 
 func _init_connections() -> void:
 	assert(self.gui_input.connect(_line_edit_gui_input) == OK)
-	assert(self.text_changed.connect(_on_text_changed) == OK)
  
 func _popup_panel_focus_entered() -> void:
 	grab_focus()
@@ -51,6 +50,8 @@ func _line_edit_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			_update_popup_view()
+			if not self.text_changed.is_connected(_on_text_changed):
+				assert(self.text_changed.connect(_on_text_changed) == OK)
 
 func _on_text_changed(filter: String) -> void:
 	_filter = filter
