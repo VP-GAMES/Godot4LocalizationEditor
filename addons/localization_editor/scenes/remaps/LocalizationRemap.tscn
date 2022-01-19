@@ -23,40 +23,40 @@ __meta__ = {
 [node name="HBox" type="HBoxContainer" parent="."]
 offset_left = 3.0
 offset_right = 1021.0
-offset_bottom = 518.0
+offset_bottom = 33.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Put" parent="HBox" instance=ExtResource( "6" )]
 offset_right = 20.0
-offset_bottom = 518.0
+offset_bottom = 33.0
 texture = ExtResource( "3_khra4" )
-stretch_mode = 4
+stretch_mode = 3
 
 [node name="Remap" parent="HBox" instance=ExtResource( "5" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 24.0
-offset_right = 426.0
-offset_bottom = 518.0
+offset_right = 922.0
+offset_bottom = 33.0
 
 [node name="Audio" type="Button" parent="HBox"]
-offset_left = 430.0
-offset_right = 458.0
-offset_bottom = 518.0
+offset_left = 926.0
+offset_right = 954.0
+offset_bottom = 33.0
 rect_min_size = Vector2(20, 20)
 icon = ExtResource( "5_84ecs" )
 
 [node name="Video" type="Button" parent="HBox"]
-offset_left = 462.0
-offset_right = 490.0
-offset_bottom = 518.0
+offset_left = 958.0
+offset_right = 986.0
+offset_bottom = 33.0
 rect_min_size = Vector2(20, 20)
 icon = ExtResource( "6_uxbjg" )
 
 [node name="Image" type="Button" parent="HBox"]
-offset_left = 494.0
+offset_left = 990.0
 offset_right = 1018.0
-offset_bottom = 518.0
+offset_bottom = 33.0
 rect_min_size = Vector2(20, 20)
 icon = ExtResource( "7_is72i" )
