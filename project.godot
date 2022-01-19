@@ -70,6 +70,14 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
 
+[internationalization]
+
+locale/translation_remaps={
+"res://addons/localization_example/Data/Audio/hello_en.ogg": PackedStringArray("res://addons/localization_example/Data/Audio/hello_de.ogg:de", "res://addons/localization_example/Data/Audio/hello_en.ogg:en", "res://addons/localization_example/Data/Audio/hello_ru.ogg:ru"),
+"res://addons/localization_example/Data/Images/play_en.png": PackedStringArray("res://addons/localization_example/Data/Images/play_de.png:de", "res://addons/localization_example/Data/Images/play_ru.png:ru", "res://addons/localization_example/Data/Images/play_en.png:en"),
+"res://addons/localization_example/Data/Video/video_en.ogv": PackedStringArray("res://addons/localization_example/Data/Video/video_de.ogv:de", "res://addons/localization_example/Data/Video/video_en.ogv:en", "res://addons/localization_example/Data/Video/video_ru.ogv:ru")
+}
+
 [locale]
 
 translations=["res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation"]

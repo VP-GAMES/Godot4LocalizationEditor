@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://jbdq1h7t47ry"
+path="res://.godot/imported/hello_ru.ogg-91a1a6b1b9d2e793398fba9f7769ea4d.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/localization_example/Data/Audio/hello_ru.ogg"
+dest_files=["res://.godot/imported/hello_ru.ogg-91a1a6b1b9d2e793398fba9f7769ea4d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0

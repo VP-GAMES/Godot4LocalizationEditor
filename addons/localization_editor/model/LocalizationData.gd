@@ -186,7 +186,7 @@ func locales() -> Array:
 	return data.locales
 
 func check_locale(locale: String) -> void:
-	if not find_locale(locale):
+	if find_locale(locale) != null:
 		add_locale(locale)
 
 func find_locale(code: String):
@@ -476,15 +476,16 @@ func remaps_keys_filtered() -> Array:
 	return data_remaps.remapkeys
 
 func init_data_remaps() -> void:
+	var internationalization_path = "internationalization/locale/translation_remaps"
 	data_remaps.remapkeys = []
-	if ProjectSettings.has_setting("locale/translation_remaps"):
-		var settings_remaps = ProjectSettings.get_setting("locale/translation_remaps")
+	if ProjectSettings.has_setting(internationalization_path):
+		var settings_remaps = ProjectSettings.get_setting(internationalization_path)
 		if settings_remaps.size():
 			var keys = settings_remaps.keys();
 			for key in keys:
 				var remaps = []
 				for remap in settings_remaps[key]:
-					var index = remap.find_last(":")
+					var index = remap.rfind(":")
 					var locale  = remap.substr(index + 1)
 					check_locale(locale)
 					var value = remap.substr(0, index)
@@ -495,6 +496,7 @@ func init_data_remaps() -> void:
 			return
 	var remap = _create_remapkey(uuid())
 	data_remaps.remapkeys.append(remap)
+	print(data_remaps)
 
 func _check_remapkeys() -> void:
 	for locale in locales():
@@ -681,7 +683,7 @@ func remap_type(remap) -> String:
 			return "audio"
 		"bmp", "dds", "exr", "hdr", "jpg", "jpeg", "png", "tga", "svg", "svgz", "webp":
 			return "image"
-		"webm", "o":
+		"webm", "o", "ogv":
 			return "video"
 		_:
 			return "undefined"

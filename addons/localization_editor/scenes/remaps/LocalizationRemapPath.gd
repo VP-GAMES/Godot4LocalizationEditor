@@ -127,7 +127,7 @@ func _resource_exists() -> bool:
 func _resource_different_type() -> bool:
 	var type = _data.remap_type(_remap)
 	for remap in  _key.remaps:
-		if not remap.value.empty() and type != _data.remap_type(remap):
+		if remap.value.length() > 0 and type != _data.remap_type(remap):
 			return true
 	return false
 
@@ -137,6 +137,6 @@ func _resource_double() -> bool:
 		if first == null:
 			first = remap
 			continue
-		if not remap.value.empty() and first.value == remap.value:
+		if remap.value.length() > 0 and first.value == remap.value:
 			return true
 	return false

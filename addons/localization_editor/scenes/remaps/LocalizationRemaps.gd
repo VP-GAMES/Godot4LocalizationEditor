@@ -29,7 +29,7 @@ func _clear_ui_remaps() -> void:
 	for remap_ui in remaps_ui:
 		if remap_ui.has_method("get_locale"):
 			var locale = remap_ui.get_locale()
-			if not _data.find_locale(locale):
+			if _data.find_locale(locale) == null:
 				remaps_ui.erase(remap_ui)
 				remap_ui.queue_free()
 
