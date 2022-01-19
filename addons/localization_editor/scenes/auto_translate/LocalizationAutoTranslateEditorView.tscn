@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6pfsxqnwp80u"]
+
+[ext_resource type="Script" path="res://addons/localization_editor/scenes/auto_translate/LocalizationAutoTranslateEditorView.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dd5d4jlf1hk7a" path="res://addons/localization_editor/scenes/auto_translate/google/LocalizationAutoTranslateGoogle.tscn" id="2"]
+
+[node name="LocalizationAutotranslateEditorView" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Google" parent="." instance=ExtResource( "2" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_vertical = 3

@@ -238,13 +238,13 @@ func _del_locale(locale: String) -> void:
 		for translation in key.translations:
 			if translation.locale == locale:
 				var t = key.translations.find(translation)
-				key.translations.remove(t)
+				key.translations.remove_at(t)
 				break
 	for remapkey in data_remaps.remapkeys:
 		for remap in remapkey.remaps:
 			if remap.locale == locale:
 				var r = remapkey.remaps.find(remap)
-				remapkey.remaps.remove(r)
+				remapkey.remaps.remove_at(r)
 				break
 	emit_signal("data_changed")
 
@@ -472,9 +472,6 @@ func data_filter_placeholders_put(type: String, filter: String) -> void:
 func remaps() -> Array:
 	return data_remaps.remapkeys
 
-func remaps_keys_filtered() -> Array:
-	return data_remaps.remapkeys
-
 func init_data_remaps() -> void:
 	var internationalization_path = "internationalization/locale/translation_remaps"
 	data_remaps.remapkeys = []
@@ -543,7 +540,7 @@ func _filter_by_remapkeys() -> Array:
 
 func _remapkey_allow_by_filter(remapkey) -> bool:
 	if data_filter_remaps.has("remapkeys"):
-		if data_filter_remaps.remapkeys.empty():
+		if data_filter_remaps.remapkeys.length() <= 0:
 			return true
 		else:
 			for remap in remapkey.remaps:
@@ -621,7 +618,7 @@ func del_remapkey(uuid: String, emitSignal = true) -> void:
 		_del_remapkey(uuid)
 
 func _del_remapkey(uuid: String, emitSignal = true) -> void:
-	data_remaps.remapkeys.remove(_remapkey_position(uuid))
+	data_remaps.remapkeys.remove_at(_remapkey_position(uuid))
 	if emitSignal:
 		emit_signal("data_changed")
 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmavhtjtgg1ca"]
+
+[ext_resource type="Script" path="res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd" id="1"]
+
+[node name="Dropdown" type="LineEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+script = ExtResource( "1" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+popup_maxheight = 150
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+
+[node name="Scroll" type="ScrollContainer" parent="PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="VBox" type="VBoxContainer" parent="PopupPanel/Scroll"]
+offset_right = 92.0
+size_flags_horizontal = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://doq4l8bl41mfl"]
+[gd_scene load_steps=11 format=3 uid="uid://doq4l8bl41mfl"]
 
 [ext_resource type="Script" path="res://addons/localization_editor/LocalizationEditor.gd" id="1_8fvc6"]
 [ext_resource type="Texture2D" uid="uid://dadgukppokqf7" path="res://addons/localization_editor/icons/Save.svg" id="1_c7hr8"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dnj7cfsrknuc3" path="res://addons/localization_editor/icons/Localization.svg" id="5_2uxro"]
 [ext_resource type="Texture2D" uid="uid://dkiqy0ddgeex8" path="res://addons/localization_editor/icons/Remaps.svg" id="7_r0ksp"]
 [ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapsEditorView.tscn" id="8_orcd3"]
+[ext_resource type="Texture2D" uid="uid://deqf0t560e4r1" path="res://addons/localization_editor/icons/Locales.svg" id="9_udyfv"]
+[ext_resource type="PackedScene" uid="uid://c6pfsxqnwp80u" path="res://addons/localization_editor/scenes/auto_translate/LocalizationAutoTranslateEditorView.tscn" id="10_3m4id"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -79,6 +81,10 @@ __meta__ = {
 
 [node name="Remaps" parent="VBox/Tabs" instance=ExtResource( "8_orcd3" )]
 visible = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_tab_icon": ExtResource( "7_r0ksp" )
+}
 
 [node name="Locales" parent="VBox/Tabs" instance=ExtResource( "4_mauhd" )]
 visible = false
@@ -88,5 +94,8 @@ offset_right = -4.0
 offset_bottom = -4.0
 __meta__ = {
 "_edit_use_anchors_": false,
-"_tab_icon": ExtResource( "7_r0ksp" )
+"_tab_icon": ExtResource( "9_udyfv" )
 }
+
+[node name="AutoTranslate" parent="VBox/Tabs" instance=ExtResource( "10_3m4id" )]
+visible = false

@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqtiybaaxohvp"]
+[gd_scene load_steps=6 format=3 uid="uid://dqtiybaaxohvp"]
 
-[ext_resource type="Texture2D" uid="uid://bpetsjnmr3xny" path="res://addons/localization_editor/icons/Put.svg" id="3_khra4"]
 [ext_resource type="Script" path="res://addons/localization_editor/scenes/remaps/LocalizationRemap.gd" id="4"]
 [ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapPath.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://dgp35gsev3h0u" path="res://addons/localization_editor/icons/Audio.svg" id="5_84ecs"]
-[ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapPut.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://djtpd7stomej7" path="res://addons/localization_editor/icons/Video.svg" id="6_uxbjg"]
 [ext_resource type="Texture2D" uid="uid://0737j0gpu23r" path="res://addons/localization_editor/icons/Image.svg" id="7_is72i"]
 
@@ -27,16 +25,9 @@ offset_bottom = 33.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Put" parent="HBox" instance=ExtResource( "6" )]
-offset_right = 20.0
-offset_bottom = 33.0
-texture = ExtResource( "3_khra4" )
-stretch_mode = 3
-
 [node name="Remap" parent="HBox" instance=ExtResource( "5" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 24.0
 offset_right = 922.0
 offset_bottom = 33.0
 
