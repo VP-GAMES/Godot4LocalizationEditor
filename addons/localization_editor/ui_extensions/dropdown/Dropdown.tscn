@@ -1,18 +1,30 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmavhtjtgg1ca"]
 
-[ext_resource type="Script" path="res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd" id="1"]
+[ext_resource type="Script" path="res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd" id="1_62dvd"]
 
-[node name="Dropdown" type="LineEdit"]
+[node name="Dropdown" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
-script = ExtResource( "1" )
+size_flags_vertical = 3
+script = ExtResource( "1_62dvd" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-popup_maxheight = 150
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
+close_on_parent_focus = false
 
 [node name="Scroll" type="ScrollContainer" parent="PopupPanel"]
 offset_left = 4.0

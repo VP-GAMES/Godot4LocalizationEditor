@@ -41,7 +41,7 @@ func _add_placeholder(key: String, placeholder_key: String) -> void:
 
 func set_placeholder(name: String, value: String, locale: String = "", profile: String = "DEFAULT") -> void:
 	var loc = locale
-	if loc.empty():
+	if loc.length() <= 0:
 		loc = TranslationServer.get_locale()
 	if not _placeholders.has(profile):
 		_placeholders[profile] = {}
@@ -59,9 +59,9 @@ func tr(name: String) -> String:
 
 func  _placeholder_by_key(key: String, profile: String = "DEFAULT") -> String:
 	var value = ""
-	if value.empty() and _placeholders.has(profile) and _placeholders[profile].has(key) and _placeholders[profile][key].has(TranslationServer.get_locale()):
+	if value.length() <= 0 and _placeholders.has(profile) and _placeholders[profile].has(key) and _placeholders[profile][key].has(TranslationServer.get_locale()):
 		value = _placeholders[profile][key][TranslationServer.get_locale()]
-	if value.empty() and _placeholders_default.has(key) and _placeholders_default[key].has(TranslationServer.get_locale()):
+	if value.length() <= 0 and _placeholders_default.has(key) and _placeholders_default[key].has(TranslationServer.get_locale()):
 		value = _placeholders_default[key][TranslationServer.get_locale()]
 	return value
 
@@ -76,10 +76,10 @@ func _load_localization():
 	if file.file_exists(_path_to_save):
 		var loaded_data = load(_path_to_save) as LocalizationSave
 		if loaded_data:
-			if loaded_data.placeholders and not loaded_data.placeholders.empty():
+			if loaded_data.placeholders and not loaded_data.placeholders.is_empty():
 				for key in loaded_data.placeholders.keys():
 					_placeholders[key] = loaded_data.placeholders[key]
-			if loaded_data.locale and not loaded_data.locale.empty():
+			if loaded_data.locale and not loaded_data.locale.is_empty():
 				TranslationServer.set_locale(loaded_data.locale)
 
 func _save_localization() -> void:

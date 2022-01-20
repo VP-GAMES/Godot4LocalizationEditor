@@ -175,7 +175,7 @@ func _save_data_translations_to_project_settings() -> void:
 	for locale in data.locales:
 		var entry = file + "." + locale + ".translation"
 		translations.append(entry)
-	ProjectSettings.set_setting("locale/translations", translations)
+	ProjectSettings.set_setting("internationalization/locale/translations", translations)
 
 # ***** UUID ****
 static func uuid() -> String:
@@ -517,7 +517,7 @@ func _save_data_remaps() -> void:
 				var remap = remapkey.remaps[index]
 				var value = remap.value + ":" + remap.locale
 				remaps[key].append(value)
-	ProjectSettings.set_setting("locale/translation_remaps", remaps)
+	ProjectSettings.set_setting("internationalization/locale/translation_remaps", remaps)
 
 signal data_remapkey_value_changed
 

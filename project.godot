@@ -9,7 +9,7 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "LineEdit",
+"base": "HBoxContainer",
 "class": &"DropdownCustom",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd"
@@ -69,8 +69,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot4LocalizationEditor"
+run/main_scene="res://addons/localization_example/Placeholders.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[autoload]
+
+LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
 
 [editor_plugins]
 
@@ -78,11 +83,8 @@ enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
 
 [internationalization]
 
-locale/translation_remaps={
-"res://addons/localization_example/Data/Audio/hello_en.ogg": PackedStringArray("res://addons/localization_example/Data/Audio/hello_de.ogg:de", "res://addons/localization_example/Data/Audio/hello_en.ogg:en", "res://addons/localization_example/Data/Audio/hello_ru.ogg:ru"),
-"res://addons/localization_example/Data/Images/play_en.png": PackedStringArray("res://addons/localization_example/Data/Images/play_de.png:de", "res://addons/localization_example/Data/Images/play_ru.png:ru", "res://addons/localization_example/Data/Images/play_en.png:en"),
-"res://addons/localization_example/Data/Video/video_en.ogv": PackedStringArray("res://addons/localization_example/Data/Video/video_de.ogv:de", "res://addons/localization_example/Data/Video/video_en.ogv:en", "res://addons/localization_example/Data/Video/video_ru.ogv:ru")
-}
+locale/translation_remaps={}
+locale/translations=["res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation"]
 
 [locale]
 

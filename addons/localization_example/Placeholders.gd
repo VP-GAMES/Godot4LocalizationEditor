@@ -41,7 +41,7 @@ func _init_placeholders() -> void:
 		_placeholder_ui.add_item(placeholder)
 
 func _init_connections() -> void:
-	var resultManager = _localization_manager.connect("translation_changed", self, "_update_translation_from_manager")
+	var resultManager = _localization_manager.connect("translation_changed", _update_translation_from_manager)
 	if resultManager != OK:
 		push_error("Can't connect manager translation_changed")
 	var resultApply = _apply_ui.connect("pressed", _on_apply_pressed)
