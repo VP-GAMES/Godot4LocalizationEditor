@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 				_line_edit.text = ""
 			else:
 				_line_edit.text = _items[selected]
+			_line_edit.set_caret_column(_line_edit.text.length())
 			_filter = _line_edit.text
 			_popup_panel.hide()
 
@@ -72,45 +73,40 @@ func _line_edit_gui_input(event: InputEvent) -> void:
 
 func _on_text_changed(filter: String) -> void:
 	_filter = filter
-	_update_popup_view(_filter)
+	_update_popup_view()
 
-func _update_popup_view(filter = _filter) -> void:
-	_update_items_view(filter)
+func _update_popup_view() -> void:
+	_update_items_view()
 	var rect = get_global_rect()
 	var position =  Vector2(rect.position.x, rect.position.y + rect.size.y)
 	if Engine.is_editor_hint():
-		print(get_parent().get_viewport_rect())
-		position = Vector2(rect.position.x, rect.position.y)
-		print("rect_position -> ", rect_position)
-		print("get_global_rect()", get_global_rect())
-		print("get_viewport_rect() -> ", get_viewport_rect())
-		print("get_global_transform() -> ", get_global_transform())
-		print("get_global_transform_with_canvas() -> ", get_global_transform_with_canvas())
-		print("get_viewport().get_visible_rect() -> ",  get_viewport().get_visible_rect())
-		
+		position = get_viewport().canvas_transform * rect_global_position + Vector2(get_viewport().position)
+		position.y += rect_size.y
+	_popup_panel.position = position
+	_popup_panel.popup()
 	var size = Vector2(rect.size.x, _popup_calc_height())
-	_popup_panel.popup(Rect2(position, size))
+	_popup_panel.set_size(size)
 	_line_edit.grab_focus()
 
 func _popup_calc_height() -> int:
 	var child_count = _popup_panel_vbox.get_child_count() 
 	if child_count > 0:
-		var single_height: int = _line_edit.rect_size.y
+		var single_height: int = _popup_panel_vbox.get_child(0).rect_size.y
 		if child_count >= popup_maxheight_count:
 			return popup_maxheight_count * single_height
 		else:
 			return child_count * single_height
 	return 0
 
-func _update_items_view(filter = "") -> void:
+func _update_items_view() -> void:
 	for child in _popup_panel_vbox.get_children():
 		_popup_panel_vbox.remove_child(child)
 		child.queue_free()
 	for index in range(_items.size()):
-		if filter.length() <= 0:
+		if _filter.length() <= 0:
 			_popup_panel_vbox.add_child(_init_check_box(index))
 		else:
-			if filter in _items[index]:
+			if _filter in _items[index]:
 				_popup_panel_vbox.add_child(_init_check_box(index))
 
 func _init_check_box(index: int) -> CheckBox:

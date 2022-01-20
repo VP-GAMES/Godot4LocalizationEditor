@@ -27,15 +27,15 @@ __meta__ = {
 }
 
 [node name="Logo" type="TextureRect" parent="Panel/VBox"]
-visible = false
 offset_right = 1024.0
 offset_bottom = 53.0
 texture = ExtResource( "2" )
 stretch_mode = 3
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
+offset_top = 57.0
 offset_right = 1024.0
-offset_bottom = 33.0
+offset_bottom = 90.0
 
 [node name="From" type="Label" parent="Panel/VBox/HBox"]
 offset_top = 3.0
@@ -80,7 +80,7 @@ disabled = true
 text = "Translate"
 
 [node name="Progress" type="ProgressBar" parent="Panel/VBox"]
-offset_top = 37.0
+offset_top = 94.0
 offset_right = 1024.0
-offset_bottom = 60.0
+offset_bottom = 117.0
 rect_min_size = Vector2(0, 20)
