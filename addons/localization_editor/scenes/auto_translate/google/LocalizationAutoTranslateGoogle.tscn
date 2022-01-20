@@ -30,7 +30,7 @@ __meta__ = {
 offset_right = 1024.0
 offset_bottom = 53.0
 texture = ExtResource( "2" )
-stretch_mode = 3
+stretch_mode = 2
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
 offset_top = 57.0
@@ -45,8 +45,6 @@ rect_min_size = Vector2(50, 0)
 text = "From:"
 
 [node name="FromLanguage" parent="Panel/VBox/HBox" instance=ExtResource( "4" )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 54.0
 offset_right = 324.0
 offset_bottom = 33.0
@@ -62,8 +60,6 @@ offset_bottom = 29.0
 text = "To:"
 
 [node name="ToLanguage" parent="Panel/VBox/HBox" instance=ExtResource( "4" )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 355.0
 offset_right = 625.0
 offset_bottom = 33.0
