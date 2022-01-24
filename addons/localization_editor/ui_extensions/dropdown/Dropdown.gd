@@ -1,7 +1,7 @@
 # UI Extension Filter Dropdown : MIT License
 # @author Vladimir Petrenko
 @tool
-extends HBoxContainer
+extends LineEdit
 class_name DropdownCustom
 
 signal selection_changed
@@ -13,22 +13,21 @@ var _group = ButtonGroup.new()
 var _filter: String = ""
 var _items: Array[String] = []
 
-@onready var _line_edit: LineEdit= $LineEdit
 @onready var _popup_panel: PopupPanel= $PopupPanel
 @onready var _popup_panel_vbox: VBoxContainer= $PopupPanel/Scroll/VBox
 
 const DropdownCheckBox = preload("DropdownCheckBox.tscn")
 
 func _input(event: InputEvent) -> void:
-	if _line_edit != null and (event is InputEventMouseButton) and event.pressed:
+	if (event is InputEventMouseButton) and event.pressed:
 		var evLocal = make_input_local(event)
 		if !Rect2(Vector2(0,0),rect_size).has_point(evLocal.position):
 			if selected < 0:
-				_line_edit.text = ""
+				text = ""
 			else:
-				_line_edit.text = _items[selected]
-			_line_edit.set_caret_column(_line_edit.text.length())
-			_filter = _line_edit.text
+				text = _items[selected]
+			set_caret_column(text.length())
+			_filter = text
 			_popup_panel.hide()
 
 func clear() -> void:
@@ -49,33 +48,35 @@ func _ready() -> void:
 
 func _init_connections() -> void:
 	assert(_popup_panel.popup_hide.connect(_popup_panel_hide) == OK)
-	assert(_line_edit.gui_input.connect(_line_edit_gui_input) == OK)
+	assert(gui_input.connect(_line_edit_gui_input) == OK)
 
 func _popup_panel_hide() -> void:
-	if _line_edit.text_changed.is_connected(_on_text_changed):
-		_line_edit.text_changed.disconnect(_on_text_changed)
+	if text_changed.is_connected(_on_text_changed):
+		text_changed.disconnect(_on_text_changed)
  
 func _popup_panel_focus_entered() -> void:
 	grab_focus()
 
 func _popup_panel_index_pressed(index: int) -> void:
 	var le_text = _popup_panel.get_item_text(index)
-	_line_edit.text = le_text
-	_filter = _line_edit.text
-	selected = _items.find(_line_edit.text)
+	text = le_text
+	_filter = text
+	selected = _items.find(text)
 
 func _line_edit_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			_update_popup_view()
-			if not _line_edit.text_changed.is_connected(_on_text_changed):
-				assert(_line_edit.text_changed.connect(_on_text_changed) == OK)
+			if not text_changed.is_connected(_on_text_changed):
+				assert(text_changed.connect(_on_text_changed) == OK)
 
 func _on_text_changed(filter: String) -> void:
 	_filter = filter
 	_update_popup_view()
 
 func _update_popup_view() -> void:
+	if not editable:
+		return
 	_update_items_view()
 	var rect = get_global_rect()
 	var position =  Vector2(rect.position.x, rect.position.y + rect.size.y)
@@ -86,7 +87,7 @@ func _update_popup_view() -> void:
 	_popup_panel.popup()
 	var size = Vector2(rect.size.x, _popup_calc_height())
 	_popup_panel.set_size(size)
-	_line_edit.grab_focus()
+	grab_focus()
 
 func _popup_calc_height() -> int:
 	var child_count = _popup_panel_vbox.get_child_count() 
@@ -122,6 +123,6 @@ func _on_selection_changed(index: int) -> void:
 	if selected != index:
 		selected = index
 		_filter = _items[selected]
-		_line_edit.text = _filter
+		text = _filter
 		emit_signal("selection_changed")
 	_popup_panel.hide()

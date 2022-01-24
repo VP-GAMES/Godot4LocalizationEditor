@@ -9,7 +9,7 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "HBoxContainer",
+"base": "LineEdit",
 "class": &"DropdownCustom",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd"
