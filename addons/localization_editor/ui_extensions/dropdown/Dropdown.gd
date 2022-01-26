@@ -2,7 +2,6 @@
 # @author Vladimir Petrenko
 @tool
 extends VBoxContainer
-class_name DropdownCustom
 
 signal selection_changed(item: DropdownItem)
 signal selection_changed_string(text: String)

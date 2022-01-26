@@ -5,8 +5,8 @@ extends MarginContainer
 
 var _data: LocalizationData
 
-@onready var _from_language_ui: DropdownCustom = $Panel/VBox/HBox/FromLanguage 
-@onready var _to_language_ui: DropdownCustom = $Panel/VBox/HBox/ToLanguage
+@onready var _from_language_ui = $Panel/VBox/HBox/FromLanguage 
+@onready var _to_language_ui = $Panel/VBox/HBox/ToLanguage
 @onready var _translate_ui: Button = $Panel/VBox/HBox/Translate
 @onready var _progress_ui: ProgressBar = $Panel/VBox/Progress
 

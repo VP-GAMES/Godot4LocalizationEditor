@@ -9,11 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "VBoxContainer",
-"class": &"DropdownCustom",
-"language": &"GDScript",
-"path": "res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd"
-}, {
 "base": "Object",
 "class": &"DropdownItem",
 "language": &"GDScript",
@@ -60,7 +55,6 @@ _global_script_classes=[{
 "path": "res://addons/localization_editor/uuid/uuid.gd"
 }]
 _global_script_class_icons={
-"DropdownCustom": "",
 "DropdownItem": "",
 "LocalizationData": "",
 "LocalizationKeys": "",
