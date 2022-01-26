@@ -2,16 +2,16 @@
 
 importer="texture"
 type="StreamTexture2D"
-uid="uid://krygx8vsji2q"
-path="res://.godot/imported/logo.png-ab394230b0f418030caf3fee144227ba.stex"
+uid="uid://btxlurvr45t4y"
+path="res://.godot/imported/Cancel.svg-48414b87d4728c3eadd4eaca4dca2d31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/localization_editor/uuid/logo.png"
-dest_files=["res://.godot/imported/logo.png-ab394230b0f418030caf3fee144227ba.stex"]
+source_file="res://addons/localization_editor/ui_extensions/dropdown/Cancel.svg"
+dest_files=["res://.godot/imported/Cancel.svg-48414b87d4728c3eadd4eaca4dca2d31.stex"]
 
 [params]
 
@@ -32,3 +32,4 @@ process/normal_map_invert_y=false
 process/HDR_as_SRGB=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0

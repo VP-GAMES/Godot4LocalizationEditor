@@ -371,6 +371,12 @@ static func locales() -> Array[LocalizationLocaleSingle]:
 		LocalizationLocaleSingle.new("zu_ZA", "Zulu (South Africa)")
 	]
 
+static func by_code(code: String) -> LocalizationLocaleSingle:
+	for locale in LocalizationLocalesList.locales():
+		if locale.code == code:
+			return locale
+	return null
+
 static func label_by_code(code: String) -> String:
 	for locale in LocalizationLocalesList.locales():
 		if locale.code == code:

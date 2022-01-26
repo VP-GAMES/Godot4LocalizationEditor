@@ -2,16 +2,16 @@
 
 importer="texture"
 type="StreamTexture2D"
-uid="uid://krygx8vsji2q"
-path="res://.godot/imported/logo.png-ab394230b0f418030caf3fee144227ba.stex"
+uid="uid://bb76dl3aocsjo"
+path="res://.godot/imported/Arrow.svg-2b072d901b3466414403537687f8256b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/localization_editor/uuid/logo.png"
-dest_files=["res://.godot/imported/logo.png-ab394230b0f418030caf3fee144227ba.stex"]
+source_file="res://addons/localization_editor/ui_extensions/dropdown/Arrow.svg"
+dest_files=["res://.godot/imported/Arrow.svg-2b072d901b3466414403537687f8256b.stex"]
 
 [params]
 
@@ -32,3 +32,4 @@ process/normal_map_invert_y=false
 process/HDR_as_SRGB=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0

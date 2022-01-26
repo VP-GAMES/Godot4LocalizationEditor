@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://d31777uafi6u7"]
-
-[node name="DropdownCheckBox" type="CheckBox"]
-anchor_right = 1.0
-size_flags_horizontal = 3

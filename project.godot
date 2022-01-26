@@ -9,10 +9,15 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "LineEdit",
+"base": "VBoxContainer",
 "class": &"DropdownCustom",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/ui_extensions/dropdown/Dropdown.gd"
+}, {
+"base": "Object",
+"class": &"DropdownItem",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/ui_extensions/dropdown/DropdownItem.gd"
 }, {
 "base": "Resource",
 "class": &"LocalizationData",
@@ -56,6 +61,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "DropdownCustom": "",
+"DropdownItem": "",
 "LocalizationData": "",
 "LocalizationKeys": "",
 "LocalizationLocaleSingle": "",

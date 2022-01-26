@@ -48,36 +48,36 @@ __meta__ = {
 
 [node name="HBox" type="HBoxContainer" parent="Content/VBox"]
 offset_right = 1014.0
-offset_bottom = 30.0
+offset_bottom = 31.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LabelPlaceholder" type="Label" parent="Content/VBox/HBox"]
-offset_top = 3.0
+offset_top = 4.0
 offset_right = 139.0
-offset_bottom = 26.0
+offset_bottom = 27.0
 theme_override_fonts/font = SubResource( "1" )
 text = "KEY_PLACEHOLDER"
 
 [node name="Placeholder" type="OptionButton" parent="Content/VBox/HBox"]
 offset_left = 143.0
 offset_right = 263.0
-offset_bottom = 30.0
+offset_bottom = 31.0
 rect_min_size = Vector2(120, 0)
 
 [node name="LabelValue" type="Label" parent="Content/VBox/HBox"]
 offset_left = 267.0
-offset_top = 3.0
+offset_top = 4.0
 offset_right = 350.0
-offset_bottom = 26.0
+offset_bottom = 27.0
 theme_override_fonts/font = SubResource( "1" )
 text = "KEY_VALUE"
 
 [node name="Value" type="LineEdit" parent="Content/VBox/HBox"]
 offset_left = 354.0
 offset_right = 474.0
-offset_bottom = 30.0
+offset_bottom = 31.0
 rect_min_size = Vector2(120, 0)
 theme_override_fonts/font = SubResource( "2" )
 text = "Mr Vladimir"
@@ -85,21 +85,21 @@ placeholder_text = "value"
 
 [node name="Apply" type="Button" parent="Content/VBox/HBox"]
 offset_left = 478.0
-offset_right = 573.0
-offset_bottom = 30.0
+offset_right = 569.0
+offset_bottom = 31.0
 theme_override_fonts/font = SubResource( "3" )
 text = "KEY_APPLY"
 
 [node name="MarginTop" type="MarginContainer" parent="Content/VBox"]
-offset_top = 34.0
+offset_top = 35.0
 offset_right = 1014.0
-offset_bottom = 44.0
+offset_bottom = 45.0
 theme_override_constants/margin_top = 10
 
 [node name="LabelTop" type="Label" parent="Content/VBox"]
-offset_top = 48.0
+offset_top = 49.0
 offset_right = 1014.0
-offset_bottom = 71.0
+offset_bottom = 72.0
 theme_override_fonts/font = SubResource( "4" )
 text = "top"
 __meta__ = {
@@ -107,9 +107,9 @@ __meta__ = {
 }
 
 [node name="LabelMiddle" type="Label" parent="Content/VBox"]
-offset_top = 75.0
+offset_top = 76.0
 offset_right = 1014.0
-offset_bottom = 98.0
+offset_bottom = 99.0
 theme_override_fonts/font = SubResource( "4" )
 text = "middle"
 __meta__ = {
@@ -117,9 +117,9 @@ __meta__ = {
 }
 
 [node name="LabelBottom" type="Label" parent="Content/VBox"]
-offset_top = 102.0
+offset_top = 103.0
 offset_right = 1014.0
-offset_bottom = 125.0
+offset_bottom = 126.0
 theme_override_fonts/font = SubResource( "4" )
 text = "bottom"
 __meta__ = {
@@ -127,15 +127,15 @@ __meta__ = {
 }
 
 [node name="MarginBottom" type="MarginContainer" parent="Content/VBox"]
-offset_top = 129.0
+offset_top = 130.0
 offset_right = 1014.0
-offset_bottom = 139.0
+offset_bottom = 140.0
 theme_override_constants/margin_top = 10
 
 [node name="Languages" type="OptionButton" parent="Content/VBox"]
-offset_top = 143.0
+offset_top = 144.0
 offset_right = 1014.0
-offset_bottom = 172.0
+offset_bottom = 175.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

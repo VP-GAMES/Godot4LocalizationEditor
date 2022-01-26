@@ -4,7 +4,6 @@
 extends MarginContainer
 
 var _data: LocalizationData
-var _locales_google: Array = []
 
 @onready var _from_language_ui: DropdownCustom = $Panel/VBox/HBox/FromLanguage 
 @onready var _to_language_ui: DropdownCustom = $Panel/VBox/HBox/ToLanguage
@@ -33,27 +32,25 @@ func _init_from_language_ui() -> void:
 	_from_language_ui.clear()
 	if not _from_language_ui.is_connected("selection_changed", _check_translate_ui):
 		assert(_from_language_ui.connect("selection_changed", _check_translate_ui) == OK)
-	for locale in _data.locales():
-		var from_language_label = Locales.label_by_code(locale)
-		_from_language_ui.add_item(from_language_label)
+	for loc in _data.locales():
+		var locale = Locales.by_code(loc)
+		if locale != null:
+			_from_language_ui.add_item(DropdownItem.new(locale.name, locale.code))
 
 func _init_to_language_ui() -> void:
 	_to_language_ui.clear()
 	if not _to_language_ui.is_connected("selection_changed", _check_translate_ui):
 		assert(_to_language_ui.connect("selection_changed", _check_translate_ui) == OK)
-	_locales_google.clear()
 	for locale in GoogleLocales.locales():
 		if Locales.has_code(locale.code):
-			_locales_google.append(locale.code)
-			var to_language_label = GoogleLocales.label_by_code(locale.code)
-			_to_language_ui.add_item(to_language_label)
+			_to_language_ui.add_item(DropdownItem.new(locale.name, locale.code))
 
-func _check_translate_ui() -> void:
-	_translate_ui.set_disabled(_from_language_ui.selected == -1 or _to_language_ui.selected == -1)
+func _check_translate_ui(_item: DropdownItem) -> void:
+	_translate_ui.set_disabled(_from_language_ui.get_selected_index() == -1 or _to_language_ui.get_selected_index() == -1)
 
 func _on_translate_pressed() -> void:
-	var from_language_code = _data.locales()[_from_language_ui.selected]
-	var to_language_code = _locales_google[_to_language_ui.selected]
+	var from_language_code = _from_language_ui.get_selected_value()
+	var to_language_code = _to_language_ui.get_selected_value()
 	_translate(from_language_code, to_language_code)
 
 func _translate(from_code: String, to_code: String) -> void:
