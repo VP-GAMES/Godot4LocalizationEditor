@@ -493,7 +493,6 @@ func init_data_remaps() -> void:
 			return
 	var remap = _create_remapkey(uuid())
 	data_remaps.remapkeys.append(remap)
-	print(data_remaps)
 
 func _check_remapkeys() -> void:
 	for locale in locales():
