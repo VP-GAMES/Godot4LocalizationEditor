@@ -90,6 +90,7 @@ func save_data_translations(update_script_classes = false) -> void:
 	_save_data_translations_placeholders()
 	_save_data_placeholders()
 	_save_data_translations_to_project_settings()
+	ProjectSettings.save()
 	if update_script_classes:
 		_editor.get_editor_interface().get_resource_filesystem().update_script_classes()
 
@@ -171,7 +172,7 @@ func _save_data_placeholders() -> void:
 func _save_data_translations_to_project_settings() -> void:
 	var file = setting_path_to_file()
 	file = file_path_without_extension(file)
-	var translations: Array[String] = []
+	var translations: PackedStringArray = []
 	for locale in data.locales:
 		var entry = file + "." + locale + ".translation"
 		translations.append(entry)
