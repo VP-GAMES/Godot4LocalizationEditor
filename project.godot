@@ -83,6 +83,7 @@ enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
 
 [internationalization]
 
+pseudolocalization/skip_placeholders=false
 locale/translation_remaps={
 "res://addons/localization_example/Data/Audio/hello_en.ogg": ["res://addons/localization_example/Data/Audio/hello_en.ogg:en", "res://addons/localization_example/Data/Audio/hello_de.ogg:de", "res://addons/localization_example/Data/Audio/hello_ru.ogg:ru"],
 "res://addons/localization_example/Data/Images/play_en.png": ["res://addons/localization_example/Data/Images/play_en.png:en", "res://addons/localization_example/Data/Images/play_de.png:de", "res://addons/localization_example/Data/Images/play_ru.png:ru"]

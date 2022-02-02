@@ -1,46 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt0r11jd8rtq6"]
+[gd_scene load_steps=3 format=3 uid="uid://bt0r11jd8rtq6"]
 
-[ext_resource type="PackedScene" uid="uid://bt0r11jd8rtq6" path="res://addons/localization_editor/scenes/pseudolocalization/control/PseudolocalizationUI.tscn" id="1_o6jqp"]
+[ext_resource type="Script" path="res://addons/localization_editor/scenes/pseudolocalization/LocalizationPseudolocalizationEditorView.gd" id="1_lb46l"]
+[ext_resource type="PackedScene" uid="uid://b3jy757hoeaso" path="res://addons/localization_editor/scenes/pseudolocalization/control/LocalizationPseudolocalizationControl.tscn" id="2_s2t82"]
 
 [node name="PseudolocalizationEditorView" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( "1_lb46l" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxPseudolocalizationControl" type="HBoxContainer" parent="."]
-offset_right = 1024.0
-offset_bottom = 31.0
-
-[node name="Label" type="Label" parent="HBoxPseudolocalizationControl"]
-offset_right = 510.0
-offset_bottom = 31.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Use Pseudolocalization in UI"
-vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="HBoxPseudolocalizationControl"]
-offset_left = 514.0
-offset_right = 1024.0
-offset_bottom = 31.0
-rect_min_size = Vector2(0, 31)
-size_flags_horizontal = 3
-
-[node name="PseudolocalizationControl" type="CheckBox" parent="HBoxPseudolocalizationControl/Panel"]
-offset_right = 44.0
-offset_bottom = 31.0
-text = "On"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PseudolocalizationEditorView" parent="." instance=ExtResource( "1_o6jqp" )]
+[node name="LocalizationPseudolocalizationControl" parent="." instance=ExtResource( "2_s2t82" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 35.0
 offset_right = 1024.0
-offset_bottom = 600.0
+offset_bottom = 346.0

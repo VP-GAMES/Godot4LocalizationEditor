@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxsllb6fpsh1o"]
+
+[ext_resource type="Texture2D" uid="uid://hw4v8ce22nfw" path="res://addons/localization_example/textures/Background.png" id="1_td1kr"]
+[ext_resource type="Texture2D" uid="uid://bgskssve0skkj" path="res://addons/localization_example/textures/BackgroundSide.png" id="2_udff2"]
+[ext_resource type="PackedScene" uid="uid://b3jy757hoeaso" path="res://addons/localization_editor/scenes/pseudolocalization/control/LocalizationPseudolocalizationControl.tscn" id="3_kal3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s52ac"]
+size = Vector2(1922, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01hb5"]
+size = Vector2(26, 569)
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(920, 235)
+texture = ExtResource( "1_td1kr" )
+
+[node name="Floor" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Floor"]
+position = Vector2(1, 340)
+shape = SubResource( "RectangleShape2D_s52ac" )
+
+[node name="Left" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Left"]
+position = Vector2(-880, 61)
+shape = SubResource( "RectangleShape2D_01hb5" )
+
+[node name="Right" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Right"]
+position = Vector2(874, 61)
+shape = SubResource( "RectangleShape2D_01hb5" )
+
+[node name="BackgroundSideRight" type="Sprite2D" parent="Background"]
+position = Vector2(1920, 0)
+texture = ExtResource( "2_udff2" )
+flip_h = true
+
+[node name="BackgroundSideLeft" type="Sprite2D" parent="Background"]
+position = Vector2(-1920, 0)
+texture = ExtResource( "2_udff2" )
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PseudolocalizationEditorView" parent="CanvasLayer" instance=ExtResource( "3_kal3l" )]
