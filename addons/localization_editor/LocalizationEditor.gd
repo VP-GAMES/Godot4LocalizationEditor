@@ -20,6 +20,7 @@ const IconResourceTranslations = preload("res://addons/localization_editor/icons
 const IconResourceRemaps = preload("res://addons/localization_editor/icons/Remaps.svg")
 const IconResourceLocales = preload("res://addons/localization_editor/icons/Locales.svg")
 const IconResourcePlaceholders = preload("res://addons/localization_editor/icons/Placeholders.svg")
+const IconResourcePseudolocalization = preload("res://addons/localization_editor/icons/Pseudolocalization.svg")
 const IconResourceTranslation = preload("res://addons/localization_editor/icons/Translation.svg")
 
 const LocalizationEditorDialogFile = preload("res://addons/localization_editor/LocalizationEditorDialogFile.tscn")
@@ -29,7 +30,8 @@ func _ready() -> void:
 	_tabs_ui.set_tab_icon(1, IconResourceRemaps)
 	_tabs_ui.set_tab_icon(2, IconResourceLocales)
 	_tabs_ui.set_tab_icon(3, IconResourcePlaceholders)
-	_tabs_ui.set_tab_icon(4, IconResourceTranslation)
+	_tabs_ui.set_tab_icon(4, IconResourcePseudolocalization)
+	_tabs_ui.set_tab_icon(5, IconResourceTranslation)
 	_tabs_ui.connect("tab_changed", _on_tab_changed)
 
 func _on_tab_changed(idx: int) -> void:

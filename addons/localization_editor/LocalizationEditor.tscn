@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://doq4l8bl41mfl"]
+[gd_scene load_steps=16 format=3 uid="uid://doq4l8bl41mfl"]
 
 [ext_resource type="Script" path="res://addons/localization_editor/LocalizationEditor.gd" id="1_8fvc6"]
 [ext_resource type="Texture2D" uid="uid://dadgukppokqf7" path="res://addons/localization_editor/icons/Save.svg" id="1_c7hr8"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://c6pfsxqnwp80u" path="res://addons/localization_editor/scenes/auto_translate/LocalizationAutoTranslateEditorView.tscn" id="10_3m4id"]
 [ext_resource type="Texture2D" uid="uid://7r0nuq5hklk0" path="res://addons/localization_editor/icons/Placeholders.svg" id="11_tt3ee"]
 [ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/placeholders/LocalizationPlaceholdersEditorView.tscn" id="12_tkjln"]
+[ext_resource type="PackedScene" uid="uid://bt0r11jd8rtq6" path="res://addons/localization_editor/scenes/pseudolocalization/LocalizationPseudolocalizationEditorView.tscn" id="12_w0ry5"]
+[ext_resource type="Texture2D" uid="uid://bsp0q44xkluyi" path="res://addons/localization_editor/icons/Pseudolocalization.svg" id="13_d0lpr"]
+[ext_resource type="Texture2D" uid="uid://c70577y5yqjgi" path="res://addons/localization_editor/icons/Translation.svg" id="14_a1ryl"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -34,37 +37,37 @@ __meta__ = {
 
 [node name="Margin" type="MarginContainer" parent="VBox"]
 offset_right = 1024.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="HBox" type="HBoxContainer" parent="VBox/Margin"]
 offset_right = 1024.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Save" type="Button" parent="VBox/Margin/HBox"]
-offset_right = 28.0
-offset_bottom = 29.0
+offset_right = 24.0
+offset_bottom = 31.0
 hint_tooltip = "Save translations"
 icon = ExtResource( "1_c7hr8" )
 
 [node name="Open" type="Button" parent="VBox/Margin/HBox"]
-offset_left = 32.0
-offset_right = 60.0
-offset_bottom = 29.0
+offset_left = 28.0
+offset_right = 52.0
+offset_bottom = 31.0
 hint_tooltip = "Open csv file"
 icon = ExtResource( "2_4pkbj" )
 
 [node name="File" type="Label" parent="VBox/Margin/HBox"]
-offset_left = 64.0
-offset_top = 1.0
-offset_right = 103.0
-offset_bottom = 27.0
+offset_left = 56.0
+offset_top = 2.0
+offset_right = 95.0
+offset_bottom = 28.0
 text = "Path:"
 
 [node name="Tabs" type="TabContainer" parent="VBox"]
-offset_top = 33.0
+offset_top = 35.0
 offset_right = 1024.0
 offset_bottom = 600.0
 size_flags_horizontal = 3
@@ -72,10 +75,7 @@ size_flags_vertical = 3
 tab_alignment = 0
 
 [node name="Translations" parent="VBox/Tabs" instance=ExtResource( "4_kmfo1" )]
-offset_left = 4.0
-offset_top = 41.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_top = 31.0
 __meta__ = {
 "_edit_use_anchors_": false,
 "_tab_icon": ExtResource( "5_2uxro" )
@@ -101,10 +101,21 @@ __meta__ = {
 
 [node name="Placeholders" parent="VBox/Tabs" instance=ExtResource( "12_tkjln" )]
 visible = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_tab_icon": ExtResource( "11_tt3ee" )
+}
+
+[node name="Pseudolocalization" parent="VBox/Tabs" instance=ExtResource( "12_w0ry5" )]
+visible = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_tab_icon": ExtResource( "13_d0lpr" )
+}
 
 [node name="AutoTranslate" parent="VBox/Tabs" instance=ExtResource( "10_3m4id" )]
 visible = false
 __meta__ = {
 "_edit_use_anchors_": false,
-"_tab_icon": ExtResource( "11_tt3ee" )
+"_tab_icon": ExtResource( "14_a1ryl" )
 }
