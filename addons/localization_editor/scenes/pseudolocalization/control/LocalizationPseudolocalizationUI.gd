@@ -89,5 +89,5 @@ func _change_project_setting(property: String, value: Variant, reload: bool = tr
 	ProjectSettings.set(property, value)
 	if reload:
 		TranslationServer.reload_pseudolocalization()
-	if save:
+	if save and Engine.is_editor_hint():
 		ProjectSettings.save()

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bikihsdqsi1sm"]
+
+[ext_resource type="Script" path="res://addons/localization_editor/scenes/pseudolocalization/ui/LocalizationPseudolocalizationForUI.gd" id="1_knfsp"]
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource( "1_knfsp" )
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+offset_bottom = 346.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+offset_right = 1024.0
+offset_bottom = 31.0
+alignment = 2
+
+[node name="View" type="Button" parent="VBox/HBox"]
+offset_left = 812.0
+offset_right = 1024.0
+offset_bottom = 31.0
+text = "Pseudolocalization Control"

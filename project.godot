@@ -89,6 +89,7 @@ locale/translation_remaps={
 "res://addons/localization_example/Data/Images/play_en.png": ["res://addons/localization_example/Data/Images/play_en.png:en", "res://addons/localization_example/Data/Images/play_de.png:de", "res://addons/localization_example/Data/Images/play_ru.png:ru"]
 }
 locale/translations=PackedStringArray("res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation")
+pseudolocalization/use_pseudolocalization_control=false
 
 [localization_editor]
 

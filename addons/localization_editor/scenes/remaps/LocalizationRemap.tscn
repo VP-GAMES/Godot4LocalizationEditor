@@ -21,33 +21,33 @@ __meta__ = {
 [node name="HBox" type="HBoxContainer" parent="."]
 offset_left = 3.0
 offset_right = 1021.0
-offset_bottom = 33.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Remap" parent="HBox" instance=ExtResource( "5" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 922.0
-offset_bottom = 33.0
+offset_right = 934.0
+offset_bottom = 31.0
 
 [node name="Audio" type="Button" parent="HBox"]
-offset_left = 926.0
-offset_right = 954.0
-offset_bottom = 33.0
+offset_left = 938.0
+offset_right = 962.0
+offset_bottom = 31.0
 rect_min_size = Vector2(20, 20)
 icon = ExtResource( "5_84ecs" )
 
 [node name="Video" type="Button" parent="HBox"]
-offset_left = 958.0
-offset_right = 986.0
-offset_bottom = 33.0
+offset_left = 966.0
+offset_right = 990.0
+offset_bottom = 31.0
 rect_min_size = Vector2(20, 20)
 icon = ExtResource( "6_uxbjg" )
 
 [node name="Image" type="Button" parent="HBox"]
-offset_left = 990.0
+offset_left = 994.0
 offset_right = 1018.0
-offset_bottom = 33.0
+offset_bottom = 31.0
 rect_min_size = Vector2(20, 20)
 icon = ExtResource( "7_is72i" )

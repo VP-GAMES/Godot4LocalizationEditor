@@ -4,15 +4,24 @@ extends Node
 
 signal translation_changed
 
+const _pseudolocalization_control: String = "internationalization/pseudolocalization/use_pseudolocalization_control"
+const _pseudolocalization_ui = preload("res://addons/localization_editor/scenes/pseudolocalization/ui/LocalizationPseudolocalizationForUI.tscn")
+
 var _path_to_save = "user://localization.tres"
 var _keys_with_placeholder: Dictionary = {}
 var _placeholders_default: Dictionary = {}
 var _placeholders: Dictionary = {}
 
 func _ready() -> void:
+	_load_pseudolocalization_control()
 	_load_localization()
 	_load_placeholders_default()
 	_load_localization_keys()
+
+func _load_pseudolocalization_control() -> void:
+	if ProjectSettings.get_setting(_pseudolocalization_control) == true:
+		var root_node = get_tree().get_root()
+		root_node.call_deferred("add_child", _pseudolocalization_ui.instantiate())
 
 func _load_placeholders_default() -> void:
 	var file = File.new()
