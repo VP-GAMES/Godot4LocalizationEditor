@@ -19,7 +19,7 @@ func _ready() -> void:
 	_load_localization_keys()
 
 func _load_pseudolocalization_control() -> void:
-	if ProjectSettings.get_setting(_pseudolocalization_control) == true:
+	if ProjectSettings.has_setting(_pseudolocalization_control) and ProjectSettings.get_setting(_pseudolocalization_control) == true:
 		var root_node = get_tree().get_root()
 		root_node.call_deferred("add_child", _pseudolocalization_ui.instantiate())
 
