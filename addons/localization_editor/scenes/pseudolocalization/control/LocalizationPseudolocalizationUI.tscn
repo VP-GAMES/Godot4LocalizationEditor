@@ -19,6 +19,7 @@ offset_bottom = 31.0
 [node name="Label" type="Label" parent="HBoxPseudolocalization"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Use Pseudolocalization"
@@ -28,12 +29,14 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
+auto_translate = false
 rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="Pseudolocalization" type="CheckBox" parent="HBoxPseudolocalization/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
 text = "On"
 
 [node name="HBoxAccents" type="HBoxContainer" parent="."]
@@ -44,6 +47,7 @@ offset_bottom = 66.0
 [node name="Label" type="Label" parent="HBoxAccents"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Replace With Accents
@@ -54,12 +58,14 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
+auto_translate = false
 rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="Accents" type="CheckBox" parent="HBoxAccents/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
 button_pressed = true
 text = "On"
 __meta__ = {
@@ -74,6 +80,7 @@ offset_bottom = 101.0
 [node name="Label" type="Label" parent="HBoxDoubleVowels"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Double Vowels"
@@ -89,7 +96,11 @@ size_flags_horizontal = 3
 [node name="DoubleVowels" type="CheckBox" parent="HBoxDoubleVowels/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
 text = "On"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxFakeBidi" type="HBoxContainer" parent="."]
 offset_top = 105.0
@@ -99,6 +110,7 @@ offset_bottom = 136.0
 [node name="Label" type="Label" parent="HBoxFakeBidi"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Fake Bidi"
@@ -114,7 +126,11 @@ size_flags_horizontal = 3
 [node name="FakeBidi" type="CheckBox" parent="HBoxFakeBidi/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
 text = "On"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxOverride" type="HBoxContainer" parent="."]
 offset_top = 140.0
@@ -124,6 +140,7 @@ offset_bottom = 171.0
 [node name="Label" type="Label" parent="HBoxOverride"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Override"
@@ -139,7 +156,11 @@ size_flags_horizontal = 3
 [node name="Override" type="CheckBox" parent="HBoxOverride/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
 text = "On"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxExpansionRatio" type="HBoxContainer" parent="."]
 offset_top = 175.0
@@ -149,6 +170,7 @@ offset_bottom = 206.0
 [node name="Label" type="Label" parent="HBoxExpansionRatio"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Expansion Ratio"
@@ -158,6 +180,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 text = "0"
 
@@ -169,6 +192,7 @@ offset_bottom = 241.0
 [node name="Label" type="Label" parent="HBoxPrefix"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Prefix"
@@ -178,6 +202,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 text = "["
 
@@ -189,6 +214,7 @@ offset_bottom = 276.0
 [node name="Label" type="Label" parent="HBoxSuffix"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Suffix"
@@ -198,6 +224,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 text = "]"
 
@@ -209,6 +236,7 @@ offset_bottom = 311.0
 [node name="Label" type="Label" parent="HBoxSkipPlaceholders"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Skip Placeholders"
@@ -224,4 +252,8 @@ size_flags_horizontal = 3
 [node name="SkipPlaceholders" type="CheckBox" parent="HBoxSkipPlaceholders/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
 text = "On"
+__meta__ = {
+"_edit_use_anchors_": false
+}

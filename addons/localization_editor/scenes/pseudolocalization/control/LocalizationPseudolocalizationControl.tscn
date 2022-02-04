@@ -18,6 +18,7 @@ offset_bottom = 31.0
 [node name="Label" type="Label" parent="HBox"]
 offset_right = 510.0
 offset_bottom = 31.0
+auto_translate = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Use Pseudolocalization Control in UI"
@@ -33,6 +34,8 @@ size_flags_horizontal = 3
 [node name="PseudolocalizationControl" type="CheckBox" parent="HBox/Panel"]
 offset_right = 44.0
 offset_bottom = 31.0
+auto_translate = false
+button_pressed = true
 text = "On"
 __meta__ = {
 "_edit_use_anchors_": false
