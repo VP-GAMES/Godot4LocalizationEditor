@@ -24,7 +24,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 344.0
 margin_bottom = 600.0
-rect_clip_content = true
+clip_content = true
 
 [node name="Placeholders" parent="Split" instance=ExtResource( 3 )]
 anchor_right = 0.0

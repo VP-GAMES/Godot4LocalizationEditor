@@ -5,7 +5,7 @@
 [node name="LocalizationRemapPath" type="LineEdit"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 0, 24 )
+min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
