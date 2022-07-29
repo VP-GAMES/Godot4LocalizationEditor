@@ -59,7 +59,7 @@ func set_placeholder(name: String, value: String, locale: String = "", profile: 
 	_placeholders[profile][name][loc] = value
 	emit_signal("translation_changed")
 
-func tr(name: String) -> String:
+func tr(name: StringName, context: StringName = name) -> String:
 	var tr_text = super.tr(name)
 	if _keys_with_placeholder.has(name):
 		for placeholder in _keys_with_placeholder[name]:

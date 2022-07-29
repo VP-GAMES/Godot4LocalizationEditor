@@ -86,8 +86,8 @@ func _update_popup_view() -> void:
 	var rect = get_global_rect()
 	var position =  Vector2(rect.position.x, rect.position.y + rect.size.y + 2)
 	if Engine.is_editor_hint():
-		position = get_viewport().canvas_transform * rect_global_position + Vector2(get_viewport().position)
-		position.y += rect_size.y
+		position = get_viewport().canvas_transform * global_position + Vector2(get_viewport().position)
+		position.y += size.y
 	_popup_panel.position = position
 	_popup_panel.popup()
 
@@ -113,7 +113,7 @@ func _update_items_view() -> void:
 func _popup_calc_height() -> int:
 	var child_count = _popup_panel_vbox.get_child_count()
 	if child_count > 0:
-		var single_height: int = _popup_panel_vbox.get_child(0).rect_size.y + 5
+		var single_height: int = _popup_panel_vbox.get_child(0).size.y + 5
 		if child_count >= popup_maxheight_count:
 			return (popup_maxheight_count + 1) * single_height
 		else:

@@ -35,19 +35,19 @@ offset_bottom = 31.0
 offset_left = 938.0
 offset_right = 962.0
 offset_bottom = 31.0
-rect_min_size = Vector2(20, 20)
+min_size = Vector2(20, 20)
 icon = ExtResource( "5_84ecs" )
 
 [node name="Video" type="Button" parent="HBox"]
 offset_left = 966.0
 offset_right = 990.0
 offset_bottom = 31.0
-rect_min_size = Vector2(20, 20)
+min_size = Vector2(20, 20)
 icon = ExtResource( "6_uxbjg" )
 
 [node name="Image" type="Button" parent="HBox"]
 offset_left = 994.0
 offset_right = 1018.0
 offset_bottom = 31.0
-rect_min_size = Vector2(20, 20)
+min_size = Vector2(20, 20)
 icon = ExtResource( "7_is72i" )

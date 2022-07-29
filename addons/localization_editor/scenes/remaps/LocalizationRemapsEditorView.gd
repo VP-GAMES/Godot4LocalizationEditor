@@ -18,10 +18,10 @@ func set_data(data: LocalizationData):
 	_remaps_ui.set_data(data)
 
 func _process(delta):
-	if _split_viewport_size != rect_size.x:
-		_split_viewport_size = rect_size.x
+	if _split_viewport_size != size.x:
+		_split_viewport_size = size.x
 		_init_split_offset()
 
 func _init_split_offset() -> void:
 	var offset = 70
-	_split_ui.set_split_offset(-rect_size.x / 2 + offset)
+	_split_ui.set_split_offset(-size.x / 2 + offset)

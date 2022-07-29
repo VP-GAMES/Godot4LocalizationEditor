@@ -5,7 +5,7 @@
 [node name="LocalizationPlaceholder" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 0, 27 )
+min_size = Vector2( 0, 27 )
 custom_constants/margin_right = 3
 custom_constants/margin_left = 3
 custom_constants/margin_bottom = 3
@@ -18,12 +18,12 @@ __meta__ = {
 margin_left = 3.0
 margin_right = 1021.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 0, 24 )
+min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Placeholder" type="LineEdit" parent="HBox"]
 margin_right = 1018.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 0, 24 )
+min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
