@@ -41,7 +41,7 @@ offset_bottom = 88.0
 offset_top = 2.0
 offset_right = 50.0
 offset_bottom = 28.0
-rect_min_size = Vector2(50, 0)
+min_size = Vector2(50, 0)
 text = "From:"
 
 [node name="FromLanguage" parent="Panel/VBox/HBox" instance=ExtResource( "3_t1nu4" )]
@@ -73,4 +73,4 @@ text = "Translate"
 offset_top = 92.0
 offset_right = 1024.0
 offset_bottom = 119.0
-rect_min_size = Vector2(0, 20)
+min_size = Vector2(0, 20)

@@ -28,7 +28,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
-rect_min_size = Vector2(0, 31)
+min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="PseudolocalizationControl" type="CheckBox" parent="HBox/Panel"]

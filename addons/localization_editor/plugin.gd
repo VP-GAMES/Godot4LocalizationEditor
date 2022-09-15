@@ -29,5 +29,5 @@ func _has_main_screen() -> bool:
 func _get_plugin_name():
 	return "Localization"
 
-func _get_plugin_icon() -> Texture:
+func _get_plugin_icon() -> Texture2D:
 	return IconResource

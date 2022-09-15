@@ -23,8 +23,8 @@ func _init_connections() -> void:
 		assert(_split_ui.dragged.connect(_on_split_dragged) == OK)
 
 func _process(delta):
-	if _split_viewport_size != rect_size.x:
-		_split_viewport_size = rect_size.x
+	if _split_viewport_size != size.x:
+		_split_viewport_size = size.x
 		_init_split_offset()
 	_update_scrolls()
 
@@ -32,11 +32,11 @@ func _init_split_offset() -> void:
 	var offset = 350
 	if _data:
 		offset = _data.setting_translations_split_offset()
-	_split_ui.set_split_offset(-rect_size.x / 2 + offset)
+	_split_ui.set_split_offset(-size.x / 2 + offset)
 
 func _on_split_dragged(offset: int) -> void:
 	if _data != null:
-		var value = -(-rect_size.x / 2 - offset)
+		var value = -(-size.x / 2 - offset)
 		_data.setting_translations_split_offset_put(value)
 
 # Workaround for https://github.com/godotengine/godot/issues/22936
