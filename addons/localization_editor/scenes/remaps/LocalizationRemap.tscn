@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://addons/localization_editor/scenes/remaps/LocalizationRemap.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://cconuf5kyyt8x" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapPath.tscn" id="5"]
-[ext_resource type="Texture2D" uid="uid://dgp35gsev3h0u" path="res://addons/localization_editor/icons/Audio.svg" id="5_84ecs"]
-[ext_resource type="Texture2D" uid="uid://djtpd7stomej7" path="res://addons/localization_editor/icons/Video.svg" id="6_uxbjg"]
-[ext_resource type="Texture2D" uid="uid://0737j0gpu23r" path="res://addons/localization_editor/icons/Image.svg" id="7_is72i"]
+[ext_resource type="Texture2D" uid="uid://bkeugb6vucegl" path="res://addons/localization_editor/icons/Audio.svg" id="5_84ecs"]
+[ext_resource type="Texture2D" uid="uid://oxmydroedm6f" path="res://addons/localization_editor/icons/Video.svg" id="6_uxbjg"]
+[ext_resource type="Texture2D" uid="uid://dl6cg75c815d8" path="res://addons/localization_editor/icons/Image.svg" id="7_is72i"]
 
 [node name="Remap" type="MarginContainer"]
 anchors_preset = 15
@@ -26,10 +26,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Remap" parent="HBox" instance=ExtResource("5")]
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1062.0
 offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Audio" type="Button" parent="HBox"]
 offset_left = 1066.0

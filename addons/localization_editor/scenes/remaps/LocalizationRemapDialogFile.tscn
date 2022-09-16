@@ -1,9 +1,4 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://bh0d4n3rlnltu"]
 
 [node name="LocalizationRemapDialogFile" type="FileDialog"]
-margin_right = 315.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 600, 300 )
-window_title = "Open a File"
-resizable = true
-mode = 0
+size = Vector2i(800, 600)

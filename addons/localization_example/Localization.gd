@@ -25,6 +25,7 @@ func init_scene() -> void:
 	_languages_ui.visible = false
 
 func init_connections() -> void:
+	LocalizationManager.translation_changed.connect(_on_translation_changed)
 	var resultLanguages = _button_languages_ui.connect("pressed", _on_languages_pressed)
 	if resultLanguages != OK:
 		push_error("Can't connect languages button")
@@ -43,6 +44,9 @@ func init_connections() -> void:
 	var resultBack = _button_back_ui.connect("pressed", _on_back_pressed)
 	if resultBack != OK:
 		push_error("Can't connect back button")
+
+func _on_translation_changed() -> void:
+	print(TranslationServer.get_locale())
 
 func _on_languages_pressed() -> void:
 	_main_ui.visible = false
