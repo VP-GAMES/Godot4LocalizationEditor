@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/localization_editor/model/LocalizationPlaceholdersData.gd" id="1"]
 
 [resource]
-script = ExtResource( "1" )
+script = ExtResource("1")
 placeholders = {
 "NAME": {
 "de": "Johan",

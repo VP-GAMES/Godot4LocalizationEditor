@@ -3,7 +3,7 @@
 # @see https://cloud.google.com/translate/docs/languages
 extends Object
 
-static func locales() -> Array[LocalizationLocaleSingle]:
+static func locales() -> Array: #[LocalizationLocaleSingle]:
 	return [
 		LocalizationLocaleSingle.new("af", "Afrikaans"),
 		LocalizationLocaleSingle.new("sq", "Albanian"),

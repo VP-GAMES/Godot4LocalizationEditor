@@ -30,7 +30,7 @@ offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
 auto_translate = false
-min_size = Vector2(0, 31)
+rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="Pseudolocalization" type="CheckBox" parent="HBoxPseudolocalization/Panel"]
@@ -59,7 +59,7 @@ offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
 auto_translate = false
-min_size = Vector2(0, 31)
+rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="Accents" type="CheckBox" parent="HBoxAccents/Panel"]
@@ -90,7 +90,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
-min_size = Vector2(0, 31)
+rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="DoubleVowels" type="CheckBox" parent="HBoxDoubleVowels/Panel"]
@@ -120,7 +120,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
-min_size = Vector2(0, 31)
+rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="FakeBidi" type="CheckBox" parent="HBoxFakeBidi/Panel"]
@@ -150,7 +150,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
-min_size = Vector2(0, 31)
+rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="Override" type="CheckBox" parent="HBoxOverride/Panel"]
@@ -246,7 +246,7 @@ vertical_alignment = 1
 offset_left = 514.0
 offset_right = 1024.0
 offset_bottom = 31.0
-min_size = Vector2(0, 31)
+rect_min_size = Vector2(0, 31)
 size_flags_horizontal = 3
 
 [node name="SkipPlaceholders" type="CheckBox" parent="HBoxSkipPlaceholders/Panel"]

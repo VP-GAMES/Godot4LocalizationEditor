@@ -10,7 +10,7 @@ func _enter_tree():
 	add_autoload_singleton("LocalizationManager", "res://addons/localization_editor/LocalizationManager.gd")
 	_localization_main = LocalizationMain.instantiate()
 	_localization_main.name = "LocalizationEditor"
-	get_editor_interface().get_editor_main_control().add_child(_localization_main)
+	get_editor_interface().get_editor_main_screen().add_child(_localization_main)
 	_localization_main.set_editor(self)
 	_make_visible(false)
 

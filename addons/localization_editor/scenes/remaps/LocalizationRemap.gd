@@ -69,24 +69,26 @@ func _on_video_pressed() -> void:
 	var root = get_tree().get_root()
 	root.add_child(video_dialog)
 	video_dialog.title = _data.filename(_remap.value)
-	video_dialog.connect("close_requested", _on_popup_hide, [root, video_dialog])
 	var video_player = video_dialog.get_node("VideoPlayer") as VideoStreamPlayer
 	var video: VideoStream = load(_remap.value)
 	video_player.stream = video
+	video_dialog.close_requested.connect(_video_dialog_close.bind(video_dialog))
 	video_dialog.popup_centered(Vector2i(500, 300))
 	video_player.play()
+
+func _video_dialog_close(video_dialog: Window) -> void:
+	video_dialog.hide()
 
 func _on_image_pressed() -> void:
 	var image_dialog: Window  = LocalizationRemapDialogImage.instantiate()
 	var root = get_tree().get_root()
 	root.add_child(image_dialog)
 	image_dialog.title = _data.filename(_remap.value)
-	image_dialog.connect("close_requested", _on_popup_hide, [root, image_dialog])
 	var texture = image_dialog.get_node("Texture") as TextureRect
 	var image = load(_remap.value)
 	texture.texture = image
+	image_dialog.close_requested.connect(_image_dialog_close.bind(image_dialog))
 	image_dialog.popup_centered()
 
-func _on_popup_hide(root, dialog) -> void:
-	root.remove_child(dialog)
-	dialog.queue_free()
+func _image_dialog_close(image_dialog: Window) -> void:
+	image_dialog.hide()

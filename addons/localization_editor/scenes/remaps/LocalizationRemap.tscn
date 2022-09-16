@@ -1,53 +1,50 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqtiybaaxohvp"]
 
 [ext_resource type="Script" path="res://addons/localization_editor/scenes/remaps/LocalizationRemap.gd" id="4"]
-[ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapPath.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cconuf5kyyt8x" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapPath.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://dgp35gsev3h0u" path="res://addons/localization_editor/icons/Audio.svg" id="5_84ecs"]
 [ext_resource type="Texture2D" uid="uid://djtpd7stomej7" path="res://addons/localization_editor/icons/Video.svg" id="6_uxbjg"]
 [ext_resource type="Texture2D" uid="uid://0737j0gpu23r" path="res://addons/localization_editor/icons/Image.svg" id="7_is72i"]
 
 [node name="Remap" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_right = 3
 theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
-script = ExtResource( "4" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("4")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 offset_left = 3.0
-offset_right = 1021.0
+offset_right = 1149.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Remap" parent="HBox" instance=ExtResource( "5" )]
+[node name="Remap" parent="HBox" instance=ExtResource("5")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 934.0
+offset_right = 1062.0
 offset_bottom = 31.0
 
 [node name="Audio" type="Button" parent="HBox"]
-offset_left = 938.0
-offset_right = 962.0
+offset_left = 1066.0
+offset_right = 1090.0
 offset_bottom = 31.0
-min_size = Vector2(20, 20)
-icon = ExtResource( "5_84ecs" )
+icon = ExtResource("5_84ecs")
 
 [node name="Video" type="Button" parent="HBox"]
-offset_left = 966.0
-offset_right = 990.0
+offset_left = 1094.0
+offset_right = 1118.0
 offset_bottom = 31.0
-min_size = Vector2(20, 20)
-icon = ExtResource( "6_uxbjg" )
+icon = ExtResource("6_uxbjg")
 
 [node name="Image" type="Button" parent="HBox"]
-offset_left = 994.0
-offset_right = 1018.0
+offset_left = 1122.0
+offset_right = 1146.0
 offset_bottom = 31.0
-min_size = Vector2(20, 20)
-icon = ExtResource( "7_is72i" )
+icon = ExtResource("7_is72i")

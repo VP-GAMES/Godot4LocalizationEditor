@@ -85,12 +85,7 @@ func _open_file() -> void:
 	var root = get_tree().get_root()
 	root.add_child(file_dialog)
 	assert(file_dialog.file_selected.connect(_path_to_file_changed) == OK)
-	assert(file_dialog.get_cancel_button().connect("pressed", _on_popup_hide, [root, file_dialog]) == OK)
 	file_dialog.popup_centered()
-
-func _on_popup_hide(root, dialog) -> void:
-	root.remove_child(dialog)
-	dialog.queue_free()
 
 func _path_to_file_changed(new_path) -> void:
 	_data.setting_path_to_file_put(new_path)

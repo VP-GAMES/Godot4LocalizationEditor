@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyxcie626p7lk" path="res://addons/localization_editor/icons/Cancel.svg" id="5_ydycg"]
 
 [node name="Head" type="MarginContainer"]
-min_size = Vector2(0, 57)
+rect_min_size = Vector2(0, 57)
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_left = 3
@@ -26,12 +26,12 @@ offset_bottom = 65.0
 [node name="HBoxTop" type="HBoxContainer" parent="VBox"]
 offset_right = 60.0
 offset_bottom = 29.0
-min_size = Vector2(0, 24)
+rect_min_size = Vector2(0, 24)
 
 [node name="Music" type="Button" parent="VBox/HBoxTop"]
 offset_right = 28.0
 offset_bottom = 29.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 hint_tooltip = "Audio filter"
 toggle_mode = true
 icon = ExtResource( "2_6uq4h" )
@@ -40,7 +40,7 @@ icon = ExtResource( "2_6uq4h" )
 offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 29.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 hint_tooltip = "Texture filter"
 toggle_mode = true
 icon = ExtResource( "3_aivuy" )
@@ -49,12 +49,12 @@ icon = ExtResource( "3_aivuy" )
 offset_top = 33.0
 offset_right = 60.0
 offset_bottom = 62.0
-min_size = Vector2(0, 24)
+rect_min_size = Vector2(0, 24)
 
 [node name="Video" type="Button" parent="VBox/HBoxBottom"]
 offset_right = 28.0
 offset_bottom = 29.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 hint_tooltip = "Video filter"
 toggle_mode = true
 icon = ExtResource( "4_mrycj" )
@@ -63,6 +63,6 @@ icon = ExtResource( "4_mrycj" )
 offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 29.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 hint_tooltip = "Reset filters"
 icon = ExtResource( "5_ydycg" )

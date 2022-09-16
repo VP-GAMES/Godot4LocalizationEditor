@@ -43,7 +43,7 @@ func _on_text_changed(new_text) -> void:
 func _check_translation_ui() -> void:
 	if _translation_ui.text.length() <= 0:
 		_translation_ui.set("custom_styles/normal", _translation_ui_style_empty)
-		_translation_ui.hint_tooltip =  "Please enter value for your translation"
+		_translation_ui.tooltip_text =  "Please enter value for your translation"
 	else:
 		_translation_ui.set("custom_styles/normal", null)
-		_translation_ui.hint_tooltip =  ""
+		_translation_ui.tooltip_text =  ""

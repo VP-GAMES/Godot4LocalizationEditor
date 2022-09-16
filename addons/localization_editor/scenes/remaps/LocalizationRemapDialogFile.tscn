@@ -3,7 +3,7 @@
 [node name="LocalizationRemapDialogFile" type="FileDialog"]
 margin_right = 315.0
 margin_bottom = 130.0
-min_size = Vector2( 600, 300 )
+rect_min_size = Vector2( 600, 300 )
 window_title = "Open a File"
 resizable = true
 mode = 0

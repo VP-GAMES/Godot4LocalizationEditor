@@ -82,12 +82,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				var root = get_tree().get_root()
 				root.add_child(file_dialog)
 				file_dialog.connect("file_selected", _remap_value_changed)
-				file_dialog.connect("popup_hide", _on_popup_hide, [root, file_dialog])
 				file_dialog.popup_centered()
-
-func _on_popup_hide(root, dialog) -> void:
-	root.remove_child(dialog)
-	dialog.queue_free()
 
 func _can_drop_data(position, data) -> bool:
 	var remap_value = data["files"][0]
@@ -104,19 +99,19 @@ func _drop_data(position, data) -> void:
 func _check_remap_ui() -> void:
 	if text.length() <= 0:
 		set("custom_styles/normal", _remap_ui_style_empty)
-		hint_tooltip =  "Please set remap resource"
+		tooltip_text =  "Please set remap resource"
 	elif not _resource_exists():
 		set("custom_styles/normal", _remap_ui_style_resource)
-		hint_tooltip =  "Your resource path: \"" + _remap.value + "\" does not exists"
+		tooltip_text =  "Your resource path: \"" + _remap.value + "\" does not exists"
 	elif _resource_different_type():
 		set("custom_styles/normal", _remap_ui_style_resource_diff)
-		hint_tooltip =  "Your remaps have different types"
+		tooltip_text =  "Your remaps have different types"
 	elif _resource_double():
 		set("custom_styles/normal", _remap_ui_style_resource_double)
-		hint_tooltip =  "Your have double resources in your remaps"
+		tooltip_text =  "Your have double resources in your remaps"
 	else:
 		set("custom_styles/normal", null)
-		hint_tooltip =  ""
+		tooltip_text =  ""
 
 func _resource_exists() -> bool:
 	if _data.remap_type(_remap) == "undefined":

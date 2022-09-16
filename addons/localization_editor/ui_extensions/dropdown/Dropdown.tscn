@@ -21,7 +21,7 @@ offset_bottom = 31.0
 visible = false
 offset_right = 30.0
 offset_bottom = 31.0
-min_size = Vector2(30, 0)
+rect_min_size = Vector2(30, 0)
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -38,7 +38,7 @@ visible = false
 offset_left = 994.0
 offset_right = 1024.0
 offset_bottom = 31.0
-min_size = Vector2(30, 0)
+rect_min_size = Vector2(30, 0)
 size_flags_vertical = 3
 icon = ExtResource( "1_l2sby" )
 icon_alignment = 1

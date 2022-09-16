@@ -1,113 +1,129 @@
-[gd_scene load_steps=4 format=3 uid="uid://bewtnbhqhv5iy"]
+[gd_scene load_steps=3 format=3 uid="uid://bewtnbhqhv5iy"]
 
 [ext_resource type="Script" path="res://addons/localization_example/Placeholders.gd" id="1"]
-[ext_resource type="FontFile" uid="uid://do3gtrskq01lg" path="res://addons/localization_example/font/Pangolin-Regular.ttf" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="5"]
 bg_color = Color(0.231373, 0.478431, 0.541176, 0)
 
 [node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="VBox" type="VBoxContainer" parent="Content"]
+layout_mode = 2
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 1019.0
-offset_bottom = 595.0
+offset_right = 1147.0
+offset_bottom = 643.0
 
 [node name="HBox" type="HBoxContainer" parent="Content/VBox"]
-offset_right = 1014.0
-offset_bottom = 28.0
+layout_mode = 2
+offset_right = 1142.0
+offset_bottom = 31.0
 
 [node name="LabelPlaceholder" type="Label" parent="Content/VBox/HBox"]
+layout_mode = 2
 offset_top = 2.0
-offset_right = 141.0
-offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("2")
+offset_right = 148.0
+offset_bottom = 28.0
 text = "KEY_PLACEHOLDER"
 
 [node name="Placeholder" type="OptionButton" parent="Content/VBox/HBox"]
-offset_left = 145.0
-offset_right = 188.0
-offset_bottom = 28.0
+layout_mode = 2
+offset_left = 152.0
+offset_right = 166.0
+offset_bottom = 31.0
 
 [node name="LabelValue" type="Label" parent="Content/VBox/HBox"]
-offset_left = 192.0
+layout_mode = 2
+offset_left = 170.0
 offset_top = 2.0
-offset_right = 276.0
-offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("2")
+offset_right = 256.0
+offset_bottom = 28.0
 text = "KEY_VALUE"
 
 [node name="Value" type="LineEdit" parent="Content/VBox/HBox"]
-offset_left = 280.0
-offset_right = 334.0
-offset_bottom = 28.0
-theme_override_fonts/font = ExtResource("2")
+layout_mode = 2
+offset_left = 260.0
+offset_right = 327.0
+offset_bottom = 31.0
 text = "Mr Vladimir"
 placeholder_text = "value"
 
 [node name="Apply" type="Button" parent="Content/VBox/HBox"]
-offset_left = 338.0
-offset_right = 430.0
-offset_bottom = 28.0
-theme_override_fonts/font = ExtResource("2")
+layout_mode = 2
+offset_left = 331.0
+offset_right = 423.0
+offset_bottom = 31.0
 text = "KEY_APPLY"
 
 [node name="MarginTop" type="MarginContainer" parent="Content/VBox"]
-offset_top = 32.0
-offset_right = 1014.0
-offset_bottom = 42.0
+layout_mode = 2
+offset_top = 35.0
+offset_right = 1142.0
+offset_bottom = 45.0
 theme_override_constants/margin_top = 10
 
 [node name="LabelTop" type="Label" parent="Content/VBox"]
-offset_top = 46.0
-offset_right = 1014.0
-offset_bottom = 69.0
-theme_override_fonts/font = ExtResource("2")
+layout_mode = 2
+offset_top = 49.0
+offset_right = 1142.0
+offset_bottom = 75.0
 text = "top"
 
 [node name="LabelMiddle" type="Label" parent="Content/VBox"]
-offset_top = 73.0
-offset_right = 1014.0
-offset_bottom = 96.0
-theme_override_fonts/font = ExtResource("2")
+layout_mode = 2
+offset_top = 79.0
+offset_right = 1142.0
+offset_bottom = 105.0
 text = "middle"
 
 [node name="LabelBottom" type="Label" parent="Content/VBox"]
-offset_top = 100.0
-offset_right = 1014.0
-offset_bottom = 123.0
-theme_override_fonts/font = ExtResource("2")
+layout_mode = 2
+offset_top = 109.0
+offset_right = 1142.0
+offset_bottom = 135.0
 text = "bottom"
 
 [node name="MarginBottom" type="MarginContainer" parent="Content/VBox"]
-offset_top = 127.0
-offset_right = 1014.0
-offset_bottom = 137.0
+layout_mode = 2
+offset_top = 139.0
+offset_right = 1142.0
+offset_bottom = 149.0
 theme_override_constants/margin_top = 10
 
 [node name="Languages" type="OptionButton" parent="Content/VBox"]
-offset_top = 141.0
-offset_right = 1014.0
-offset_bottom = 161.0
+layout_mode = 2
+offset_top = 153.0
+offset_right = 1142.0
+offset_bottom = 173.0
 
 [node name="LabelError" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.992157, 1, 0.00392157, 1)
-theme_override_fonts/font = ExtResource("2")
 theme_override_styles/normal = SubResource("5")
 text = "To support placeholders you have to autoload res://addons/localization_editor/LocalizationManager.gd"

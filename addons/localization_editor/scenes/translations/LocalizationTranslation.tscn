@@ -5,7 +5,7 @@
 [node name="LocalizationTranslation" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-min_size = Vector2(0, 33)
+rect_min_size = Vector2(0, 33)
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_bottom = 3
@@ -18,13 +18,13 @@ __meta__ = {
 offset_left = 3.0
 offset_right = 1021.0
 offset_bottom = 597.0
-min_size = Vector2(0, 24)
+rect_min_size = Vector2(0, 24)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Translation" type="LineEdit" parent="HBox"]
 offset_right = 1018.0
 offset_bottom = 597.0
-min_size = Vector2(0, 24)
+rect_min_size = Vector2(0, 24)
 size_flags_horizontal = 3
 size_flags_vertical = 3

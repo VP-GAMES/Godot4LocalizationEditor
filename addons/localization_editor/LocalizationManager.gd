@@ -59,8 +59,8 @@ func set_placeholder(name: String, value: String, locale: String = "", profile: 
 	_placeholders[profile][name][loc] = value
 	emit_signal("translation_changed")
 
-func tr(name: StringName, context: StringName = name) -> String:
-	var tr_text = super.tr(name)
+func tr(name: StringName, context: StringName = StringName("")) -> String:
+	var tr_text = super.tr(name, context)
 	if _keys_with_placeholder.has(name):
 		for placeholder in _keys_with_placeholder[name]:
 			tr_text = tr_text.replace("{{" + placeholder + "}}", _placeholder_by_key(placeholder))
@@ -95,4 +95,4 @@ func _save_localization() -> void:
 	var save_data = LocalizationSave.new()
 	save_data.locale = TranslationServer.get_locale()
 	save_data.placeholders = _placeholders
-	assert(ResourceSaver.save(_path_to_save, save_data) == OK)
+	assert(ResourceSaver.save(save_data, _path_to_save) == OK)

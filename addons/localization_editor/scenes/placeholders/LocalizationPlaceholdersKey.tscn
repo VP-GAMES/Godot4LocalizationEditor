@@ -26,7 +26,7 @@ size_flags_vertical = 3
 [node name="Del" type="Button" parent="HBoxContainer"]
 offset_right = 28.0
 offset_bottom = 597.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 icon = ExtResource( "2_gnca8" )
 
 [node name="Key" type="LineEdit" parent="HBoxContainer"]

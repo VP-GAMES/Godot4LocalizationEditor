@@ -53,8 +53,8 @@ func _show_confirm_dialog() -> void:
 		var confirm_dialog  = ConfirmationDialog.new()
 		confirm_dialog.title = "Confirm"
 		confirm_dialog.dialog_text = "Are you sure to delete locale with all translations and remaps?"
-		confirm_dialog.get_ok_button().connect("pressed", _on_confirm_dialog_ok,  [root, confirm_dialog])
-		confirm_dialog.get_cancel_button().connect("pressed", _on_confirm_dialog_cancelled, [root, confirm_dialog])
+		confirm_dialog.confirmed.connect(_on_confirm_dialog_ok,  [root, confirm_dialog])
+		confirm_dialog.cancelled.connect(_on_confirm_dialog_cancelled, [root, confirm_dialog])
 		root.add_child(confirm_dialog)
 		confirm_dialog.popup_centered()
 

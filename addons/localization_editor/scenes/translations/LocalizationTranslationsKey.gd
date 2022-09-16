@@ -64,10 +64,10 @@ func _check_key_ui_text() -> void:
 func _check_key_ui() -> void:
 	if _key_ui.text.length() <= 0:
 		_key_ui.set("custom_styles/normal", _key_ui_style_empty)
-		_key_ui.hint_tooltip =  "Please enter a key name"
+		_key_ui.tooltip_text =  "Please enter a key name"
 	elif _data.is_key_value_double(_key_ui.text):
-		_key_ui.hint_tooltip =  "Keyname already exists"
+		_key_ui.tooltip_text =  "Keyname already exists"
 		_key_ui.set("custom_styles/normal", _key_ui_style_double)
 	else:
 		_key_ui.set("custom_styles/normal", null)
-		_key_ui.hint_tooltip =  ""
+		_key_ui.tooltip_text =  ""

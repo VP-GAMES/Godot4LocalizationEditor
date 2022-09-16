@@ -167,7 +167,7 @@ func _save_data_translations_placeholders() -> void:
 func _save_data_placeholders() -> void:
 	var placeholders_data = LocalizationPlaceholdersData.new()
 	placeholders_data.placeholders = data_placeholders
-	ResourceSaver.save(default_path_to_placeholders, placeholders_data)
+	ResourceSaver.save(placeholders_data, default_path_to_placeholders)
 
 func _save_data_translations_to_project_settings() -> void:
 	var file = setting_path_to_file()

@@ -85,7 +85,7 @@ func _create_request(from_translation, to_translation) -> void:
 	var http_request = HTTPRequest.new()
 	http_request.timeout = 5
 	add_child(http_request)
-	assert(http_request.connect("request_completed", _http_request_completed, [http_request, to_translation]) == OK)
+	assert(http_request.request_completed.connect(_http_request_completed, [http_request, to_translation]) == OK)
 	http_request.request(url, [], false, HTTPClient.METHOD_GET)
 
 func _create_url(from_translation, to_translation) -> String:

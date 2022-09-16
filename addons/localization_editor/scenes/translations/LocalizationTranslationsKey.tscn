@@ -7,7 +7,7 @@
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-min_size = Vector2(0, 33)
+rect_min_size = Vector2(0, 33)
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/margin_right = 3
@@ -28,7 +28,7 @@ size_flags_vertical = 3
 [node name="Add" type="Button" parent="HBoxContainer"]
 offset_right = 28.0
 offset_bottom = 597.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 hint_tooltip = "Add translation"
 size_flags_vertical = 3
 icon = ExtResource( "2_l10x2" )
@@ -38,7 +38,7 @@ icon_alignment = 1
 offset_left = 32.0
 offset_right = 60.0
 offset_bottom = 597.0
-min_size = Vector2(20, 20)
+rect_min_size = Vector2(20, 20)
 hint_tooltip = "Del translation"
 size_flags_vertical = 3
 icon = ExtResource( "3_c34cs" )
@@ -47,6 +47,6 @@ icon = ExtResource( "3_c34cs" )
 offset_left = 64.0
 offset_right = 1018.0
 offset_bottom = 597.0
-min_size = Vector2(0, 24)
+rect_min_size = Vector2(0, 24)
 size_flags_horizontal = 3
 size_flags_vertical = 3
