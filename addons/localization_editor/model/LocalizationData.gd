@@ -90,6 +90,7 @@ func save_data_translations(update_script_classes = false) -> void:
 	_save_data_translations_placeholders()
 	_save_data_placeholders()
 	_save_data_translations_to_project_settings()
+	_save_data_remaps_keys()
 	ProjectSettings.save()
 	if update_script_classes:
 		_editor.get_editor_interface().get_resource_filesystem().update_script_classes()
@@ -177,6 +178,24 @@ func _save_data_translations_to_project_settings() -> void:
 		var entry = file + "." + locale + ".translation"
 		translations.append(entry)
 	ProjectSettings.set_setting("internationalization/locale/translations", translations)
+
+func _save_data_remaps_keys() -> void:
+	var internationalization_path = "internationalization/locale/translation_remaps"
+	var file = File.new()
+	file.open(default_path + "LocalizationRemaps.gd", File.WRITE)
+	var source_code = "# Remapkeys for LocalizationManger to use in source code: MIT License\n"
+	source_code += AUTHOR
+	source_code += "@tool\n"
+	source_code += "class_name LocalizationRemaps\n\n"
+	if ProjectSettings.has_setting(internationalization_path):
+		var settings_remaps = ProjectSettings.get_setting(internationalization_path)
+		if settings_remaps.size():
+			var keys = settings_remaps.keys();
+			for key in keys:
+				var filename = key.get_file()
+				source_code += "const " + filename.replace(".", "_").to_upper() + " = \"" + filename.replace(".", "_").to_upper() +"\"\n"
+			file.store_string(source_code)
+			file.close()
 
 # ***** UUID ****
 static func uuid() -> String:

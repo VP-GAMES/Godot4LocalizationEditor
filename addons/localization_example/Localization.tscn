@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://tqulwy6kwc1q"]
 
-[ext_resource type="AudioStream" uid="uid://c8vjgrfplg024" path="res://addons/localization_example/Data/Audio/hello_en.ogg" id="2"]
 [ext_resource type="Texture2D" uid="uid://dsa1u8o2m0la0" path="res://addons/localization_example/Data/Images/play_en.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://c8vjgrfplg024" path="res://addons/localization_example/Data/Audio/hello_en.ogg" id="3_64dil"]
 [ext_resource type="Script" path="res://addons/localization_example/Localization.gd" id="4"]
 [ext_resource type="VideoStream" path="res://addons/localization_example/Data/Video/video_en.ogv" id="5_enei4"]
 
@@ -84,7 +84,8 @@ anchor_bottom = 0.95
 text = "KEY_TEXT"
 
 [node name="Audio" type="AudioStreamPlayer" parent="Main"]
-stream = ExtResource("2")
+stream = ExtResource("3_64dil")
+autoplay = true
 
 [node name="Video" type="VideoStreamPlayer" parent="Main"]
 layout_mode = 1
@@ -94,6 +95,7 @@ anchor_top = 0.65
 anchor_right = 0.95
 anchor_bottom = 0.95
 stream = ExtResource("5_enei4")
+expand = true
 
 [node name="ButtonPlayVideo" type="Button" parent="Main"]
 layout_mode = 1

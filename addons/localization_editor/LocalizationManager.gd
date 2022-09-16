@@ -11,12 +11,14 @@ var _path_to_save = "user://localization.tres"
 var _keys_with_placeholder: Dictionary = {}
 var _placeholders_default: Dictionary = {}
 var _placeholders: Dictionary = {}
+var _data_remaps: Dictionary = {}
 
 func _ready() -> void:
 	_load_pseudolocalization_control()
 	_load_localization()
 	_load_placeholders_default()
 	_load_localization_keys()
+	_load_data_remaps()
 
 func _load_pseudolocalization_control() -> void:
 	if ProjectSettings.has_setting(_pseudolocalization_control) and ProjectSettings.get_setting(_pseudolocalization_control) == true:
@@ -58,6 +60,30 @@ func set_placeholder(name: String, value: String, locale: String = "", profile: 
 		_placeholders[profile][name] = {}
 	_placeholders[profile][name][loc] = value
 	emit_signal("translation_changed")
+
+func _load_data_remaps() -> void:
+	var internationalization_path = "internationalization/locale/translation_remaps"
+	_data_remaps.remapkeys = []
+	if ProjectSettings.has_setting(internationalization_path):
+		var settings_remaps = ProjectSettings.get_setting(internationalization_path)
+		if settings_remaps.size():
+			var keys = settings_remaps.keys();
+			for key in keys:
+				var remaps = []
+				for remap in settings_remaps[key]:
+					var index = remap.rfind(":")
+					var locale  = remap.substr(index + 1)
+					var value = remap.substr(0, index)
+					var remap_new = {"locale": locale, "value": value }
+					remaps.append(remap_new)
+				var filename = key.get_file()
+				_data_remaps[filename.replace(".", "_").to_upper()] = remaps
+
+func tr_remap(key: String) -> String:
+	for remap in _data_remaps[key]: 
+		if remap["locale"] == TranslationServer.get_locale():
+			return remap["value"]
+	return ""
 
 func tr(name: StringName, context: StringName = StringName("")) -> String:
 	var tr_text = super.tr(name, context)

@@ -10,8 +10,8 @@ extends CanvasLayer
 @onready var _button_play_sound_ui = $Main/ButtonPlaySound
 @onready var _button_play_video_ui = $Main/ButtonPlayVideo
 @onready var _button_back_ui = $Languages/ButtonBack
-@onready var _audio_ui = $Main/Audio
-@onready var _video_ui = $Main/Video
+@onready var _audio_ui: AudioStreamPlayer = $Main/Audio
+@onready var _video_ui: VideoStreamPlayer = $Main/Video
 
 @onready var _locales = TranslationServer.get_loaded_locales()
 
@@ -19,6 +19,7 @@ func _ready() -> void:
 	init_scene()
 	init_connections()
 	init_languages()
+	_on_translation_changed()
 
 func init_scene() -> void:
 	_main_ui.visible = true
@@ -46,7 +47,10 @@ func init_connections() -> void:
 		push_error("Can't connect back button")
 
 func _on_translation_changed() -> void:
-	print(TranslationServer.get_locale())
+	var audio = load(LocalizationManager.tr_remap(LocalizationRemaps.HELLO_EN_OGG))
+	_audio_ui.stream = audio
+	var video: VideoStream = load(LocalizationManager.tr_remap(LocalizationRemaps.VIDEO_EN_OGV))
+	_video_ui.stream = video
 
 func _on_languages_pressed() -> void:
 	_main_ui.visible = false
