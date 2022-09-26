@@ -85,7 +85,7 @@ func _create_request(from_translation, to_translation) -> void:
 	var http_request = HTTPRequest.new()
 	http_request.timeout = 5
 	add_child(http_request)
-	assert(http_request.request_completed.connect(_http_request_completed, [http_request, to_translation]) == OK)
+	assert(http_request.request_completed.connect(_http_request_completed.bind(http_request, to_translation)) == OK)
 	http_request.request(url, [], false, HTTPClient.METHOD_GET)
 
 func _create_url(from_translation, to_translation) -> String:
@@ -100,7 +100,13 @@ func _http_request_completed(result, response_code, headers, body, http_request,
 	var json = JSON.new()
 	var result_body := json.parse(body.get_string_from_utf8())
 	if json.get_data() != null:
-		to_translation.value = json.get_data()[0][0][0]
+		var value = ""
+		for index in range(json.get_data()[0].size()):
+			if index == 0:
+				value = json.get_data()[0][index][0]
+			else:
+				value += " " + json.get_data()[0][index][0]
+		to_translation.value = value
 		_add_progress()
 		remove_child(http_request)
 	_queries_count -= 1
