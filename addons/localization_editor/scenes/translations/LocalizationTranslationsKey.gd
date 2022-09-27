@@ -62,12 +62,12 @@ func _check_key_ui_text() -> void:
 		_key_ui.text = _key.value
 
 func _check_key_ui() -> void:
+	_key_ui.remove_theme_stylebox_override("normal")
 	if _key_ui.text.length() <= 0:
-		_key_ui.set("custom_styles/normal", _key_ui_style_empty)
+		_key_ui.add_theme_stylebox_override("normal", _key_ui_style_empty)
 		_key_ui.tooltip_text =  "Please enter a key name"
 	elif _data.is_key_value_double(_key_ui.text):
 		_key_ui.tooltip_text =  "Keyname already exists"
-		_key_ui.set("custom_styles/normal", _key_ui_style_double)
+		_key_ui.add_theme_stylebox_override("normal", _key_ui_style_double)
 	else:
-		_key_ui.set("custom_styles/normal", null)
 		_key_ui.tooltip_text =  ""
