@@ -26,8 +26,7 @@ func _load_pseudolocalization_control() -> void:
 		root_node.call_deferred("add_child", _pseudolocalization_ui.instantiate())
 
 func _load_placeholders_default() -> void:
-	var file = File.new()
-	if file.file_exists(LocalizationData.default_path_to_placeholders):
+	if FileAccess.file_exists(LocalizationData.default_path_to_placeholders):
 		var resource = ResourceLoader.load(LocalizationData.default_path_to_placeholders)
 		if resource and resource.placeholders and not resource.placeholders.size() <= 0:
 			_placeholders_default = resource.placeholders
@@ -107,8 +106,7 @@ func _notification(what):
 			emit_signal("translation_changed")
 
 func _load_localization():
-	var file = File.new()
-	if file.file_exists(_path_to_save):
+	if FileAccess.file_exists(_path_to_save):
 		var loaded_data = load(_path_to_save) as LocalizationSave
 		if loaded_data:
 			if loaded_data.placeholders and not loaded_data.placeholders.is_empty():
