@@ -116,8 +116,7 @@ func _check_remap_ui() -> void:
 func _resource_exists() -> bool:
 	if _data.remap_type(_remap) == "undefined":
 		return false
-	var file = File.new()
-	return file.file_exists(_remap.value)
+	return FileAccess.file_exists(_remap.value)
 
 func _resource_different_type() -> bool:
 	var type = _data.remap_type(_remap)

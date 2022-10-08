@@ -76,7 +76,7 @@ _global_script_class_icons={
 
 config/name="Godot4LocalizationEditor"
 run/main_scene="res://addons/localization_example/Localization.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
 [autoload]

@@ -64,10 +64,9 @@ func init_data_translations() -> void:
 	_init_data_translations_csv()
 
 func _init_data_translations_csv() -> void:
-	var file = File.new()
 	var path = setting_path_to_file()
-	if file.file_exists(path):
-		file.open(path, file.READ)
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
 		var locales_line = file.get_csv_line()
 		var size = locales_line.size()
 		if size > 1:
@@ -82,7 +81,6 @@ func _init_data_translations_csv() -> void:
 					var translation = {"locale": locales_line[index], "value": values_line[index]}
 					key.translations.append(translation)
 				data.keys.append(key)
-	file.close()
 
 func save_data_translations(update_script_classes = false) -> void:
 	_save_data_translations_csv()
@@ -96,13 +94,12 @@ func save_data_translations(update_script_classes = false) -> void:
 		_editor.get_editor_interface().get_resource_filesystem().update_script_classes()
 
 func _save_data_translations_csv() -> void:
-	var directory = Directory.new()
 	var path = setting_path_to_file()
 	var path_directory = file_path(path)
-	if not directory.dir_exists(path_directory):
+	var directory:= DirAccess.open(path_directory)
+	if not directory:
 		directory.make_dir(path_directory)
-	var file = File.new()
-	file.open(setting_path_to_file(), File.WRITE)
+	var file = FileAccess.open(setting_path_to_file(), FileAccess.WRITE)
 	var locales_line: Array = ["keys"]
 	var locales = data.locales
 	if locales.size() <= 0:
@@ -115,11 +112,9 @@ func _save_data_translations_csv() -> void:
 		for translation in key.translations:
 			values_line.append(translation.value)
 		file.store_csv_line(values_line)
-	file.close()
 
 func _save_data_translations_keys() -> void:
-	var file = File.new()
-	file.open(default_path + "LocalizationKeys.gd", File.WRITE)
+	var file = FileAccess.open(default_path + "LocalizationKeys.gd", FileAccess.WRITE)
 	var source_code = "# Keys for LocalizationManger to use in source code: MIT License\n"
 	source_code += AUTHOR
 	source_code += "@tool\n"
@@ -132,7 +127,6 @@ func _save_data_translations_keys() -> void:
 	source_code = source_code.substr(0, source_code.rfind(",\n"))
 	source_code += "\n]"
 	file.store_string(source_code)
-	file.close()
 
 func _save_data_translations_placeholders() -> void:
 	var placeholders = {}
@@ -146,8 +140,7 @@ func _save_data_translations_placeholders() -> void:
 			clean_name = clean_name.replace("}}", "");
 			if not placeholders.has(clean_name):
 				placeholders[clean_name] = name
-	var file = File.new()
-	file.open(default_path + "LocalizationPlaceholders.gd", File.WRITE)
+	var file = FileAccess.open(default_path + "LocalizationPlaceholders.gd", FileAccess.WRITE)
 	var source_code = "# Placeholders for LocalizationManger to use in source code: MIT License\n"
 	source_code += AUTHOR
 	source_code += "@tool\n"
@@ -163,7 +156,6 @@ func _save_data_translations_placeholders() -> void:
 		count += 1
 	source_code += "\n]"
 	file.store_string(source_code)
-	file.close()
 
 func _save_data_placeholders() -> void:
 	var placeholders_data = LocalizationPlaceholdersData.new()
@@ -181,8 +173,7 @@ func _save_data_translations_to_project_settings() -> void:
 
 func _save_data_remaps_keys() -> void:
 	var internationalization_path = "internationalization/locale/translation_remaps"
-	var file = File.new()
-	file.open(default_path + "LocalizationRemaps.gd", File.WRITE)
+	var file = FileAccess.open(default_path + "LocalizationRemaps.gd", FileAccess.WRITE)
 	var source_code = "# Remapkeys for LocalizationManger to use in source code: MIT License\n"
 	source_code += AUTHOR
 	source_code += "@tool\n"
@@ -195,7 +186,6 @@ func _save_data_remaps_keys() -> void:
 				var filename = key.get_file()
 				source_code += "const " + filename.replace(".", "_").to_upper() + " = \"" + filename.replace(".", "_").to_upper() +"\"\n"
 			file.store_string(source_code)
-			file.close()
 
 # ***** UUID ****
 static func uuid() -> String:
@@ -713,8 +703,7 @@ func init_data_placeholders() -> void:
 	for key in placeholders.keys():
 		if not data_placeholders.has(key):
 			data_placeholders[key] = placeholders[key]
-	var file = File.new()
-	if file.file_exists(default_path_to_placeholders):
+	if FileAccess.file_exists(default_path_to_placeholders):
 		var resource = ResourceLoader.load(default_path_to_placeholders)
 		if resource and resource.placeholders and not resource.placeholders.size() <= 0:
 			for key in resource.placeholders.keys():
