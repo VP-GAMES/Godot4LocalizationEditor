@@ -14,6 +14,21 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/localization_editor/ui_extensions/dropdown/DropdownItem.gd"
 }, {
+"base": "Object",
+"class": &"LocalizationAutoTranslateDeepL",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateDeepL.gd"
+}, {
+"base": "Object",
+"class": &"LocalizationAutoTranslateGoogle",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateGoogle.gd"
+}, {
+"base": "Object",
+"class": &"LocalizationAutoTranslateYandex",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateYandex.gd"
+}, {
 "base": "Resource",
 "class": &"LocalizationData",
 "language": &"GDScript",
@@ -61,6 +76,9 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "DropdownItem": "",
+"LocalizationAutoTranslateDeepL": "",
+"LocalizationAutoTranslateGoogle": "",
+"LocalizationAutoTranslateYandex": "",
 "LocalizationData": "",
 "LocalizationKeys": "",
 "LocalizationLocaleSingle": "",

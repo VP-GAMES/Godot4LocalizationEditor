@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tqulwy6kwc1q"]
+[gd_scene load_steps=5 format=3 uid="uid://cod8a066hch0o"]
 
 [ext_resource type="Texture2D" uid="uid://dsa1u8o2m0la0" path="res://addons/localization_example/Data/Images/play_en.png" id="3"]
-[ext_resource type="AudioStream" uid="uid://c8vjgrfplg024" path="res://addons/localization_example/Data/Audio/hello_en.ogg" id="3_64dil"]
+[ext_resource type="AudioStream" uid="uid://cjubb6qpqff80" path="res://addons/localization_example/Data/Audio/hello_en.mp3" id="3_64dil"]
 [ext_resource type="Script" path="res://addons/localization_example/Localization.gd" id="4"]
 [ext_resource type="VideoStream" path="res://addons/localization_example/Data/Video/video_en.ogv" id="5_enei4"]
 

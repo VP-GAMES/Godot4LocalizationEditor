@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btxlurvr45t4y"
-path="res://.godot/imported/Cancel.svg-48414b87d4728c3eadd4eaca4dca2d31.ctex"
+uid="uid://chlw8bdg84q1m"
+path="res://.godot/imported/Yandex.png-1d69d5125cb5731efa2a1f87a01017ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/localization_editor/ui_extensions/dropdown/Cancel.svg"
-dest_files=["res://.godot/imported/Cancel.svg-48414b87d4728c3eadd4eaca4dca2d31.ctex"]
+source_file="res://addons/localization_editor/icons/Yandex.png"
+dest_files=["res://.godot/imported/Yandex.png-1d69d5125cb5731efa2a1f87a01017ad.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

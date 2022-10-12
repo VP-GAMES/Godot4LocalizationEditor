@@ -2,8 +2,9 @@
 # @author Vladimir Petrenko
 # @see https://cloud.google.com/translate/docs/languages
 extends Object
+class_name LocalizationAutoTranslateGoogle
 
-static func locales() -> Array: #[LocalizationLocaleSingle]:
+static func locales() -> Array:
 	return [
 		LocalizationLocaleSingle.new("af", "Afrikaans"),
 		LocalizationLocaleSingle.new("sq", "Albanian"),
