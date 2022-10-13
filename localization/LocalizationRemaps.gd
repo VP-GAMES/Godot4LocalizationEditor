@@ -3,6 +3,6 @@
 @tool
 class_name LocalizationRemaps
 
-const HELLO_EN_OGG = "HELLO_EN_OGG"
+const HELLO_EN_MP3 = "HELLO_EN_MP3"
 const PLAY_EN_PNG = "PLAY_EN_PNG"
 const VIDEO_EN_OGV = "VIDEO_EN_OGV"

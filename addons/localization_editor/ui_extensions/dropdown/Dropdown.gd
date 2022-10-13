@@ -146,6 +146,9 @@ func _on_selection_changed(index: int) -> void:
 	_popup_panel.hide()
 	_update_view()
 
+func clear_selection() -> void:
+	_clear_selection()
+
 func _clear_selection() -> void:
 	_selected = -1
 	_selector.text = ""

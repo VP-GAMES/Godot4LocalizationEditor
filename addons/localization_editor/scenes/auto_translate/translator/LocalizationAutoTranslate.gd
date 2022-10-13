@@ -35,7 +35,7 @@ func _init_connections() -> void:
 
 func _update_view() -> void:
 	_init_from_language_ui()
-	_init_to_language_ui(LocalizationAutoTranslateGoogle.locales())
+	_check_translate_ui_selected()
 
 func _init_from_language_ui() -> void:
 	_from_language_ui.clear()
@@ -55,9 +55,19 @@ func _init_to_language_ui(locales: Array) -> void:
 			_to_language_ui.add_item(DropdownItem.new(locale.name, locale.code))
 
 func _check_translate_ui(_item: DropdownItem) -> void:
+	_check_translate_ui_selected()
+
+func _check_translate_ui_selected() -> void:
+	if _translator.selected != -1:
+		_on_translator_selected(_translator.selected)
+	_check_translate_ui_disabled()
+
+func _check_translate_ui_disabled() -> void:
 	_translate_ui.set_disabled(_from_language_ui.get_selected_index() == -1 or _to_language_ui.get_selected_index() == -1)
 
 func _on_translator_selected(index: int) -> void:
+	_to_language_ui.clear_selection()
+	_check_translate_ui_disabled()
 	match index:
 		0:
 			_link.text =  "https://translate.google.com/"
@@ -68,6 +78,12 @@ func _on_translator_selected(index: int) -> void:
 		2:
 			_link.text =  "https://www.deepl.com/translator"
 			_init_to_language_ui(LocalizationAutoTranslateDeepL.locales())
+		3:
+			_link.text =  "https://aws.amazon.com/translate/"
+			_init_to_language_ui(LocalizationAutoTranslateAmazon.locales())
+		4:
+			_link.text =  "https://translator.microsoft.com/"
+			_init_to_language_ui(LocalizationAutoTranslateMicrosoft.locales())
 
 func _on_link_pressed() -> void:
 	OS.shell_open(_link.text)
@@ -101,6 +117,10 @@ func _create_requests() -> void:
 					_create_request_yandex(from_translation, to_translation)
 				2:
 					_create_request_deepl(from_translation, to_translation)
+				3:
+					_create_request_amazon(from_translation, to_translation)
+				4:
+					_create_request_microsoft(from_translation, to_translation)
 		else:
 			_add_progress()
 		_data_keys.remove_at(0)
@@ -144,7 +164,6 @@ func _http_request_completed_google(result, response_code, headers, body, http_r
 func _create_request_yandex(from_translation, to_translation) -> void:
 	push_error("YANDEX IMPLEMENTATION NOT SUPPORTED YET")
 	return
-
 # *** YANDEX IMPLEMENTATION END ***
 
 # *** DEEPL IMPLEMENTATION START ***
@@ -183,6 +202,18 @@ func _http_request_completed_deepl(result, response_code, headers, body, http_re
 	_queries_count -= 1
 	_create_requests()
 # *** DEEPL IMPLEMENTATION END ***
+
+# *** AMAZON IMPLEMENTATION START ***
+func _create_request_amazon(from_translation, to_translation) -> void:
+	push_error("AMAZON IMPLEMENTATION NOT SUPPORTED YET")
+	return
+# *** AMAZON IMPLEMENTATION END ***
+
+# *** MICROSOFT IMPLEMENTATION START ***
+func _create_request_microsoft(from_translation, to_translation) -> void:
+	push_error("MICROSOFT IMPLEMENTATION NOT SUPPORTED YET")
+	return
+# *** MICROSOFT IMPLEMENTATION END ***
 
 func _add_progress() -> void:
 	_progress_ui.value = _progress_ui.value + 1

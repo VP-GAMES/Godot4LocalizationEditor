@@ -47,7 +47,7 @@ func init_connections() -> void:
 		push_error("Can't connect back button")
 
 func _on_translation_changed() -> void:
-	var audio = load(LocalizationManager.tr_remap(LocalizationRemaps.HELLO_EN_OGG))
+	var audio = load(LocalizationManager.tr_remap(LocalizationRemaps.HELLO_EN_MP3))
 	_audio_ui.stream = audio
 	var video: VideoStream = load(LocalizationManager.tr_remap(LocalizationRemaps.VIDEO_EN_OGV))
 	_video_ui.stream = video
@@ -57,6 +57,8 @@ func _on_languages_pressed() -> void:
 	_languages_ui.visible = true
 
 func _on_play_audio_pressed() -> void:
+	var audio = load(LocalizationManager.tr_remap(LocalizationRemaps.HELLO_EN_MP3))
+	_audio_ui.stream = audio
 	_audio_ui.play()
 
 func _on_play_video_pressed() -> void:

@@ -15,6 +15,11 @@ _global_script_classes=[{
 "path": "res://addons/localization_editor/ui_extensions/dropdown/DropdownItem.gd"
 }, {
 "base": "Object",
+"class": &"LocalizationAutoTranslateAmazon",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateAmazon.gd"
+}, {
+"base": "Object",
 "class": &"LocalizationAutoTranslateDeepL",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateDeepL.gd"
@@ -23,6 +28,11 @@ _global_script_classes=[{
 "class": &"LocalizationAutoTranslateGoogle",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateGoogle.gd"
+}, {
+"base": "Object",
+"class": &"LocalizationAutoTranslateMicrosoft",
+"language": &"GDScript",
+"path": "res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslateMicrosoft.gd"
 }, {
 "base": "Object",
 "class": &"LocalizationAutoTranslateYandex",
@@ -76,8 +86,10 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "DropdownItem": "",
+"LocalizationAutoTranslateAmazon": "",
 "LocalizationAutoTranslateDeepL": "",
 "LocalizationAutoTranslateGoogle": "",
+"LocalizationAutoTranslateMicrosoft": "",
 "LocalizationAutoTranslateYandex": "",
 "LocalizationData": "",
 "LocalizationKeys": "",
@@ -108,11 +120,12 @@ enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg")
 [internationalization]
 
 locale/translation_remaps={
-"res://addons/localization_example/Data/Audio/hello_en.ogg": ["res://addons/localization_example/Data/Audio/hello_en.ogg:en", "res://addons/localization_example/Data/Audio/hello_de.ogg:de", "res://addons/localization_example/Data/Audio/hello_ru.ogg:ru"],
+"res://addons/localization_example/Data/Audio/hello_en.mp3": ["res://addons/localization_example/Data/Audio/hello_en.mp3:en", "res://addons/localization_example/Data/Audio/hello_de.mp3:de", "res://addons/localization_example/Data/Audio/hello_ru.mp3:ru"],
 "res://addons/localization_example/Data/Images/play_en.png": ["res://addons/localization_example/Data/Images/play_en.png:en", "res://addons/localization_example/Data/Images/play_de.png:de", "res://addons/localization_example/Data/Images/play_ru.png:ru"],
 "res://addons/localization_example/Data/Video/video_en.ogv": ["res://addons/localization_example/Data/Video/video_en.ogv:en", "res://addons/localization_example/Data/Video/video_de.ogv:de", "res://addons/localization_example/Data/Video/video_ru.ogv:ru"]
 }
 locale/translations=PackedStringArray("res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation")
+pseudolocalization/replace_with_accents=false
 pseudolocalization/skip_placeholders=false
 pseudolocalization/use_pseudolocalization_control=false
 

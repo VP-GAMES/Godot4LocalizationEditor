@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccbyggubd2f1b"]
+[gd_scene load_steps=8 format=3 uid="uid://d15n48edirewf"]
 
 [ext_resource type="Script" path="res://addons/localization_editor/scenes/auto_translate/translator/LocalizationAutoTranslate.gd" id="1_cuqef"]
 [ext_resource type="Texture2D" uid="uid://byv22srd37niw" path="res://addons/localization_editor/icons/Google.png" id="2_l1peq"]
 [ext_resource type="PackedScene" uid="uid://cmavhtjtgg1ca" path="res://addons/localization_editor/ui_extensions/dropdown/Dropdown.tscn" id="3_8iumy"]
 [ext_resource type="Texture2D" uid="uid://chlw8bdg84q1m" path="res://addons/localization_editor/icons/Yandex.png" id="3_ul6cn"]
 [ext_resource type="Texture2D" uid="uid://c24qna6n2q27l" path="res://addons/localization_editor/icons/DeepL.png" id="4_142cw"]
+[ext_resource type="Texture2D" uid="uid://cfu2uuf8hh0c" path="res://addons/localization_editor/icons/Amazon.png" id="5_0oig7"]
+[ext_resource type="Texture2D" uid="uid://dekewvpr4ic2c" path="res://addons/localization_editor/icons/Microsoft.png" id="6_tal6j"]
 
 [node name="LocalizationAutotranslateGoogle" type="MarginContainer"]
 anchors_preset = 15
@@ -16,12 +18,14 @@ size_flags_horizontal = 3
 script = ExtResource("1_cuqef")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,20 +33,23 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxTranslator" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 61.0
 
 [node name="Label" type="Label" parent="Panel/VBox/HBoxTranslator"]
+layout_mode = 2
 offset_top = 17.0
 offset_right = 80.0
 offset_bottom = 43.0
 text = "Translator"
 
 [node name="Translator" type="OptionButton" parent="Panel/VBox/HBoxTranslator"]
+layout_mode = 2
 offset_left = 84.0
 offset_right = 277.0
 offset_bottom = 61.0
-item_count = 3
+item_count = 5
 selected = 0
 popup/item_0/text = ""
 popup/item_0/icon = ExtResource("2_l1peq")
@@ -50,43 +57,60 @@ popup/item_0/id = 0
 popup/item_1/text = ""
 popup/item_1/icon = ExtResource("3_ul6cn")
 popup/item_1/id = 1
+popup/item_1/disabled = true
 popup/item_2/text = ""
 popup/item_2/icon = ExtResource("4_142cw")
 popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = ""
+popup/item_3/icon = ExtResource("5_0oig7")
+popup/item_3/id = 3
+popup/item_3/disabled = true
+popup/item_4/text = ""
+popup/item_4/icon = ExtResource("6_tal6j")
+popup/item_4/id = 4
+popup/item_4/disabled = true
 
 [node name="HBoxConnection" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
 offset_top = 65.0
 offset_right = 1152.0
 offset_bottom = 91.0
 
 [node name="LinkButton" type="LinkButton" parent="Panel/VBox/HBoxConnection"]
+layout_mode = 2
 offset_right = 227.0
 offset_bottom = 26.0
 text = "https://translate.google.com/"
 
 [node name="Label" type="Label" parent="Panel/VBox/HBoxConnection"]
+layout_mode = 2
 offset_left = 231.0
 offset_right = 264.0
 offset_bottom = 26.0
 text = "Key:"
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
 offset_top = 95.0
 offset_right = 1152.0
 offset_bottom = 126.0
 
 [node name="From" type="Label" parent="Panel/VBox/HBox"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 45.0
 offset_bottom = 28.0
 text = "From:"
 
 [node name="FromLanguage" parent="Panel/VBox/HBox" instance=ExtResource("3_8iumy")]
+layout_mode = 2
 anchor_right = 0.0
 offset_left = 49.0
 offset_right = 542.0
 
 [node name="To" type="Label" parent="Panel/VBox/HBox"]
+layout_mode = 2
 offset_left = 546.0
 offset_top = 2.0
 offset_right = 570.0
@@ -94,11 +118,13 @@ offset_bottom = 28.0
 text = "To:"
 
 [node name="ToLanguage" parent="Panel/VBox/HBox" instance=ExtResource("3_8iumy")]
+layout_mode = 2
 anchor_right = 0.0
 offset_left = 574.0
 offset_right = 1067.0
 
 [node name="Translate" type="Button" parent="Panel/VBox/HBox"]
+layout_mode = 2
 offset_left = 1071.0
 offset_right = 1152.0
 offset_bottom = 31.0
@@ -106,6 +132,7 @@ disabled = true
 text = "Translate"
 
 [node name="Progress" type="ProgressBar" parent="Panel/VBox"]
+layout_mode = 2
 offset_top = 130.0
 offset_right = 1152.0
 offset_bottom = 157.0
