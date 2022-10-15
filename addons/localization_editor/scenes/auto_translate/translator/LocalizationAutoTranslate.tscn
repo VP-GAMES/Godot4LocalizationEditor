@@ -61,7 +61,6 @@ popup/item_1/disabled = true
 popup/item_2/text = ""
 popup/item_2/icon = ExtResource("4_142cw")
 popup/item_2/id = 2
-popup/item_2/disabled = true
 popup/item_3/text = ""
 popup/item_3/icon = ExtResource("5_0oig7")
 popup/item_3/id = 3
@@ -71,30 +70,38 @@ popup/item_4/icon = ExtResource("6_tal6j")
 popup/item_4/id = 4
 popup/item_4/disabled = true
 
-[node name="HBoxConnection" type="HBoxContainer" parent="Panel/VBox"]
+[node name="LinkButton" type="LinkButton" parent="Panel/VBox/HBoxTranslator"]
+layout_mode = 2
+offset_left = 281.0
+offset_right = 508.0
+offset_bottom = 61.0
+text = "https://translate.google.com/"
+
+[node name="HBoxDeepL" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
 offset_top = 65.0
 offset_right = 1152.0
-offset_bottom = 91.0
+offset_bottom = 96.0
 
-[node name="LinkButton" type="LinkButton" parent="Panel/VBox/HBoxConnection"]
+[node name="Label" type="Label" parent="Panel/VBox/HBoxDeepL"]
 layout_mode = 2
-offset_right = 227.0
-offset_bottom = 26.0
-text = "https://translate.google.com/"
-
-[node name="Label" type="Label" parent="Panel/VBox/HBoxConnection"]
-layout_mode = 2
-offset_left = 231.0
-offset_right = 264.0
-offset_bottom = 26.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 28.0
 text = "Key:"
+
+[node name="DeepLKey" type="LineEdit" parent="Panel/VBox/HBoxDeepL"]
+layout_mode = 2
+offset_left = 37.0
+offset_right = 1152.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
-offset_top = 95.0
+offset_top = 100.0
 offset_right = 1152.0
-offset_bottom = 126.0
+offset_bottom = 131.0
 
 [node name="From" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
@@ -133,6 +140,6 @@ text = "Translate"
 
 [node name="Progress" type="ProgressBar" parent="Panel/VBox"]
 layout_mode = 2
-offset_top = 130.0
+offset_top = 135.0
 offset_right = 1152.0
-offset_bottom = 157.0
+offset_bottom = 162.0

@@ -10,11 +10,14 @@ var _from_code: String
 var _to_code: String
 
 @onready var _translator: OptionButton = $Panel/VBox/HBoxTranslator/Translator
-@onready var _link: LinkButton = $Panel/VBox/HBoxConnection/LinkButton
+@onready var _link: LinkButton = $Panel/VBox/HBoxTranslator/LinkButton
 @onready var _from_language_ui = $Panel/VBox/HBox/FromLanguage 
 @onready var _to_language_ui = $Panel/VBox/HBox/ToLanguage
 @onready var _translate_ui: Button = $Panel/VBox/HBox/Translate
 @onready var _progress_ui: ProgressBar = $Panel/VBox/Progress
+
+@onready var _deepl_container: HBoxContainer = $Panel/VBox/HBoxDeepL
+@onready var _deepl_key: LineEdit = $Panel/VBox/HBoxDeepL/DeepLKey
 
 const Locales = preload("res://addons/localization_editor/model/LocalizationLocalesList.gd")
 
@@ -26,8 +29,8 @@ func set_data(data: LocalizationData) -> void:
 func _init_connections() -> void:
 	if not _data.is_connected("data_changed", _update_view):
 		assert(_data.data_changed.connect(_update_view) == OK)
-	if not _translator.is_connected("item_selected", _on_translator_selected):
-		_translator.item_selected.connect(_on_translator_selected)
+	if not _translator.is_connected("item_selected", _on_translator_selection_changed):
+		_translator.item_selected.connect(_on_translator_selection_changed)
 	if not _link.is_connected("pressed", _on_link_pressed):
 		_link.pressed.connect(_on_link_pressed)
 	if not _translate_ui.is_connected("pressed", _on_translate_pressed):
@@ -65,8 +68,12 @@ func _check_translate_ui_selected() -> void:
 func _check_translate_ui_disabled() -> void:
 	_translate_ui.set_disabled(_from_language_ui.get_selected_index() == -1 or _to_language_ui.get_selected_index() == -1)
 
-func _on_translator_selected(index: int) -> void:
+func _on_translator_selection_changed(index: int) -> void:
 	_to_language_ui.clear_selection()
+	_on_translator_selected(index)
+
+func _on_translator_selected(index: int) -> void:
+	_deepl_container.hide()
 	_check_translate_ui_disabled()
 	match index:
 		0:
@@ -78,6 +85,7 @@ func _on_translator_selected(index: int) -> void:
 		2:
 			_link.text =  "https://www.deepl.com/translator"
 			_init_to_language_ui(LocalizationAutoTranslateDeepL.locales())
+			_deepl_container.show()
 		3:
 			_link.text =  "https://aws.amazon.com/translate/"
 			_init_to_language_ui(LocalizationAutoTranslateAmazon.locales())
@@ -90,16 +98,19 @@ func _on_link_pressed() -> void:
 
 func _on_translate_pressed() -> void:
 	_from_code = _from_language_ui.get_selected_value()
+	_from_code = _from_code.to_lower()
 	_to_code = _to_language_ui.get_selected_value()
+	_to_code = _to_code.to_lower()
 	_translate()
 
 func _translate() -> void:
+	_data_keys = _data.keys().duplicate()
+	var from_translation = _data.translation_by_locale(_data_keys[0], _from_code)
+	var to_translation = _data.translation_by_locale(_data_keys[0], _to_code)
 	_translate_ui.disabled = true
 	_progress_ui.max_value = _data.keys().size()
 	if not _data.locales().has(_to_code):
 		_data.add_locale(_to_code, false)
-
-	_data_keys = _data.keys().duplicate()
 	_create_requests()
 
 func _create_requests() -> void:
@@ -168,35 +179,29 @@ func _create_request_yandex(from_translation, to_translation) -> void:
 
 # *** DEEPL IMPLEMENTATION START ***
 func _create_request_deepl(from_translation, to_translation) -> void:
-	push_error("DEEPL IMPLEMENTATION NOT SUPPORTED YET")
-	return
-#POST /v2/translate HTTP/2
-#Host: api-free.deepl.com
-#Authorization: DeepL-Auth-Key [yourAuthKey]
-#User-Agent: YourApp/1.2.3
-#Content-Length: 37
-#Content-Type: application/x-www-form-urlencoded
-
-#text=Hello%2C%20world!&target_lang=DE
-	
+	var key = _deepl_key.text
+	var text = "text=" + from_translation.value.uri_encode() + "&target_lang=" + to_translation.locale
 	var url = "https://api-free.deepl.com/v2/translate"
 	var http_request = HTTPRequest.new()
 	http_request.timeout = 5
 	add_child(http_request)
-	assert(http_request.request_completed.connect(_http_request_completed_deepl.bind(http_request, to_translation)) == OK)
-	http_request.request(url, [], false, HTTPClient.METHOD_POST)
+	assert(http_request.request_completed.connect(_http_request_completed_deepl.bind(http_request, from_translation, to_translation)) == OK)
+	var custom_headers = [
+		"Host: api-free.deepl.com",
+		"Authorization: DeepL-Auth-Key "+ key,
+		"User-Agent: YourApp/1.2.3",
+		"Content-Length: "+ str(text.length()),
+		"Content-Type: application/x-www-form-urlencoded"
+	]
+	http_request.request(url, custom_headers, false, HTTPClient.METHOD_POST, text)
 
-func _http_request_completed_deepl(result, response_code, headers, body, http_request, to_translation):
+func _http_request_completed_deepl(result, response_code, headers, body: PackedByteArray, http_request, from_translation, to_translation):
 	var json = JSON.new()
 	var result_body := json.parse(body.get_string_from_utf8())
 	if json.get_data() != null:
-		var value = ""
-		for index in range(json.get_data()[0].size()):
-			if index == 0:
-				value = json.get_data()[0][index][0]
-			else:
-				value += " " + json.get_data()[0][index][0]
-		to_translation.value = value
+		if not json.get_data().has("translations"):
+			push_error("FROM: ", from_translation.value, " => ", body.get_string_from_utf8())
+		to_translation.value = json.get_data().translations[0].text
 		_add_progress()
 		remove_child(http_request)
 	_queries_count -= 1
