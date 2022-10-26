@@ -59,6 +59,9 @@ func set_data(data: LocalizationData) -> void:
 		_microsoft_url.selected = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH_MICROSOFT_URL)
 		_microsoft_location.text = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH_MICROSOFT_LOCATION)
 		_microsoft_key.text = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH_MICROSOFT_KEY)
+		_amazon_region.selected = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH_AMAZON_REGION)
+		_amazon_access_key.text = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH_AMAZON_ACCESS_KEY)
+		_amazon_secret_key.text = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH_AMAZON_SECRET_KEY)
 	_init_connections()
 	_update_view()
 
@@ -124,8 +127,8 @@ func _update_auth_settings() -> void:
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_LOCATION, _microsoft_location.text)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_KEY, _microsoft_key.text)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_REGION, _translator.selected)
-		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_ACCESS_KEY, _microsoft_key.text)
-		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_SECRET_KEY, _microsoft_key.text)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_ACCESS_KEY, _amazon_access_key.text)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_SECRET_KEY, _amazon_secret_key.text)
 	else:
 		ProjectSettings.set_setting(SETTINGS_SAVE_TRANSLATOR_SELECTION, null)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_DEEPL_KEY, null)
