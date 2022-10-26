@@ -3,7 +3,7 @@
 @tool
 extends VBoxContainer
 
-@onready var _google_ui = $Google
+@onready var _translators_ui = $Translators
 
 func set_data(data: LocalizationData) -> void:
-	_google_ui.set_data(data)
+	_translators_ui.set_data(data)

@@ -38,16 +38,17 @@ offset_right = 1152.0
 offset_bottom = 38.0
 
 [node name="Label" type="Label" parent="Panel/VBox/HBoxTranslator"]
+custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
 offset_top = 6.0
-offset_right = 80.0
+offset_right = 100.0
 offset_bottom = 32.0
 text = "Translator"
 
 [node name="Translator" type="OptionButton" parent="Panel/VBox/HBoxTranslator"]
 layout_mode = 2
-offset_left = 84.0
-offset_right = 268.0
+offset_left = 104.0
+offset_right = 288.0
 offset_bottom = 38.0
 tooltip_text = "Select translation engine"
 item_count = 5
@@ -65,22 +66,21 @@ popup/item_2/id = 2
 popup/item_3/text = ""
 popup/item_3/icon = ExtResource("5_0oig7")
 popup/item_3/id = 3
-popup/item_3/disabled = true
 popup/item_4/text = ""
 popup/item_4/icon = ExtResource("6_tal6j")
 popup/item_4/id = 4
 
 [node name="LinkButton" type="LinkButton" parent="Panel/VBox/HBoxTranslator"]
 layout_mode = 2
-offset_left = 272.0
-offset_right = 499.0
+offset_left = 292.0
+offset_right = 519.0
 offset_bottom = 38.0
 text = "https://translate.google.com/"
 
 [node name="SaveAuth" type="CheckBox" parent="Panel/VBox/HBoxTranslator"]
 layout_mode = 2
-offset_left = 503.0
-offset_right = 728.0
+offset_left = 523.0
+offset_right = 748.0
 offset_bottom = 38.0
 text = "Save Authentication Data"
 
@@ -92,17 +92,18 @@ offset_right = 1152.0
 offset_bottom = 73.0
 
 [node name="LabelURL" type="Label" parent="Panel/VBox/HBoxMicrosoft"]
+custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
 offset_top = 2.0
-offset_right = 77.0
+offset_right = 100.0
 offset_bottom = 28.0
 text = "Base URL:
 "
 
 [node name="URL" type="OptionButton" parent="Panel/VBox/HBoxMicrosoft"]
 layout_mode = 2
-offset_left = 81.0
-offset_right = 601.0
+offset_left = 104.0
+offset_right = 624.0
 offset_bottom = 31.0
 tooltip_text = "Select BAse-URL for translation service"
 item_count = 4
@@ -117,32 +118,143 @@ popup/item_3/text = "UNITED STATES | api-nam.congnitive.microsofttranslator.com"
 popup/item_3/id = 3
 
 [node name="LabelLocation" type="Label" parent="Panel/VBox/HBoxMicrosoft"]
+custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
-offset_left = 605.0
+offset_left = 628.0
 offset_top = 2.0
-offset_right = 676.0
+offset_right = 728.0
 offset_bottom = 28.0
 text = "Location:"
 
 [node name="Location" type="LineEdit" parent="Panel/VBox/HBoxMicrosoft"]
 custom_minimum_size = Vector2i(160, 0)
 layout_mode = 2
-offset_left = 680.0
-offset_right = 840.0
+offset_left = 732.0
+offset_right = 892.0
 offset_bottom = 31.0
 tooltip_text = "Location/Region for translation service"
 
 [node name="LabelKey" type="Label" parent="Panel/VBox/HBoxMicrosoft"]
+custom_minimum_size = Vector2i(50, 0)
 layout_mode = 2
-offset_left = 844.0
+offset_left = 896.0
 offset_top = 2.0
-offset_right = 877.0
+offset_right = 946.0
 offset_bottom = 28.0
 text = "Key:"
 
 [node name="Key" type="LineEdit" parent="Panel/VBox/HBoxMicrosoft"]
 layout_mode = 2
-offset_left = 881.0
+offset_left = 950.0
+offset_right = 1152.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+tooltip_text = "Insert Ocp-Apim-Subscription-Key for authorisation"
+secret = true
+
+[node name="VBoxAWS" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+offset_top = 42.0
+offset_right = 1152.0
+offset_bottom = 143.0
+
+[node name="HBoxRegion" type="HBoxContainer" parent="Panel/VBox/VBoxAWS"]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 31.0
+
+[node name="LabelRegion" type="Label" parent="Panel/VBox/VBoxAWS/HBoxRegion"]
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 28.0
+text = "Region:"
+
+[node name="Region" type="OptionButton" parent="Panel/VBox/VBoxAWS/HBoxRegion"]
+layout_mode = 2
+offset_left = 104.0
+offset_right = 1152.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+tooltip_text = "Select BAse-URL for translation service"
+item_count = 17
+popup/item_0/text = "US East (Ohio) |  translate.us-east-2.amazonaws.com"
+popup/item_0/id = 0
+popup/item_1/text = "US East (N. Virginia) | translate.us-east-1.amazonaws.com"
+popup/item_1/id = 1
+popup/item_2/text = "US West (N. California) | translate.us-west-1.amazonaws.com"
+popup/item_2/id = 2
+popup/item_3/text = "US West (Oregon) | translate.us-west-2.amazonaws.com"
+popup/item_3/id = 3
+popup/item_4/text = "Asia Pacific (Hong Kong) | translate.ap-east-1.amazonaws.com"
+popup/item_4/id = 4
+popup/item_5/text = "Asia Pacific (Mumbai) | translate.ap-south-1.amazonaws.com"
+popup/item_5/id = 5
+popup/item_6/text = "Asia Pacific (Seoul) | translate.ap-northeast-2.amazonaws.com"
+popup/item_6/id = 6
+popup/item_7/text = "Asia Pacific (Singapore) | translate.ap-southeast-1.amazonaws.com"
+popup/item_7/id = 7
+popup/item_8/text = "Asia Pacific (Sydney) | translate.ap-southeast-2.amazonaws.com"
+popup/item_8/id = 8
+popup/item_9/text = "Asia Pacific (Tokyo) | translate.ap-northeast-1.amazonaws.com"
+popup/item_9/id = 9
+popup/item_10/text = "Canada (Central) | translate.ca-central-1.amazonaws.com"
+popup/item_10/id = 10
+popup/item_11/text = "Europe (Frankfurt) | translate.eu-central-1.amazonaws.com"
+popup/item_11/id = 11
+popup/item_12/text = "Europe (Ireland) | translate.eu-west-1.amazonaws.com"
+popup/item_12/id = 12
+popup/item_13/text = "Europe (London) | translate.eu-west-2.amazonaws.com"
+popup/item_13/id = 13
+popup/item_14/text = "Europe (Paris) | translate.eu-west-3.amazonaws.com"
+popup/item_14/id = 14
+popup/item_15/text = "Europe (Stockholm) | translate.eu-north-1.amazonaws.com"
+popup/item_15/id = 15
+popup/item_16/text = "AWS GovCloud (US-West) | translate.us-gov-west-1.amazonaws.com"
+popup/item_16/id = 16
+
+[node name="HBoxAccessKey" type="HBoxContainer" parent="Panel/VBox/VBoxAWS"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 1152.0
+offset_bottom = 66.0
+
+[node name="LabelAccessKey" type="Label" parent="Panel/VBox/VBoxAWS/HBoxAccessKey"]
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 28.0
+text = "AccessKey:"
+
+[node name="AccessKey" type="LineEdit" parent="Panel/VBox/VBoxAWS/HBoxAccessKey"]
+custom_minimum_size = Vector2i(160, 0)
+layout_mode = 2
+offset_left = 104.0
+offset_right = 1152.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+tooltip_text = "Location/Region for translation service"
+secret = true
+
+[node name="HBoxSecretKey" type="HBoxContainer" parent="Panel/VBox/VBoxAWS"]
+layout_mode = 2
+offset_top = 70.0
+offset_right = 1152.0
+offset_bottom = 101.0
+
+[node name="LabelSecretKey" type="Label" parent="Panel/VBox/VBoxAWS/HBoxSecretKey"]
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 28.0
+text = "SecretKey:"
+
+[node name="SecretKey" type="LineEdit" parent="Panel/VBox/VBoxAWS/HBoxSecretKey"]
+layout_mode = 2
+offset_left = 104.0
 offset_right = 1152.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
@@ -152,19 +264,21 @@ secret = true
 [node name="HBoxDeepL" type="HBoxContainer" parent="Panel/VBox"]
 visible = false
 layout_mode = 2
-offset_top = 42.0
+offset_top = 147.0
 offset_right = 1152.0
-offset_bottom = 68.0
+offset_bottom = 178.0
 
 [node name="Label" type="Label" parent="Panel/VBox/HBoxDeepL"]
+custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
-offset_right = 33.0
-offset_bottom = 26.0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 28.0
 text = "Key:"
 
 [node name="DeepLKey" type="LineEdit" parent="Panel/VBox/HBoxDeepL"]
 layout_mode = 2
-offset_left = 37.0
+offset_left = 104.0
 offset_right = 1152.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
@@ -173,36 +287,38 @@ secret = true
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
-offset_top = 42.0
+offset_top = 147.0
 offset_right = 1152.0
-offset_bottom = 73.0
+offset_bottom = 178.0
 
 [node name="From" type="Label" parent="Panel/VBox/HBox"]
+custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
 offset_top = 2.0
-offset_right = 45.0
+offset_right = 100.0
 offset_bottom = 28.0
 text = "From:"
 
 [node name="FromLanguage" parent="Panel/VBox/HBox" instance=ExtResource("3_8iumy")]
 layout_mode = 2
 anchor_right = 0.0
-offset_left = 49.0
-offset_right = 542.0
+offset_left = 104.0
+offset_right = 531.0
 tooltip_text = "Input language"
 
 [node name="To" type="Label" parent="Panel/VBox/HBox"]
+custom_minimum_size = Vector2i(100, 0)
 layout_mode = 2
-offset_left = 546.0
+offset_left = 535.0
 offset_top = 2.0
-offset_right = 570.0
+offset_right = 635.0
 offset_bottom = 28.0
 text = "To:"
 
 [node name="ToLanguage" parent="Panel/VBox/HBox" instance=ExtResource("3_8iumy")]
 layout_mode = 2
 anchor_right = 0.0
-offset_left = 574.0
+offset_left = 639.0
 offset_right = 1067.0
 tooltip_text = "Output language"
 
@@ -216,6 +332,6 @@ text = "Translate"
 
 [node name="Progress" type="ProgressBar" parent="Panel/VBox"]
 layout_mode = 2
-offset_top = 77.0
+offset_top = 182.0
 offset_right = 1152.0
-offset_bottom = 104.0
+offset_bottom = 209.0

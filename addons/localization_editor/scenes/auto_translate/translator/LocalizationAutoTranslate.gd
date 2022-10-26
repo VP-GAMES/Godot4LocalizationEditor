@@ -3,6 +3,8 @@
 @tool
 extends MarginContainer
 
+var ctx = HMACContext.new()
+
 const uuid_gen = preload("res://addons/localization_editor/uuid/uuid.gd")
 
 const SETTINGS_SAVE_TRANSLATOR_SELECTION = "localization_editor/translations_translator_selection"
@@ -11,6 +13,9 @@ const SETTINGS_SAVE_AUTH_DEEPL_KEY = "localization_editor/translations_save_auth
 const SETTINGS_SAVE_AUTH_MICROSOFT_URL = "localization_editor/translations_save_auth_microsoft_url"
 const SETTINGS_SAVE_AUTH_MICROSOFT_LOCATION = "localization_editor/translations_save_auth_deepl_location"
 const SETTINGS_SAVE_AUTH_MICROSOFT_KEY = "localization_editor/translations_save_auth_deepl_key"
+const SETTINGS_SAVE_AUTH_AMAZON_REGION = "localization_editor/translations_save_auth_amazon_region"
+const SETTINGS_SAVE_AUTH_AMAZON_ACCESS_KEY = "localization_editor/translations_save_auth_access_key"
+const SETTINGS_SAVE_AUTH_AMAZON_SECRET_KEY = "localization_editor/translations_save_auth_secret_key"
 
 var _data: LocalizationData
 var _data_keys: Array = []
@@ -35,6 +40,12 @@ var _to_code: String
 @onready var _microsoft_url: OptionButton = $Panel/VBox/HBoxMicrosoft/URL
 @onready var _microsoft_location: LineEdit = $Panel/VBox/HBoxMicrosoft/Location
 @onready var _microsoft_key: LineEdit = $Panel/VBox/HBoxMicrosoft/Key
+
+# *** AMAZON AWS ***
+@onready var _amazon_container: VBoxContainer = $Panel/VBox/VBoxAWS
+@onready var _amazon_region: OptionButton = $Panel/VBox/VBoxAWS/HBoxRegion/Region
+@onready var _amazon_access_key: LineEdit = $Panel/VBox/VBoxAWS/HBoxAccessKey/AccessKey
+@onready var _amazon_secret_key: LineEdit = $Panel/VBox/VBoxAWS/HBoxSecretKey/SecretKey
 
 const Locales = preload("res://addons/localization_editor/model/LocalizationLocalesList.gd")
 
@@ -66,6 +77,13 @@ func _init_connections() -> void:
 	if not _deepl_key.text_changed.is_connected(_deepl_key_text_changed):
 		_deepl_key.text_changed.connect(_deepl_key_text_changed)
 
+	if not _amazon_region.item_selected.is_connected(_on_amazon_region_selection_changed):
+		_amazon_region.item_selected.connect(_on_amazon_region_selection_changed)
+	if not _amazon_access_key.text_changed.is_connected(_amazon_access_key_text_changed):
+		_amazon_access_key.text_changed.connect(_amazon_access_key_text_changed)
+	if not _amazon_secret_key.text_changed.is_connected(_amazon_secret_key_text_changed):
+		_amazon_secret_key.text_changed.connect(_amazon_secret_key_text_changed)
+
 	if not _microsoft_url.is_connected("item_selected", _on_microsoft_url_selection_changed):
 		_microsoft_url.item_selected.connect(_on_microsoft_url_selection_changed)
 	if not _microsoft_location.text_changed.is_connected(_microsoft_location_text_changed):
@@ -82,6 +100,15 @@ func _deepl_key_text_changed(_new_text: String) -> void:
 func _microsoft_location_text_changed(_new_text: String) -> void:
 	_update_auth_settings()
 
+func _amazon_access_key_text_changed(_new_text: String) -> void:
+	_update_auth_settings()
+
+func _amazon_secret_key_text_changed(_new_text: String) -> void:
+	_update_auth_settings()
+
+func _on_amazon_region_selection_changed(index: int):
+	_update_auth_settings()
+
 func _on_microsoft_url_selection_changed(index: int):
 	_update_auth_settings()
 
@@ -96,12 +123,18 @@ func _update_auth_settings() -> void:
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_URL, _microsoft_url.selected)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_LOCATION, _microsoft_location.text)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_KEY, _microsoft_key.text)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_REGION, _translator.selected)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_ACCESS_KEY, _microsoft_key.text)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_SECRET_KEY, _microsoft_key.text)
 	else:
 		ProjectSettings.set_setting(SETTINGS_SAVE_TRANSLATOR_SELECTION, null)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_DEEPL_KEY, null)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_URL, null)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_LOCATION, null)
 		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_MICROSOFT_KEY, null)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_REGION, null)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_ACCESS_KEY, null)
+		ProjectSettings.set_setting(SETTINGS_SAVE_AUTH_AMAZON_SECRET_KEY, null)
 	ProjectSettings.save()
 
 func _update_view() -> void:
@@ -143,6 +176,7 @@ func _on_translator_selection_changed(index: int) -> void:
 
 func _on_translator_selected(index: int) -> void:
 	_deepl_container.hide()
+	_amazon_container.hide()
 	_microsoft_container.hide()
 	_check_translate_ui_disabled()
 	match index:
@@ -159,6 +193,7 @@ func _on_translator_selected(index: int) -> void:
 		3:
 			_link.text =  "https://aws.amazon.com/translate/"
 			_init_to_language_ui(LocalizationAutoTranslateAmazon.locales())
+			_amazon_container.show()
 		4:
 			_link.text =  "https://translator.microsoft.com/"
 			_init_to_language_ui(LocalizationAutoTranslateMicrosoft.locales())
@@ -281,8 +316,116 @@ func _http_request_completed_deepl(result, response_code, headers, body: PackedB
 
 # *** AMAZON IMPLEMENTATION START ***
 func _create_request_amazon(from_translation, to_translation) -> void:
-	push_error("AMAZON IMPLEMENTATION NOT SUPPORTED YET")
-	return
+	var method = "POST"
+	var service = "translate"
+	var region = "us-east-2"
+	match _amazon_region.selected:
+		1:
+			region = "us-east-1"
+		2:
+			region = "us-west-1"
+		3:
+			region = "us-west-2"
+		4:
+			region = "ap-east-1"
+		5:
+			region = "ap-south-1"
+		6:
+			region = "ap-northeast-2"
+		7:
+			region = "ap-southeast-1"
+		8:
+			region = "ap-southeast-2"
+		9:
+			region = "ap-northeast-1"
+		10:
+			region = "ca-central-1"
+		11:
+			region = "eu-central-1"
+		12:
+			region = "eu-west-1"
+		13:
+			region = "eu-west-2"
+		14:
+			region = "eu-west-3"
+		15:
+			region = "eu-north-1"
+		16:
+			region = "us-gov-west-1"
+	var host = service + "." + region + ".amazonaws.com"
+	var endpoint = "https://" + host + "/"
+	var content_type = "application/x-amz-json-1.1"
+	var amz_target = "AWSShineFrontendService_20170701.TranslateText"
+
+	var request_parameters = '{'
+	request_parameters += '"Text": "' + from_translation.value + '",'
+	request_parameters += '"SourceLanguageCode": "' + from_translation.locale + '",'
+	request_parameters += '"TargetLanguageCode": "' + to_translation.locale + '"'
+	request_parameters += '}'
+
+	# https://us-east-1.console.aws.amazon.com/iam/
+	var access_key = _amazon_access_key.text
+	var secret_key = _amazon_secret_key.text
+
+	var amz_date = Time.get_datetime_string_from_system(true).replace("-", "").replace(":", "") + "Z"
+	var date_stamp = Time.get_date_string_from_system(true).replace("-", "")
+	var canonical_uri = "/"
+	var canonical_querystring = ""
+	var canonical_headers = "content-type:" + content_type + "\n" + "host:" + host + "\n" + "x-amz-date:" + amz_date + "\n" + "x-amz-target:" + amz_target + "\n"
+	var signed_headers = "content-type;host;x-amz-date;x-amz-target"
+
+	var payload_hash = request_parameters.sha256_text()
+	var canonical_request = method + "\n" + canonical_uri + "\n" + canonical_querystring + "\n" + canonical_headers + "\n" + signed_headers + "\n" + payload_hash
+	var algorithm = "AWS4-HMAC-SHA256"
+	var credential_scope = date_stamp + "/" + region + "/" + service + "/" + "aws4_request"
+	var string_to_sign = algorithm + "\n" +  amz_date + "\n" +  credential_scope + "\n" +  canonical_request.sha256_text()
+
+	var signing_key = getSignatureKey(secret_key, date_stamp, region, service)
+	var signature = signing_hex(signing_key, string_to_sign)
+	var authorization_header = algorithm + " " + "Credential=" + access_key + "/" + credential_scope + ", " +  "SignedHeaders=" + signed_headers + ", " + "Signature=" + signature
+	
+	var http_request = HTTPRequest.new()
+	http_request.timeout = 5
+	add_child(http_request)
+	assert(http_request.request_completed.connect(_http_request_completed_amazon.bind(http_request, from_translation, to_translation)) == OK)
+	var headers = [
+		"Content-type: application/x-amz-json-1.1",
+		"X-Amz-Date: " + amz_date,
+		"X-Amz-Target: " + amz_target,
+		"Authorization: " + authorization_header
+	]
+	var error = http_request.request(endpoint, headers, false, HTTPClient.METHOD_POST, request_parameters)
+
+func getSignatureKey(key, dateStamp, regionName, serviceName):
+	var kDate = signing(("AWS4" + key).to_utf8_buffer(), dateStamp)
+	var kRegion = signing(kDate, regionName)
+	var kService = signing(kRegion, serviceName)
+	return signing(kService, "aws4_request")
+
+func signing(key: PackedByteArray, msg: String):
+	assert(ctx.start(HashingContext.HASH_SHA256, key) == OK)
+	assert(ctx.update(msg.to_utf8_buffer()) == OK)
+	var hmac = ctx.finish()
+	return hmac
+
+func signing_hex(key: PackedByteArray, msg: String) -> String:
+	assert(ctx.start(HashingContext.HASH_SHA256, key) == OK)
+	assert(ctx.update(msg.to_utf8_buffer()) == OK)
+	var hmac = ctx.finish()
+	return hmac.hex_encode()
+
+func _http_request_completed_amazon(result, response_code, headers, body: PackedByteArray, http_request, from_translation, to_translation):
+	var json = JSON.new()
+	var result_body := json.parse(body.get_string_from_utf8())
+	if json.get_data() != null:
+		if not json.get_data().has("TranslatedText"):
+			push_error("FROM: ", from_translation.value, " => ", body.get_string_from_utf8())
+		to_translation.value = json.get_data().TranslatedText
+		_add_progress()
+		remove_child(http_request)
+	_queries_count -= 1
+	_create_requests()
+
 # *** AMAZON IMPLEMENTATION END ***
 
 # *** MICROSOFT IMPLEMENTATION START ***
@@ -318,7 +461,6 @@ func _http_request_completed_microsoft(result, response_code, headers, body: Pac
 	if json.get_data() != null:
 		if not json.get_data()[0].has("translations"):
 			push_error("FROM: ", from_translation.value, " => ", body.get_string_from_utf8())
-		print(json.get_data()[0].translations[0].text)
 		to_translation.value = json.get_data()[0].translations[0].text
 		_add_progress()
 		remove_child(http_request)
@@ -335,4 +477,3 @@ func _check_progress() -> void:
 		_data.emit_signal_data_changed()
 		_translate_ui.disabled = false
 		_progress_ui.value = 0
-
