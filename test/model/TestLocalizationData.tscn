@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmi0sl8scclu"]
+
+[ext_resource type="Script" path="res://test/model/TestLocalizationData.gd" id="1_kb5ou"]
+
+[node name="TestLocalizationData" type="Node"]
+script = ExtResource("1_kb5ou")

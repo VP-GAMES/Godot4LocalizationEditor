@@ -199,7 +199,7 @@ func check_locale(locale: String) -> void:
 	if find_locale(locale) != null:
 		add_locale(locale)
 
-func find_locale(code: String):
+func find_locale(code: String) -> Variant:
 	if data.has("locales"):
 		for locale in data.locales:
 			if locale == code:

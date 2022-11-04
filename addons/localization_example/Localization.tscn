@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ButtonPlay" type="Button" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.05
@@ -25,6 +26,7 @@ anchor_bottom = 0.1
 text = "KEY_PLAY"
 
 [node name="ButtonSettings" type="Button" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.15
@@ -33,6 +35,7 @@ anchor_bottom = 0.2
 text = "KEY_SETTINGS"
 
 [node name="ButtonLanguages" type="Button" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.25
@@ -41,6 +44,7 @@ anchor_bottom = 0.3
 text = "KEY_LANGUAGE"
 
 [node name="ButtonPlaySound" type="Button" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.35
@@ -48,6 +52,7 @@ anchor_right = 0.95
 anchor_bottom = 0.4
 
 [node name="TextureRect" type="TextureRect" parent="Main/ButtonPlaySound"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,6 +66,7 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="ButtonQuit" type="Button" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.45
@@ -69,17 +75,20 @@ anchor_bottom = 0.5
 text = "KEY_QUIT"
 
 [node name="LabelText" type="Label" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.6
 anchor_right = 0.6
 anchor_bottom = 0.95
 text = "KEY_TEXT"
+autowrap_mode = 3
 
 [node name="Audio" type="AudioStreamPlayer" parent="Main"]
 stream = ExtResource("3_64dil")
 
 [node name="Video" type="VideoStreamPlayer" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.61
 anchor_top = 0.65
@@ -89,6 +98,7 @@ stream = ExtResource("5_enei4")
 expand = true
 
 [node name="ButtonPlayVideo" type="Button" parent="Main"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.61
 anchor_top = 0.55
@@ -106,6 +116,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Languages"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.05
@@ -114,6 +125,7 @@ anchor_bottom = 0.1
 text = "KEY_LANGUAGESELECT"
 
 [node name="OptionButtonLang" type="OptionButton" parent="Languages"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.15
@@ -121,6 +133,7 @@ anchor_right = 0.95
 anchor_bottom = 0.3
 
 [node name="ButtonBack" type="Button" parent="Languages"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.35

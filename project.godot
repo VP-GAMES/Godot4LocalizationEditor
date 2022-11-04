@@ -79,10 +79,40 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/localization_editor/model/LocalizationSave.gd"
 }, {
+"base": "UnitTest",
+"class": &"TestLocalizationData",
+"language": &"GDScript",
+"path": "res://test/model/TestLocalizationData.gd"
+}, {
+"base": "UnitTest",
+"class": &"TestLocalizationLocaleSingle",
+"language": &"GDScript",
+"path": "res://test/model/TestLocalizationLocaleSingle.gd"
+}, {
+"base": "UnitTest",
+"class": &"TestLocalizationLocalesList",
+"language": &"GDScript",
+"path": "res://test/model/TestLocalizationLocalesList.gd"
+}, {
+"base": "UnitTest",
+"class": &"TestLocalizationPlaceholdersData",
+"language": &"GDScript",
+"path": "res://test/model/TestLocalizationPlaceholdersData.gd"
+}, {
+"base": "UnitTest",
+"class": &"TestLocalizationSave",
+"language": &"GDScript",
+"path": "res://test/model/TestLocalizationSave.gd"
+}, {
 "base": "Node",
 "class": &"UUID",
 "language": &"GDScript",
 "path": "res://addons/localization_editor/uuid/uuid.gd"
+}, {
+"base": "Node",
+"class": &"UnitTest",
+"language": &"GDScript",
+"path": "res://test/test_model/UnitTest.gd"
 }]
 _global_script_class_icons={
 "DropdownItem": "",
@@ -99,7 +129,13 @@ _global_script_class_icons={
 "LocalizationPlaceholdersData": "",
 "LocalizationRemaps": "",
 "LocalizationSave": "",
-"UUID": ""
+"TestLocalizationData": "",
+"TestLocalizationLocaleSingle": "",
+"TestLocalizationLocalesList": "",
+"TestLocalizationPlaceholdersData": "",
+"TestLocalizationSave": "",
+"UUID": "",
+"UnitTest": ""
 }
 
 [application]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1e0prt3o0sa4"]
+
+[ext_resource type="Script" path="res://test/model/TestLocalizationPlaceholdersData.gd" id="1_bd2j0"]
+
+[node name="TestLocalizationPlaceholdersData" type="Node"]
+script = ExtResource("1_bd2j0")

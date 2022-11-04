@@ -3,7 +3,7 @@
 extends Object
 class_name LocalizationLocalesList
 
-static func locales() -> Array: #[LocalizationLocaleSingle]:
+static func locales() -> Array[LocalizationLocaleSingle]:
 	return [
 		LocalizationLocaleSingle.new("aa", "Afar"),
 		LocalizationLocaleSingle.new("aa_DJ", "Afar (Djibouti)"),

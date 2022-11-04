@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3h5dmc5ubl63"]
+
+[ext_resource type="PackedScene" uid="uid://dmimgkmt6edln" path="res://test/model/TestLocalizationLocalesList.tscn" id="1_j4og7"]
+[ext_resource type="Texture2D" uid="uid://dkan2jd08uc4p" path="res://test/test_model/icons/Fail.svg" id="1_q35y7"]
+[ext_resource type="Script" path="res://test/MainTest.gd" id="1_ssdp0"]
+[ext_resource type="Texture2D" uid="uid://diy7vtqj0dsb6" path="res://test/test_model/icons/Success.svg" id="1_st44u"]
+[ext_resource type="PackedScene" uid="uid://hlkxcpvtrpuf" path="res://test/model/TestLocalizationSave.tscn" id="1_ukh6j"]
+[ext_resource type="PackedScene" uid="uid://b1e0prt3o0sa4" path="res://test/model/TestLocalizationPlaceholdersData.tscn" id="2_4duvt"]
+[ext_resource type="PackedScene" uid="uid://gmi0sl8scclu" path="res://test/model/TestLocalizationData.tscn" id="4_yq4ia"]
+[ext_resource type="PackedScene" uid="uid://bam724jxwkawc" path="res://test/model/TestLocalizationLocaleSingle.tscn" id="7_6fy1i"]
+
+[node name="MainTest" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_ssdp0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 34.0
+size_flags_vertical = 4
+theme_override_constants/margin_top = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 34.0
+
+[node name="ButtonFail" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 31.0
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("1_q35y7")
+
+[node name="ButtonSuccess" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 28.0
+offset_right = 52.0
+offset_bottom = 31.0
+toggle_mode = true
+icon = ExtResource("1_st44u")
+
+[node name="Restart" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 56.0
+offset_right = 131.0
+offset_bottom = 31.0
+text = "RESTART"
+
+[node name="Class" type="CheckBox" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 135.0
+offset_right = 203.0
+offset_bottom = 31.0
+button_pressed = true
+text = "Class"
+
+[node name="Method" type="CheckBox" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 207.0
+offset_right = 296.0
+offset_bottom = 31.0
+button_pressed = true
+text = "Method"
+
+[node name="Assert" type="CheckBox" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 300.0
+offset_right = 377.0
+offset_bottom = 31.0
+text = "Assert"
+
+[node name="Result" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 381.0
+offset_top = 2.0
+offset_right = 430.0
+offset_bottom = 28.0
+text = "Result"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+offset_top = 38.0
+offset_right = 1152.0
+offset_bottom = 65.0
+
+[node name="Tree" type="Tree" parent="."]
+layout_mode = 2
+offset_top = 69.0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TestList" type="Node" parent="."]
+
+[node name="TestLocalizationData" parent="TestList" instance=ExtResource("4_yq4ia")]
+
+[node name="TestLocalizationLocalesList" parent="TestList" instance=ExtResource("1_j4og7")]
+
+[node name="TestLocalizationPlaceholdersData" parent="TestList" instance=ExtResource("2_4duvt")]
+
+[node name="TestLocalizationSave" parent="TestList" instance=ExtResource("1_ukh6j")]
+
+[node name="TestLocalizationLocaleSingle" parent="TestList" instance=ExtResource("7_6fy1i")]
