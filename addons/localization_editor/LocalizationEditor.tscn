@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bchlj4dnjh8j5" path="res://addons/localization_editor/scenes/translations/LocalizationTranslationsEditorView.tscn" id="4_kmfo1"]
 [ext_resource type="PackedScene" uid="uid://bikmkc3ntiugr" path="res://addons/localization_editor/scenes/locales/LocalizationLocalesEditorView.tscn" id="4_mauhd"]
 [ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapsEditorView.tscn" id="8_orcd3"]
-[ext_resource type="PackedScene" uid="uid://c6pfsxqnwp80u" path="res://addons/localization_editor/scenes/auto_translate/LocalizationAutoTranslateEditorView.tscn" id="10_3m4id"]
+[ext_resource type="PackedScene" uid="uid://2e10hsy4f7ak" path="res://addons/localization_editor/scenes/auto_translate/LocalizationAutoTranslateEditorView.tscn" id="10_3m4id"]
 [ext_resource type="PackedScene" path="res://addons/localization_editor/scenes/placeholders/LocalizationPlaceholdersEditorView.tscn" id="12_tkjln"]
 [ext_resource type="PackedScene" uid="uid://bt0r11jd8rtq6" path="res://addons/localization_editor/scenes/pseudolocalization/LocalizationPseudolocalizationEditorView.tscn" id="12_w0ry5"]
 
@@ -22,6 +22,7 @@ size_flags_vertical = 3
 script = ExtResource("1_8fvc6")
 
 [node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,76 +32,50 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Margin" type="MarginContainer" parent="VBox"]
-offset_right = 1152.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HBox" type="HBoxContainer" parent="VBox/Margin"]
-offset_right = 1152.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Save" type="Button" parent="VBox/Margin/HBox"]
-offset_right = 24.0
-offset_bottom = 26.0
+layout_mode = 2
 icon = ExtResource("1_c7hr8")
 
 [node name="Open" type="Button" parent="VBox/Margin/HBox"]
-offset_left = 28.0
-offset_right = 52.0
-offset_bottom = 26.0
+layout_mode = 2
 icon = ExtResource("2_4pkbj")
 
 [node name="File" type="Label" parent="VBox/Margin/HBox"]
-offset_left = 56.0
-offset_right = 96.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Path:"
 
 [node name="Tabs" type="TabContainer" parent="VBox"]
-offset_top = 30.0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Translations" parent="VBox/Tabs" instance=ExtResource("4_kmfo1")]
-anchors_preset = 15
-offset_top = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Remaps" parent="VBox/Tabs" instance=ExtResource("8_orcd3")]
 visible = false
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Locales" parent="VBox/Tabs" instance=ExtResource("4_mauhd")]
 visible = false
-anchors_preset = 15
-offset_left = 4.0
-offset_top = 41.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Placeholders" parent="VBox/Tabs" instance=ExtResource("12_tkjln")]
 visible = false
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Pseudolocalization" parent="VBox/Tabs" instance=ExtResource("12_w0ry5")]
 visible = false
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="AutoTranslate" parent="VBox/Tabs" instance=ExtResource("10_3m4id")]
 visible = false
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2

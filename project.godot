@@ -171,3 +171,4 @@ locales_visibility=[]
 translations_split_offset=334
 locales_path_to_file="res://localization/localizations.csv"
 translations_save_auth=false
+placeholders_split_offset=306
