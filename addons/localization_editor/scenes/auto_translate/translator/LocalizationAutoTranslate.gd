@@ -47,8 +47,6 @@ var _to_code: String
 @onready var _amazon_access_key: LineEdit = $Panel/VBox/VBoxAWS/HBoxAccessKey/AccessKey
 @onready var _amazon_secret_key: LineEdit = $Panel/VBox/VBoxAWS/HBoxSecretKey/SecretKey
 
-const Locales = preload("res://addons/localization_editor/model/LocalizationLocalesList.gd")
-
 func set_data(data: LocalizationData) -> void:
 	_data = data
 	var has_save_auth = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH) == true
@@ -148,18 +146,17 @@ func _init_from_language_ui() -> void:
 	_from_language_ui.clear()
 	if not _from_language_ui.is_connected("selection_changed", _check_translate_ui):
 		assert(_from_language_ui.connect("selection_changed", _check_translate_ui) == OK)
-	for loc in _data.locales():
-		var locale = Locales.by_code(loc)
-		if locale != null:
-			_from_language_ui.add_item(DropdownItem.new(locale.name, locale.code))
+	for code in _data.locales():
+		if LocalizationLocalesList.has_code(code):
+			_from_language_ui.add_item(DropdownItem.new(LocalizationLocalesList.Locales[code], code))
 
 func _init_to_language_ui(locales: Array) -> void:
 	_to_language_ui.clear()
 	if not _to_language_ui.is_connected("selection_changed", _check_translate_ui):
 		assert(_to_language_ui.connect("selection_changed", _check_translate_ui) == OK)
 	for locale in locales:
-		if Locales.has_code(locale.code):
-			_to_language_ui.add_item(DropdownItem.new(locale.name, locale.code))
+		if LocalizationLocalesList.has_code(locale.code):
+			_to_language_ui.add_item(DropdownItem.new(LocalizationLocalesList.Locales[locale.code], locale.code))
 
 func _check_translate_ui(_item: DropdownItem) -> void:
 	_check_translate_ui_selected()
@@ -355,6 +352,7 @@ func _create_request_amazon(from_translation, to_translation) -> void:
 			region = "eu-north-1"
 		16:
 			region = "us-gov-west-1"
+
 	var host = service + "." + region + ".amazonaws.com"
 	var endpoint = "https://" + host + "/"
 	var content_type = "application/x-amz-json-1.1"

@@ -14,11 +14,11 @@ var data_filter: Dictionary = {}
 var _locales_filter: String
 
 func locales_filter() -> String:
-		return _locales_filter
+	return _locales_filter
 
 func set_locales_filter(text):
-		_locales_filter = text
-		emit_signal("data_changed")
+	_locales_filter = text
+	emit_signal("data_changed")
 
 var _locales_selected: bool
 
@@ -26,8 +26,8 @@ func locales_selected() ->  bool:
 	return _locales_selected
 
 func set_locales_selected(value):
-		_locales_selected = value
-		emit_signal("data_changed")
+	_locales_selected = value
+	emit_signal("data_changed")
 
 var data_remaps: Dictionary = {"remapkeys": []}
 var data_filter_remaps: Dictionary = {}
