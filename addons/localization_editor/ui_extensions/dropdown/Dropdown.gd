@@ -38,13 +38,16 @@ func add_item(item: DropdownItem) -> void:
 	_items.append(item)
 
 func clear() -> void:
-	_items.clear()
+	for item in _items:
+		item.free()
+	_items = []
 
 func erase_item_as_string(value: String) -> void:
 	erase_item(DropdownItem.new(value, value))
 
 func erase_item(item: DropdownItem) -> void:
 	_items.erase(item)
+	item.free()
 
 func get_selected_index() -> int:
 	return _selected

@@ -47,6 +47,8 @@ var _to_code: String
 @onready var _amazon_access_key: LineEdit = $Panel/VBox/VBoxAWS/HBoxAccessKey/AccessKey
 @onready var _amazon_secret_key: LineEdit = $Panel/VBox/VBoxAWS/HBoxSecretKey/SecretKey
 
+const Locales = preload("res://addons/localization_editor/model/LocalizationLocalesList.gd")
+
 func set_data(data: LocalizationData) -> void:
 	_data = data
 	var has_save_auth = ProjectSettings.get_setting(SETTINGS_SAVE_AUTH) == true
@@ -146,17 +148,18 @@ func _init_from_language_ui() -> void:
 	_from_language_ui.clear()
 	if not _from_language_ui.is_connected("selection_changed", _check_translate_ui):
 		assert(_from_language_ui.connect("selection_changed", _check_translate_ui) == OK)
-	for code in _data.locales():
-		if LocalizationLocalesList.has_code(code):
-			_from_language_ui.add_item(DropdownItem.new(LocalizationLocalesList.Locales[code], code))
+	for loc in _data.locales():
+		var label = Locales.label_by_code(loc)
+		if label != null and not label.is_empty():
+			_from_language_ui.add_item(DropdownItem.new(loc, label))
 
-func _init_to_language_ui(locales: Array) -> void:
+func _init_to_language_ui(locales: Dictionary) -> void:
 	_to_language_ui.clear()
 	if not _to_language_ui.is_connected("selection_changed", _check_translate_ui):
 		assert(_to_language_ui.connect("selection_changed", _check_translate_ui) == OK)
 	for locale in locales:
-		if LocalizationLocalesList.has_code(locale.code):
-			_to_language_ui.add_item(DropdownItem.new(LocalizationLocalesList.Locales[locale.code], locale.code))
+		if Locales.has_code(locale):
+			_to_language_ui.add_item(DropdownItem.new(locale, Locales.label_by_code(locale)))
 
 func _check_translate_ui(_item: DropdownItem) -> void:
 	_check_translate_ui_selected()
@@ -182,21 +185,21 @@ func _on_translator_selected(index: int) -> void:
 	match index:
 		0:
 			_link.text =  "https://translate.google.com/"
-			_init_to_language_ui(LocalizationAutoTranslateGoogle.locales())
+			_init_to_language_ui(LocalizationAutoTranslateGoogle.LOCALES)
 		1:
 			_link.text =  "https://yandex.com/dev/translate/"
-			_init_to_language_ui(LocalizationAutoTranslateYandex.locales())
+			_init_to_language_ui(LocalizationAutoTranslateYandex.LOCALES)
 		2:
 			_link.text =  "https://www.deepl.com/translator"
-			_init_to_language_ui(LocalizationAutoTranslateDeepL.locales())
+			_init_to_language_ui(LocalizationAutoTranslateDeepL.LOCALES)
 			_deepl_container.show()
 		3:
 			_link.text =  "https://aws.amazon.com/translate/"
-			_init_to_language_ui(LocalizationAutoTranslateAmazon.locales())
+			_init_to_language_ui(LocalizationAutoTranslateAmazon.LOCALES)
 			_amazon_container.show()
 		4:
 			_link.text =  "https://translator.microsoft.com/"
-			_init_to_language_ui(LocalizationAutoTranslateMicrosoft.locales())
+			_init_to_language_ui(LocalizationAutoTranslateMicrosoft.LOCALES)
 			_microsoft_container.show()
 
 func _on_link_pressed() -> void:
@@ -352,7 +355,6 @@ func _create_request_amazon(from_translation, to_translation) -> void:
 			region = "eu-north-1"
 		16:
 			region = "us-gov-west-1"
-
 	var host = service + "." + region + ".amazonaws.com"
 	var endpoint = "https://" + host + "/"
 	var content_type = "application/x-amz-json-1.1"

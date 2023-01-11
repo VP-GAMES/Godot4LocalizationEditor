@@ -25,6 +25,8 @@ const IconResourceTranslation = preload("res://addons/localization_editor/icons/
 
 const LocalizationEditorDialogFile = preload("res://addons/localization_editor/LocalizationEditorDialogFile.tscn")
 
+var thread
+
 func _ready() -> void:
 	_tabs_ui.set_tab_icon(0, IconResourceTranslations)
 	_tabs_ui.set_tab_icon(1, IconResourceRemaps)

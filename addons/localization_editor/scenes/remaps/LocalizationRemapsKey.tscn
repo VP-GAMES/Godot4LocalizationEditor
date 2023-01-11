@@ -1,29 +1,38 @@
 [gd_scene load_steps=4 format=3 uid="uid://1qs1y7jo8jb5"]
 
-[ext_resource type="Texture2D" uid="uid://dgb1opv4dr50n" path="res://addons/localization_editor/icons/Add.svg" id="2_kn4tc"]
+[ext_resource type="Texture2D" uid="uid://cbf54t7aak7dy" path="res://addons/localization_editor/icons/Add.svg" id="2_kn4tc"]
 [ext_resource type="Script" path="res://addons/localization_editor/scenes/remaps/LocalizationRemapsKey.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://cnb7fnm4kvekf" path="res://addons/localization_editor/icons/Del.svg" id="3_rqcqd"]
+[ext_resource type="Texture2D" uid="uid://caiapkr8oaqe6" path="res://addons/localization_editor/icons/Del.svg" id="3_rqcqd"]
 
 [node name="MarginContainer" type="MarginContainer"]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_constants/margin_left = 3
 theme_override_constants/margin_right = 3
+theme_override_constants/margin_left = 3
 theme_override_constants/margin_bottom = 3
-script = ExtResource("3")
+script = ExtResource( "3" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
+offset_left = 3.0
+offset_right = 1021.0
+offset_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Add" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-icon = ExtResource("2_kn4tc")
+offset_right = 28.0
+offset_bottom = 29.0
+hint_tooltip = "Add remap"
+icon = ExtResource( "2_kn4tc" )
 
 [node name="Del" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-icon = ExtResource("3_rqcqd")
+offset_left = 32.0
+offset_right = 60.0
+offset_bottom = 29.0
+hint_tooltip = "Del remap"
+icon = ExtResource( "3_rqcqd" )

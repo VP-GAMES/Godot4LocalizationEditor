@@ -5,42 +5,34 @@
 [ext_resource type="Texture2D" uid="uid://bb76dl3aocsjo" path="res://addons/localization_editor/ui_extensions/dropdown/Arrow.svg" id="2_ims8p"]
 
 [node name="DropdownContent" type="VBoxContainer"]
+anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 31.0
+grow_horizontal = 2
 size_flags_horizontal = 3
-script = ExtResource( "1_ah183" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1_ah183")
 
 [node name="HBox" type="HBoxContainer" parent="."]
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="HBox"]
 visible = false
-offset_right = 30.0
-offset_bottom = 31.0
-rect_min_size = Vector2(30, 0)
+layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Selector" type="Button" parent="HBox"]
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource( "2_ims8p" )
+icon = ExtResource("2_ims8p")
 alignment = 0
 icon_alignment = 2
 
 [node name="Clear" type="Button" parent="HBox"]
 visible = false
-offset_left = 994.0
-offset_right = 1024.0
-offset_bottom = 31.0
-rect_min_size = Vector2(30, 0)
+layout_mode = 2
 size_flags_vertical = 3
-icon = ExtResource( "1_l2sby" )
+icon = ExtResource("1_l2sby")
 icon_alignment = 1
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
@@ -54,28 +46,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Filter" type="LineEdit" parent="PopupPanel/VBoxPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 68.0
-offset_bottom = 35.0
+layout_mode = 2
 
 [node name="Scroll" type="ScrollContainer" parent="PopupPanel/VBoxPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ScrollVBox" type="VBoxContainer" parent="PopupPanel/VBoxPanel/Scroll"]
-offset_right = 92.0
-offset_bottom = 92.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="PopupPanel/VBoxPanel/Scroll/ScrollVBox"]
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2

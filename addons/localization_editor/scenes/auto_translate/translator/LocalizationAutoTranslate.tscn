@@ -18,14 +18,12 @@ size_flags_horizontal = 3
 script = ExtResource("1_cuqef")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,20 +31,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxTranslator" type="HBoxContainer" parent="Panel/VBox"]
-layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 38.0
 
 [node name="Label" type="Label" parent="Panel/VBox/HBoxTranslator"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_top = 6.0
 offset_right = 100.0
 offset_bottom = 32.0
 text = "Translator"
 
 [node name="Translator" type="OptionButton" parent="Panel/VBox/HBoxTranslator"]
-layout_mode = 2
 offset_left = 104.0
 offset_right = 288.0
 offset_bottom = 38.0
@@ -71,14 +66,12 @@ popup/item_4/icon = ExtResource("6_tal6j")
 popup/item_4/id = 4
 
 [node name="LinkButton" type="LinkButton" parent="Panel/VBox/HBoxTranslator"]
-layout_mode = 2
 offset_left = 292.0
 offset_right = 519.0
 offset_bottom = 38.0
 text = "https://translate.google.com/"
 
 [node name="SaveAuth" type="CheckBox" parent="Panel/VBox/HBoxTranslator"]
-layout_mode = 2
 offset_left = 523.0
 offset_right = 748.0
 offset_bottom = 38.0
@@ -86,25 +79,13 @@ text = "Save Authentication Data"
 
 [node name="HBoxMicrosoft" type="HBoxContainer" parent="Panel/VBox"]
 visible = false
-layout_mode = 2
-offset_top = 42.0
-offset_right = 1152.0
-offset_bottom = 73.0
 
 [node name="LabelURL" type="Label" parent="Panel/VBox/HBoxMicrosoft"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
-offset_top = 2.0
-offset_right = 100.0
-offset_bottom = 28.0
+custom_minimum_size = Vector2(100, 0)
 text = "Base URL:
 "
 
 [node name="URL" type="OptionButton" parent="Panel/VBox/HBoxMicrosoft"]
-layout_mode = 2
-offset_left = 104.0
-offset_right = 624.0
-offset_bottom = 31.0
 tooltip_text = "Select BAse-URL for translation service"
 item_count = 4
 selected = 0
@@ -118,61 +99,39 @@ popup/item_3/text = "UNITED STATES | api-nam.congnitive.microsofttranslator.com"
 popup/item_3/id = 3
 
 [node name="LabelLocation" type="Label" parent="Panel/VBox/HBoxMicrosoft"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
-offset_left = 628.0
-offset_top = 2.0
-offset_right = 728.0
-offset_bottom = 28.0
+custom_minimum_size = Vector2(100, 0)
 text = "Location:"
 
 [node name="Location" type="LineEdit" parent="Panel/VBox/HBoxMicrosoft"]
-custom_minimum_size = Vector2i(160, 0)
-layout_mode = 2
-offset_left = 732.0
-offset_right = 892.0
-offset_bottom = 31.0
+custom_minimum_size = Vector2(160, 0)
 tooltip_text = "Location/Region for translation service"
 
 [node name="LabelKey" type="Label" parent="Panel/VBox/HBoxMicrosoft"]
-custom_minimum_size = Vector2i(50, 0)
-layout_mode = 2
-offset_left = 896.0
-offset_top = 2.0
-offset_right = 946.0
-offset_bottom = 28.0
+custom_minimum_size = Vector2(50, 0)
 text = "Key:"
 
 [node name="Key" type="LineEdit" parent="Panel/VBox/HBoxMicrosoft"]
-layout_mode = 2
-offset_left = 950.0
-offset_right = 1152.0
-offset_bottom = 31.0
 size_flags_horizontal = 3
 tooltip_text = "Insert Ocp-Apim-Subscription-Key for authorisation"
 secret = true
 
 [node name="VBoxAWS" type="VBoxContainer" parent="Panel/VBox"]
-layout_mode = 2
 offset_top = 42.0
 offset_right = 1152.0
 offset_bottom = 143.0
 
 [node name="HBoxRegion" type="HBoxContainer" parent="Panel/VBox/VBoxAWS"]
-layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 31.0
 
 [node name="LabelRegion" type="Label" parent="Panel/VBox/VBoxAWS/HBoxRegion"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_top = 2.0
 offset_right = 100.0
 offset_bottom = 28.0
 text = "Region:"
 
 [node name="Region" type="OptionButton" parent="Panel/VBox/VBoxAWS/HBoxRegion"]
-layout_mode = 2
 offset_left = 104.0
 offset_right = 1152.0
 offset_bottom = 31.0
@@ -215,22 +174,19 @@ popup/item_16/text = "AWS GovCloud (US-West) | translate.us-gov-west-1.amazonaws
 popup/item_16/id = 16
 
 [node name="HBoxAccessKey" type="HBoxContainer" parent="Panel/VBox/VBoxAWS"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 1152.0
 offset_bottom = 66.0
 
 [node name="LabelAccessKey" type="Label" parent="Panel/VBox/VBoxAWS/HBoxAccessKey"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_top = 2.0
 offset_right = 100.0
 offset_bottom = 28.0
 text = "AccessKey:"
 
 [node name="AccessKey" type="LineEdit" parent="Panel/VBox/VBoxAWS/HBoxAccessKey"]
-custom_minimum_size = Vector2i(160, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(160, 0)
 offset_left = 104.0
 offset_right = 1152.0
 offset_bottom = 31.0
@@ -239,21 +195,18 @@ tooltip_text = "Location/Region for translation service"
 secret = true
 
 [node name="HBoxSecretKey" type="HBoxContainer" parent="Panel/VBox/VBoxAWS"]
-layout_mode = 2
 offset_top = 70.0
 offset_right = 1152.0
 offset_bottom = 101.0
 
 [node name="LabelSecretKey" type="Label" parent="Panel/VBox/VBoxAWS/HBoxSecretKey"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_top = 2.0
 offset_right = 100.0
 offset_bottom = 28.0
 text = "SecretKey:"
 
 [node name="SecretKey" type="LineEdit" parent="Panel/VBox/VBoxAWS/HBoxSecretKey"]
-layout_mode = 2
 offset_left = 104.0
 offset_right = 1152.0
 offset_bottom = 31.0
@@ -263,52 +216,37 @@ secret = true
 
 [node name="HBoxDeepL" type="HBoxContainer" parent="Panel/VBox"]
 visible = false
-layout_mode = 2
-offset_top = 147.0
-offset_right = 1152.0
-offset_bottom = 178.0
 
 [node name="Label" type="Label" parent="Panel/VBox/HBoxDeepL"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
-offset_top = 2.0
-offset_right = 100.0
-offset_bottom = 28.0
+custom_minimum_size = Vector2(100, 0)
 text = "Key:"
 
 [node name="DeepLKey" type="LineEdit" parent="Panel/VBox/HBoxDeepL"]
-layout_mode = 2
-offset_left = 104.0
-offset_right = 1152.0
-offset_bottom = 31.0
 size_flags_horizontal = 3
 tooltip_text = "Insert DeepL-Auth-Key for authorisation"
 secret = true
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
-layout_mode = 2
 offset_top = 147.0
 offset_right = 1152.0
 offset_bottom = 178.0
 
 [node name="From" type="Label" parent="Panel/VBox/HBox"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_top = 2.0
 offset_right = 100.0
 offset_bottom = 28.0
 text = "From:"
 
 [node name="FromLanguage" parent="Panel/VBox/HBox" instance=ExtResource("3_8iumy")]
-layout_mode = 2
+anchors_preset = 0
 anchor_right = 0.0
 offset_left = 104.0
 offset_right = 531.0
 tooltip_text = "Input language"
 
 [node name="To" type="Label" parent="Panel/VBox/HBox"]
-custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
 offset_left = 535.0
 offset_top = 2.0
 offset_right = 635.0
@@ -316,14 +254,13 @@ offset_bottom = 28.0
 text = "To:"
 
 [node name="ToLanguage" parent="Panel/VBox/HBox" instance=ExtResource("3_8iumy")]
-layout_mode = 2
+anchors_preset = 0
 anchor_right = 0.0
 offset_left = 639.0
 offset_right = 1067.0
 tooltip_text = "Output language"
 
 [node name="Translate" type="Button" parent="Panel/VBox/HBox"]
-layout_mode = 2
 offset_left = 1071.0
 offset_right = 1152.0
 offset_bottom = 31.0
@@ -331,7 +268,6 @@ disabled = true
 text = "Translate"
 
 [node name="Progress" type="ProgressBar" parent="Panel/VBox"]
-layout_mode = 2
 offset_top = 182.0
 offset_right = 1152.0
 offset_bottom = 209.0
