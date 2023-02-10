@@ -22,6 +22,7 @@ size_flags_vertical = 3
 script = ExtResource("1_8fvc6")
 
 [node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,44 +32,50 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Margin" type="MarginContainer" parent="VBox"]
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HBox" type="HBoxContainer" parent="VBox/Margin"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Save" type="Button" parent="VBox/Margin/HBox"]
+layout_mode = 2
 icon = ExtResource("1_c7hr8")
 
 [node name="Open" type="Button" parent="VBox/Margin/HBox"]
+layout_mode = 2
 icon = ExtResource("2_4pkbj")
 
 [node name="File" type="Label" parent="VBox/Margin/HBox"]
+layout_mode = 2
 text = "Path:"
 
 [node name="Tabs" type="TabContainer" parent="VBox"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Translations" parent="VBox/Tabs" instance=ExtResource("4_kmfo1")]
-anchors_preset = 15
-offset_top = 31.0
+layout_mode = 2
 
 [node name="Remaps" parent="VBox/Tabs" instance=ExtResource("8_orcd3")]
 visible = false
-anchors_preset = 15
+layout_mode = 2
 
 [node name="Locales" parent="VBox/Tabs" instance=ExtResource("4_mauhd")]
 visible = false
-anchors_preset = 15
+layout_mode = 2
 
 [node name="Placeholders" parent="VBox/Tabs" instance=ExtResource("12_tkjln")]
 visible = false
-anchors_preset = 15
+layout_mode = 2
 
 [node name="Pseudolocalization" parent="VBox/Tabs" instance=ExtResource("12_w0ry5")]
 visible = false
-anchors_preset = 15
+layout_mode = 2
 
 [node name="AutoTranslate" parent="VBox/Tabs" instance=ExtResource("10_3m4id")]
 visible = false
+layout_mode = 2

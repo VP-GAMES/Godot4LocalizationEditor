@@ -70,6 +70,7 @@ func _on_video_pressed() -> void:
 	root.add_child(video_dialog)
 	video_dialog.title = _data.filename(_remap.value)
 	var video_player = video_dialog.get_node("VideoPlayer") as VideoStreamPlayer
+	video_player.expand = true
 	var video: VideoStream = load(_remap.value)
 	video_player.stream = video
 	video_dialog.close_requested.connect(_video_dialog_close.bind(video_dialog))
@@ -88,7 +89,7 @@ func _on_image_pressed() -> void:
 	var image = load(_remap.value)
 	texture.texture = image
 	image_dialog.close_requested.connect(_image_dialog_close.bind(image_dialog))
-	image_dialog.popup_centered()
+	image_dialog.popup_centered(Vector2i(500, 300))
 
 func _image_dialog_close(image_dialog: Window) -> void:
 	image_dialog.hide()

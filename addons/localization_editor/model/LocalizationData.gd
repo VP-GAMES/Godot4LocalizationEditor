@@ -91,7 +91,7 @@ func save_data_translations(update_script_classes = false) -> void:
 	_save_data_remaps_keys()
 	ProjectSettings.save()
 	if update_script_classes:
-		_editor.get_editor_interface().get_resource_filesystem().update_script_classes()
+		_editor.get_editor_interface().get_resource_filesystem().scan()
 
 func _save_data_translations_csv() -> void:
 	var path = setting_path_to_file()

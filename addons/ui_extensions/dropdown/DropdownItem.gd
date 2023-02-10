@@ -3,13 +3,13 @@
 extends Object
 class_name DropdownItem
 
-var text: String
 var value
+var text: String
 var tooltip: String
 var icon: Texture2D
 
-func _init(itext: String, ivalue, itooltip: String = "", iicon: Texture2D = null) -> void:
-	self.text = itext
+func _init(ivalue, itext: String, itooltip: String = "", iicon: Texture2D = null) -> void:
 	self.value = ivalue
+	self.text = itext
 	self.tooltip = itooltip
 	self.icon = iicon

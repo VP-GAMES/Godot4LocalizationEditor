@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btxlurvr45t4y"
-path="res://.godot/imported/Cancel.svg-48414b87d4728c3eadd4eaca4dca2d31.ctex"
+uid="uid://bb76dl3aocsjo"
+path="res://.godot/imported/Arrow.svg-e4a7a75ac3bf7e30d5e37f222d3ad4c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/localization_editor/ui_extensions/dropdown/Cancel.svg"
-dest_files=["res://.godot/imported/Cancel.svg-48414b87d4728c3eadd4eaca4dca2d31.ctex"]
+source_file="res://addons/ui_extensions/dropdown/Arrow.svg"
+dest_files=["res://.godot/imported/Arrow.svg-e4a7a75ac3bf7e30d5e37f222d3ad4c0.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

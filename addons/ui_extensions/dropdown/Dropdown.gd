@@ -2,9 +2,9 @@
 # @author Vladimir Petrenko
 @tool
 extends VBoxContainer
+class_name Dropdown
 
 signal selection_changed(item: DropdownItem)
-signal selection_changed_string(text: String)
 
 var _disabled: bool = false
 var _selected = -1
@@ -31,8 +31,8 @@ func is_disabled() -> bool:
 func items() -> Array:
 	return _items
 
-func add_item_as_string(value: String) -> void:
-	add_item(DropdownItem.new(value, value))
+func add_item_as_string(value: String, tooltip: String = "") -> void:
+	add_item(DropdownItem.new(value, value, tooltip))
 
 func add_item(item: DropdownItem) -> void:
 	_items.append(item)
@@ -42,12 +42,24 @@ func clear() -> void:
 		item.free()
 	_items = []
 
-func erase_item_as_string(value: String) -> void:
+func erase_item_by_string(value: String) -> void:
 	erase_item(DropdownItem.new(value, value))
 
 func erase_item(item: DropdownItem) -> void:
 	_items.erase(item)
 	item.free()
+
+func set_selected_item(item: DropdownItem) -> void:
+	_on_selection_changed(_items.find(item))
+
+func set_selected_index(index: int) -> void:
+	_on_selection_changed(index)
+
+func set_selected_by_value(value) -> void:
+	for item in _items:
+		if item.value == value:
+			set_selected_item(item)
+			return
 
 func get_selected_index() -> int:
 	return _selected
@@ -72,14 +84,17 @@ func _update_view() -> void:
 	_update_view_button()
 
 func _update_view_icon() -> void:
-	_icon.visible = _selected >= 0 and _items[_selected].icon != null
+	if _selected >= 0 and _items[_selected].icon != null:
+		_icon.show()
+	else:
+		_icon.hide()
 
 func _update_view_button() -> void:
 	_clear.visible = _selected >= 0
 
 func _init_connections() -> void:
 	_selector.pressed.connect(_update_popup_view)
-	_clear.pressed.connect(_clear_selection)
+	_clear.pressed.connect(_clear_pressed)
 	_filter.text_changed.connect(_filter_changed)
 
 func _update_popup_view() -> void:
@@ -130,32 +145,31 @@ func _init_check_box(index: int) -> CheckBox:
 	var check_box = CheckBox.new()
 	check_box.set_button_group(_group)
 	check_box.text = _items[index].text
-	if _items[index].icon != null:
-		check_box.icon = _items[index].icon
 	check_box.tooltip_text = _items[index].tooltip
+	if _items[index].icon != null:
+		check_box.expand_icon = true
+		check_box.icon = _items[index].icon
 	if index == _selected:
 		check_box.set_pressed(true)
 	check_box.pressed.connect(_on_selection_changed.bind(index))
 	return check_box
 
 func _on_selection_changed(index: int) -> void:
-	if _selected != index:
+	if index < 0:
+		_selected = -1
+		_selector.text = ""
+	else:
 		_selected = index
 		_selector.text = _items[_selected].text
+		_selector.tooltip_text = _items[_selected].tooltip
 		if _items[_selected].icon != null:
 			_icon.texture = _items[_selected].icon
 		emit_signal("selection_changed", _items[_selected])
-		emit_signal("selection_changed_string", _items[_selected].text)
 	_popup_panel.hide()
 	_update_view()
 
-func clear_selection() -> void:
-	_clear_selection()
-
-func _clear_selection() -> void:
-	_selected = -1
-	_selector.text = ""
-	_update_view()
+func _clear_pressed() -> void:
+	set_selected_index(-1)
 
 func _filter_changed(_text: String) -> void:
 	_update_items_view()

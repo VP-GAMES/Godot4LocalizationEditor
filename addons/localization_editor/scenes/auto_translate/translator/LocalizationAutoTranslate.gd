@@ -253,7 +253,7 @@ func _create_request_google(from_translation, to_translation) -> void:
 	http_request.timeout = 5
 	add_child(http_request)
 	assert(http_request.request_completed.connect(_http_request_completed_google.bind(http_request, to_translation)) == OK)
-	http_request.request(url, [], false, HTTPClient.METHOD_GET)
+	http_request.request(url, [], HTTPClient.Method.METHOD_GET)
 
 func _create_url_google(from_translation, to_translation) -> String:
 	var url = "https://translate.googleapis.com/translate_a/single?client=gtx"
@@ -302,7 +302,7 @@ func _create_request_deepl(from_translation, to_translation) -> void:
 		"Content-Length: " + str(text.length()),
 		"Content-Type: application/x-www-form-urlencoded"
 	]
-	http_request.request(url, custom_headers, false, HTTPClient.METHOD_POST, text)
+	http_request.request(url, custom_headers, HTTPClient.Method.METHOD_POST, text)
 
 func _http_request_completed_deepl(result, response_code, headers, body: PackedByteArray, http_request, from_translation, to_translation):
 	var json = JSON.new()
@@ -397,7 +397,7 @@ func _create_request_amazon(from_translation, to_translation) -> void:
 		"X-Amz-Target: " + amz_target,
 		"Authorization: " + authorization_header
 	]
-	var error = http_request.request(endpoint, headers, false, HTTPClient.METHOD_POST, request_parameters)
+	var error = http_request.request(endpoint, headers, HTTPClient.Method.METHOD_POST, request_parameters)
 
 func getSignatureKey(key, dateStamp, regionName, serviceName):
 	var kDate = signing(("AWS4" + key).to_utf8_buffer(), dateStamp)
@@ -456,7 +456,7 @@ func _create_request_microsoft(from_translation, to_translation) -> void:
 	]
 	var url = endpoint + route
 	var body = JSON.stringify([{"Text": from_translation.value}])
-	var error = http_request.request(url, custom_headers, false, HTTPClient.METHOD_POST, body)
+	var error = http_request.request(url, custom_headers, HTTPClient.Method.METHOD_POST, body)
 
 func _http_request_completed_microsoft(result, response_code, headers, body: PackedByteArray, http_request, from_translation, to_translation):
 	var json = JSON.new()

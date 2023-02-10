@@ -19,35 +19,21 @@ theme_override_constants/margin_bottom = 3
 script = ExtResource("4")
 
 [node name="HBox" type="HBoxContainer" parent="."]
-offset_left = 3.0
-offset_right = 1149.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Remap" parent="HBox" instance=ExtResource("5")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1062.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Audio" type="Button" parent="HBox"]
-offset_left = 1066.0
-offset_right = 1090.0
-offset_bottom = 31.0
+layout_mode = 2
 icon = ExtResource("5_84ecs")
 
 [node name="Video" type="Button" parent="HBox"]
-offset_left = 1094.0
-offset_right = 1118.0
-offset_bottom = 31.0
+layout_mode = 2
 icon = ExtResource("6_uxbjg")
 
 [node name="Image" type="Button" parent="HBox"]
-offset_left = 1122.0
-offset_right = 1146.0
-offset_bottom = 31.0
+layout_mode = 2
 icon = ExtResource("7_is72i")
