@@ -28,92 +28,52 @@ theme_override_constants/margin_bottom = 5
 
 [node name="VBox" type="VBoxContainer" parent="Content"]
 layout_mode = 2
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 1147.0
-offset_bottom = 643.0
 
 [node name="HBox" type="HBoxContainer" parent="Content/VBox"]
 layout_mode = 2
-offset_right = 1142.0
-offset_bottom = 31.0
 
 [node name="LabelPlaceholder" type="Label" parent="Content/VBox/HBox"]
 layout_mode = 2
-offset_top = 2.0
-offset_right = 148.0
-offset_bottom = 28.0
 text = "KEY_PLACEHOLDER"
 
 [node name="Placeholder" type="OptionButton" parent="Content/VBox/HBox"]
 layout_mode = 2
-offset_left = 152.0
-offset_right = 166.0
-offset_bottom = 31.0
 
 [node name="LabelValue" type="Label" parent="Content/VBox/HBox"]
 layout_mode = 2
-offset_left = 170.0
-offset_top = 2.0
-offset_right = 256.0
-offset_bottom = 28.0
 text = "KEY_VALUE"
 
 [node name="Value" type="LineEdit" parent="Content/VBox/HBox"]
 layout_mode = 2
-offset_left = 260.0
-offset_right = 327.0
-offset_bottom = 31.0
 text = "Mr Vladimir"
 placeholder_text = "value"
 
 [node name="Apply" type="Button" parent="Content/VBox/HBox"]
 layout_mode = 2
-offset_left = 331.0
-offset_right = 423.0
-offset_bottom = 31.0
 text = "KEY_APPLY"
 
 [node name="MarginTop" type="MarginContainer" parent="Content/VBox"]
 layout_mode = 2
-offset_top = 35.0
-offset_right = 1142.0
-offset_bottom = 45.0
 theme_override_constants/margin_top = 10
 
 [node name="LabelTop" type="Label" parent="Content/VBox"]
 layout_mode = 2
-offset_top = 49.0
-offset_right = 1142.0
-offset_bottom = 75.0
 text = "top"
 
 [node name="LabelMiddle" type="Label" parent="Content/VBox"]
 layout_mode = 2
-offset_top = 79.0
-offset_right = 1142.0
-offset_bottom = 105.0
 text = "middle"
 
 [node name="LabelBottom" type="Label" parent="Content/VBox"]
 layout_mode = 2
-offset_top = 109.0
-offset_right = 1142.0
-offset_bottom = 135.0
 text = "bottom"
 
 [node name="MarginBottom" type="MarginContainer" parent="Content/VBox"]
 layout_mode = 2
-offset_top = 139.0
-offset_right = 1142.0
-offset_bottom = 149.0
 theme_override_constants/margin_top = 10
 
 [node name="Languages" type="OptionButton" parent="Content/VBox"]
 layout_mode = 2
-offset_top = 153.0
-offset_right = 1142.0
-offset_bottom = 173.0
 
 [node name="LabelError" type="Label" parent="."]
 layout_mode = 1

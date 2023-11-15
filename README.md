@@ -2,7 +2,7 @@
 Localization editor plugin for Godot Engine 4.+
 This is a Godot Editor plugin to manage localization data. The plugin allows you to quickly and easily edit translations in csv format. You can also auto translate your text (build in Google Translator) Remaps are also supported. Resources are assigned very easily using drag and drop. The assigned resources can be viewed in preview window, to check them. Inputs are also checked for errors. The wrong entries are highlighted in color.
 
-Version: 0.4.0 Tested with godot 4 rc1
+Version: 0.4.1 Tested with godot 4.2 rc6
 
 ## Support me
 [via PayPal](https://www.paypal.com/donate/?hosted_button_id=UMAALFQWEKCJ2)
